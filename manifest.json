@@ -1,0 +1,10 @@
+{
+  "id": "materialify",
+  "name": "Materialify",
+  "version": "0.0.1",
+  "minAppVersion": "1.5.0",
+  "description": "Material-style icon customization plugin for Obsidian.",
+  "author": "himanshu-17lodhi",
+  "authorUrl": "https://github.com/himanshu-17lodhi",
+  "isDesktopOnly": false
+}

@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+
+    "paths": {
+      "@app/*": ["src/*"],
+      "@lib/*": ["src/lib/*"]
+    },
+
+    "inlineSourceMap": true,
+    "inlineSources": true,
+
+    "allowSyntheticDefaultImports": true,
+
+    "module": "ESNext",
+    "moduleResolution": "node",
+
+    "target": "ES2021",
+
+    "lib": ["ES2021", "DOM"],
+
+    "noImplicitAny": true,
+
+    "importHelpers": true,
+
+    "skipLibCheck": true
+  },
+
+  "include": ["**/*.ts"]
+}
