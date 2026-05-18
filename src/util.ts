@@ -3,26 +3,23 @@ import { LUCIDE_ICON_PACK_NAME } from './icon-pack-manager/lucide';
 import { getSvgFromLoadedIcon, nextIdentifier } from './icon-pack-manager/util';
 import IconizePlugin from './main';
 
-// Default VS Code explorer file icon.
 export const DEFAULT_FILE_ICON =
-  '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.5702 1.14L13.8502 4.44L14.0002 4.8V14.5L13.5002 15H2.50024L2.00024 14.5V1.5L2.50024 1H10.2202L10.5702 1.14ZM10.0002 5H13.0002L10.0002 2V5ZM3.00024 2V14H13.0002V6H9.50024L9.00024 5.5V2H3.00024ZM11.0002 7H5.00024V8H11.0002V7ZM5.00024 9H11.0002V10H5.00024V9ZM11.0002 11H5.00024V12H11.0002V11Z" fill="#424242"/></svg>';
+  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M6 2H14L20 8V20C20 21.1046 19.1046 22 18 22H6C4.89543 22 4 21.1046 4 20V4C4 2.89543 4.89543 2 6 2Z" fill="#8FA1B3"/> <path d="M14 2V8H20" fill="#C7D2DB"/> <path d="M8 13H16" stroke="#E4EBF0" stroke-width="1.4" stroke-linecap="round"/> <path d="M8 16H14" stroke="#E4EBF0" stroke-width="1.4" stroke-linecap="round"/> </svg>';
 
-// Default VS Code explorer folder icon.
 export const DEFAULT_FOLDER_ICON =
-  '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.5002 3H7.71021L6.86023 2.15002L6.51025 2H1.51025L1.01025 2.5V6.5V13.5L1.51025 14H14.5103L15.0103 13.5V9V3.5L14.5002 3ZM13.9902 11.49V13H1.99023V11.49V7.48999V7H6.48022L6.8302 6.84998L7.69019 5.98999H14.0002V7.48999L13.9902 11.49ZM13.9902 5H7.49023L7.14026 5.15002L6.28027 6.01001H2.00024V3.01001H6.29028L7.14026 3.85999L7.50024 4.01001H14.0002L13.9902 5Z" fill="#424242"/></svg>';
+  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M3 6C3 4.89543 3.89543 4 5 4H10L12 6H19C20.1046 6 21 6.89543 21 8V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V6Z" fill="#7B8A97"/> <path d="M3 9H21V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V9Z" fill="#97A6B3"/> <path d="M3 9H21" stroke="#AFC1CF" stroke-width="1" opacity="0.5"/> </svg>';
 
 export const DEFAULT_FOLDER_OPEN_ICON =
-  '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.50024 14H12.5002L12.9802 13.63L15.6102 6.63L15.1302 6H14.0002V3.5L13.5002 3H7.71021L6.85022 2.15002L6.50024 2H1.50024L1.00024 2.5V13.5L1.50024 14ZM2.00024 3H6.29028L7.15027 3.84998L7.50024 4H13.0002V6H8.50024L8.15027 6.15002L7.29028 7H3.50024L3.03027 7.33997L2.03027 10.42L2.00024 3ZM12.1302 13H2.19019L3.86023 8H7.50024L7.85022 7.84998L8.71021 7H14.5002L12.1302 13Z" fill="#424242"/></svg>';
+  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M3 7C3 5.89543 3.89543 5 5 5H10L12 7H20C20.7403 7 21.3866 7.4022 21.7324 8H8L6 18H19C19.9624 18 20.7872 17.3141 20.962 16.3678L22.2 9.1322C22.3786 8.1658 21.6364 7.28571 20.6536 7.28571H3Z" fill="#8C9BA8"/> <path d="M6 10H22L20.8 16.4C20.6227 17.3598 19.7861 18.0579 18.81 18.0579H5.7C4.51891 18.0579 3.62794 16.9877 3.84282 15.8263L5 10Z" fill="#AFC1CF"/> <path d="M6 10H22" stroke="#D7E2EA" stroke-width="1" opacity="0.45"/> </svg>';
 
 export const DEFAULT_FOLDER_DARK_ICON =
-  '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 3H7.70996L6.85999 2.15002L6.51001 2H1.51001L1.01001 2.5V6.5V13.5L1.51001 14H14.51L15.01 13.5V9V3.5L14.5 3ZM13.99 11.49V13H1.98999V11.49V7.48999V7H6.47998L6.82996 6.84998L7.68994 5.98999H14V7.48999L13.99 11.49ZM13.99 5H7.48999L7.14001 5.15002L6.28003 6.01001H2V3.01001H6.29004L7.14001 3.85999L7.5 4.01001H14L13.99 5Z" fill="#C5C5C5"/></svg>';
+  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M3 6C3 4.89543 3.89543 4 5 4H10L12 6H19C20.1046 6 21 6.89543 21 8V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V6Z" fill="#7B8A97"/> <path d="M3 9H21V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V9Z" fill="#97A6B3"/> <path d="M3 9H21" stroke="#AFC1CF" stroke-width="1" opacity="0.5"/> </svg>';
 
 export const DEFAULT_FOLDER_OPEN_DARK_ICON =
-  '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 14H12.5L12.98 13.63L15.61 6.63L15.13 6H14V3.5L13.5 3H7.70996L6.84998 2.15002L6.5 2H1.5L1 2.5V13.5L1.5 14ZM2 3H6.29004L7.15002 3.84998L7.5 4H13V6H8.5L8.15002 6.15002L7.29004 7H3.5L3.03003 7.33997L2.03003 10.42L2 3ZM12.13 13H2.18994L3.85999 8H7.5L7.84998 7.84998L8.70996 7H14.5L12.13 13Z" fill="#C5C5C5"/></svg>';
+  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M3 7C3 5.89543 3.89543 5 5 5H10L12 7H20C20.7403 7 21.3866 7.4022 21.7324 8H8L6 18H19C19.9624 18 20.7872 17.3141 20.962 16.3678L22.2 9.1322C22.3786 8.1658 21.6364 7.28571 20.6536 7.28571H3Z" fill="#8C9BA8"/> <path d="M6 10H22L20.8 16.4C20.6227 17.3598 19.7861 18.0579 18.81 18.0579H5.7C4.51891 18.0579 3.62794 16.9877 3.84282 15.8263L5 10Z" fill="#AFC1CF"/> <path d="M6 10H22" stroke="#D7E2EA" stroke-width="1" opacity="0.45"/> </svg>';
 
-// Default VS Code explorer file icon for dark theme.
 export const DEFAULT_FILE_DARK_ICON =
-  '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.57 1.14L13.85 4.44L14 4.8V14.5L13.5 15H2.5L2 14.5V1.5L2.5 1H10.22L10.57 1.14ZM10 5H13L10 2V5ZM3 2V14H13V6H9.5L9 5.5V2H3ZM11 7H5V8H11V7ZM5 9H11V10H5V9ZM11 11H5V12H11V11Z" fill="#C5C5C5"/></svg>';
+  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M6 2H14L20 8V20C20 21.1046 19.1046 22 18 22H6C4.89543 22 4 21.1046 4 20V4C4 2.89543 4.89543 2 6 2Z" fill="#8FA1B3"/> <path d="M14 2V8H20" fill="#C7D2DB"/> <path d="M8 13H16" stroke="#E4EBF0" stroke-width="1.4" stroke-linecap="round"/> <path d="M8 16H14" stroke="#E4EBF0" stroke-width="1.4" stroke-linecap="round"/> </svg>';
 
 /**
  * Tries to read the file synchronously.

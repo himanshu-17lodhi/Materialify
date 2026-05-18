@@ -2,10 +2,10 @@ import { defineConfig } from 'vitepress';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'Obsidian Iconize',
+  title: 'Materialify',
   description:
     'Add icons to anything you desire in Obsidian, including files, folders, and text.',
-  base: '/obsidian-iconize/',
+  base: '/materialify/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -91,15 +91,15 @@ export default defineConfig({
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://github.com/himanshu-17lodhi/obsidian-iconize',
+        link: 'https://github.com/himanshu-17lodhi/Materialify',
       },
     ],
 
     footer: {
       message:
-        'Released under the <a href="https://github.com/himanshu-17lodhi/obsidian-iconize/blob/main/LICENSE">MIT License</a>.',
+        'Released under the <a href="https://github.com/himanshu-17lodhi/Materialify/blob/main/LICENSE">MIT License</a>.',
       copyright:
-        'Copyright © 2021-present <a href="https://github.com/himanshu-17lodhi/">Florian Woelki</a>',
+        'Copyright © 2021-present <a href="https://github.com/himanshu-17lodhi/">Himanshu Lodhi</a>',
     },
   },
 });
