@@ -1,13 +1,14 @@
-name: 'Unit Tests'
+name: Unit Tests
 
 on:
   push:
     branches:
       - main
+
   pull_request:
 
 jobs:
-  cache-and-install:
+  test:
     runs-on: ubuntu-latest
 
     permissions:
@@ -15,26 +16,35 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Install pnpm
+      - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 8
-          run_install: false
+          version: 9
 
-      - name: Install Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
-      - name: Run unit tests
+      - name: Run lint
+        run: pnpm lint
+
+      - name: Run typecheck
+        run: pnpm typecheck
+
+      - name: Run tests
         run: pnpm test:coverage
 
-      - name: Report Coverage
+      - name: Build project
+        run: pnpm build
+
+      - name: Report coverage
         if: always()
         uses: davelosert/vitest-coverage-report-action@v2
