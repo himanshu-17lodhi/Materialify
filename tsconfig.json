@@ -28,5 +28,7 @@
     "skipLibCheck": true
   },
 
-  "include": ["**/*.ts"]
+  "include": ["src/**/*.ts"],
+
+  "exclude": ["tests", "coverage", "dist", "node_modules"]
 }
