@@ -10,7 +10,7 @@ import {
 import icon from '@lib/icon';
 import { IconPackManager } from '@app/icon-pack-manager';
 import * as util from '@app/util';
-import SuggestionIcon from './icons-suggestion';
+import SuggestionIcon from '@/editor/icons-suggestion';
 
 vi.mock('obsidian', () => ({
   App: class {},

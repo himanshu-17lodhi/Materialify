@@ -3,11 +3,15 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
+    include: ['tests/**/*.test.ts'],
+
     setupFiles: ['./src/test-setup.ts'],
+
     environment: 'happy-dom',
 
     coverage: {
       provider: 'istanbul',
+
       reporter: ['text', 'json-summary', 'json'],
 
       all: false,
@@ -16,6 +20,8 @@ export default defineConfig({
 
       exclude: [
         '**/*.test.ts',
+
+        'tests/**',
 
         'src/main.ts',
 
@@ -47,6 +53,14 @@ export default defineConfig({
       {
         find: '@lib',
         replacement: resolve(__dirname, './src/lib'),
+      },
+      {
+        find: '@',
+        replacement: resolve(__dirname, './src'),
+      },
+      {
+        find: '@tests',
+        replacement: resolve(__dirname, './tests'),
       },
     ],
   },

@@ -1,4 +1,4 @@
-import { IconCache } from './icon-cache';
+import { IconCache } from '@/lib/icon-cache';
 import { describe, expect, it } from 'vitest';
 
 describe('set', () => {

@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import titleIcon from './icon-title';
+import titleIcon from '@/lib/icon-title';
 import config from '@app/config';
-import svg from './util/svg';
+import svg from '@/lib/util/svg';
 
 describe('add', () => {
   let plugin: any;
