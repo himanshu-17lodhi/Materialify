@@ -108,7 +108,7 @@ const predefinedIconPacks = {
     displayName: 'Material Icons',
     path: '',
     downloadLink:
-      'https://raw.githubusercontent.com/himanshu-17lodhi/test/main/Material-Icons.zip',
+      'https://raw.githubusercontent.com/himanshu-17lodhi/Materialify/main/iconPacks/Material-Icons.zip',
   },
 } as { [key: string]: PredefinedIconPack };
 
