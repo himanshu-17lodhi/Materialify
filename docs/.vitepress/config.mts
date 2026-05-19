@@ -2,7 +2,8 @@ import { defineConfig } from 'vitepress';
 
 export default defineConfig({
   title: 'Materialify Docs',
-  description: 'A Material Design inspired icon management plugin for Obsidian.',
+  description:
+    'A Material Design inspired icon management plugin for Obsidian.',
   base: '/materialify/',
   themeConfig: {
     nav: [
@@ -13,10 +14,13 @@ export default defineConfig({
       {
         text: 'v2.12.0',
         items: [
-          { text: 'Changelog', link: 'https://github.com/himanshu-17lodhi/Materialify/releases' },
+          {
+            text: 'Changelog',
+            link: 'https://github.com/himanshu-17lodhi/Materialify/releases',
+          },
           { text: 'Migration Guide', link: '/getting-started/migration' },
-        ]
-      }
+        ],
+      },
     ],
 
     search: {
@@ -42,9 +46,15 @@ export default defineConfig({
             text: 'Files & Folders',
             collapsed: true,
             items: [
-              { text: 'Icon Selection', link: '/features/files-and-folders/naming' },
-              { text: 'Icon in Tabs', link: '/features/files-and-folders/tabs' },
-            ]
+              {
+                text: 'Icon Selection',
+                link: '/features/files-and-folders/naming',
+              },
+              {
+                text: 'Icon in Tabs',
+                link: '/features/files-and-folders/tabs',
+              },
+            ],
           },
           {
             text: 'Notes & Content',
@@ -52,26 +62,41 @@ export default defineConfig({
             items: [
               { text: 'Inline Icons', link: '/features/notes/inline-icons' },
               { text: 'Title Icons', link: '/features/notes/title-icons' },
-            ]
+            ],
           },
           {
             text: 'Icon Packs',
             collapsed: true,
             items: [
               { text: 'Overview', link: '/features/icon-packs/overview' },
-              { text: 'Predefined Packs', link: '/features/icon-packs/predefined-packs' },
-              { text: 'Custom Packs', link: '/features/icon-packs/custom-packs' },
-              { text: 'Emoji Support', link: '/features/icon-packs/emoji-support' },
-            ]
+              {
+                text: 'Predefined Packs',
+                link: '/features/icon-packs/predefined-packs',
+              },
+              {
+                text: 'Custom Packs',
+                link: '/features/icon-packs/custom-packs',
+              },
+              {
+                text: 'Emoji Support',
+                link: '/features/icon-packs/emoji-support',
+              },
+            ],
           },
           {
             text: 'Automation',
             collapsed: true,
             items: [
-              { text: 'Custom Rules', link: '/features/automation/custom-rules' },
-              { text: 'Frontmatter Support', link: '/features/automation/frontmatter' },
-            ]
-          }
+              {
+                text: 'Custom Rules',
+                link: '/features/automation/custom-rules',
+              },
+              {
+                text: 'Frontmatter Support',
+                link: '/features/automation/frontmatter',
+              },
+            ],
+          },
         ],
       },
       {
@@ -84,19 +109,26 @@ export default defineConfig({
           {
             text: 'Syncing',
             items: [
-              { text: 'Syncing Overview', link: '/customization/syncing/overview' },
-              { text: 'Background Checker', link: '/customization/syncing/background-checker' },
-              { text: 'Troubleshooting', link: '/customization/syncing/troubleshooting' },
-            ]
-          }
+              {
+                text: 'Syncing Overview',
+                link: '/customization/syncing/overview',
+              },
+              {
+                text: 'Background Checker',
+                link: '/customization/syncing/background-checker',
+              },
+              {
+                text: 'Troubleshooting',
+                link: '/customization/syncing/troubleshooting',
+              },
+            ],
+          },
         ],
       },
       {
         text: 'Integrations',
         collapsed: true,
-        items: [
-          { text: 'Metadatamenu', link: '/integrations/metadatamenu' },
-        ],
+        items: [{ text: 'Metadatamenu', link: '/integrations/metadatamenu' }],
       },
       {
         text: 'Developer',
@@ -120,9 +152,7 @@ export default defineConfig({
       {
         text: 'Deprecated',
         collapsed: true,
-        items: [
-          { text: 'Inheritance', link: '/deprecated/inheritance' },
-        ],
+        items: [{ text: 'Inheritance', link: '/deprecated/inheritance' }],
       },
     ],
 

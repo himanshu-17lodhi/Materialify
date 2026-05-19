@@ -13,6 +13,7 @@ import {
   InlineTitleView,
   TabHeaderLeaf,
 } from './@types/obsidian';
+import { existsSync, mkdirSync } from 'node:fs';
 import IconsPickerModal from './ui/icons-picker-modal';
 import { DEFAULT_SETTINGS, IconFolderSettings } from '@app/settings/data';
 import { migrate } from '@app/migrations';
@@ -101,11 +102,19 @@ export default class IconizePlugin extends Plugin {
 
   async onload() {
     await this.loadIconFolderData();
+    const iconPath = this.getSettings().iconPacksPath;
+
+    if (!existsSync(iconPath)) {
+      mkdirSync(iconPath, { recursive: true });
+    }
     logger.toggleLogging(this.getSettings().debugMode);
     this.iconPackManager = new IconPackManager(
       this,
       this.getSettings().iconPacksPath,
     );
+
+    await this.iconPackManager.createDefaultDirectory();
+
     await this.iconPackManager.init();
 
     this.addCommand({
@@ -145,7 +154,7 @@ export default class IconizePlugin extends Plugin {
       this.modifiedInternalPlugins.push(new OutlineInternalPlugin(this));
     }
 
-    await this.iconPackManager.createDefaultDirectory();
+    // await this.iconPackManager.createDefaultDirectory();
     await this.checkRecentlyUsedIcons();
 
     await migrate(this);
