@@ -57,7 +57,9 @@ export default {
         '@lib': 'src/lib',
       },
     }),
-    typescript(),
+    typescript({
+      tsconfig: './tsconfig.lib.json',
+    }),
     nodeResolve({ browser: true }),
     commonjs(),
     copy({

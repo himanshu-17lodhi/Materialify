@@ -5,6 +5,7 @@ export default defineConfig({
   test: {
     include: ['tests/**/*.test.ts'],
 
+    // setupFiles: ['./tests/setup/vitest.setup.ts'],
     setupFiles: ['./src/test-setup.ts'],
 
     environment: 'happy-dom',
@@ -37,7 +38,7 @@ export default defineConfig({
 
       thresholds: {
         lines: 40, //50
-        branches: 35, //45
+        branches: 35, //40
         functions: 40, //50
         statements: 40, //50
       },
@@ -45,23 +46,14 @@ export default defineConfig({
   },
 
   resolve: {
-    alias: [
-      {
-        find: '@app',
-        replacement: resolve(__dirname, './src'),
-      },
-      {
-        find: '@lib',
-        replacement: resolve(__dirname, './src/lib'),
-      },
-      {
-        find: '@',
-        replacement: resolve(__dirname, './src'),
-      },
-      {
-        find: '@tests',
-        replacement: resolve(__dirname, './tests'),
-      },
-    ],
+    alias: {
+      '@': resolve(__dirname, './src'),
+
+      '@tests': resolve(__dirname, './tests'),
+
+      '@app': resolve(__dirname, './src'),
+
+      '@lib': resolve(__dirname, './src/lib'),
+    },
   },
 });

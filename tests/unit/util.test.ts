@@ -6,7 +6,7 @@ import {
   removeIconFromIconPack,
   saveIconToIconPack,
   stringToHex,
-} from './util';
+} from '@/util';
 
 describe('readFileSync', () => {
   it('should read file content', async () => {
