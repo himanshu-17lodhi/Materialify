@@ -1,5 +1,5 @@
 import { beforeEach, describe, it, expect, vi, afterEach, Mock } from 'vitest';
-import { ConsoleLogger, LoggerPrefix } from './logger';
+import { ConsoleLogger, LoggerPrefix } from '@lib/logger';
 
 describe('ConsoleLogger', () => {
   let mockConsole: Record<string, Mock>;

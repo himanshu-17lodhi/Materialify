@@ -3,6 +3,8 @@
     "baseUrl": ".",
 
     "paths": {
+      "@/*": ["src/*"],
+      "@tests/*": ["tests/*"],
       "@app/*": ["src/*"],
       "@lib/*": ["src/lib/*"]
     },
@@ -26,5 +28,7 @@
     "skipLibCheck": true
   },
 
-  "include": ["**/*.ts"]
+  "include": ["src/**/*.ts", "tests/**/*.ts", "vitest.config.ts"],
+
+  "exclude": ["coverage", "dist", "node_modules"]
 }

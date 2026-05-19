@@ -1,5 +1,5 @@
 import { vi, describe, expect, it, afterEach } from 'vitest';
-import svg from './svg';
+import svg from '@/lib/util/svg';
 
 describe('extract', () => {
   afterEach(() => {

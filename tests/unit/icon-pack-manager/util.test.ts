@@ -4,7 +4,7 @@ import {
   getNormalizedName,
   getSvgFromLoadedIcon,
   nextIdentifier,
-} from './util';
+} from '@/icon-pack-manager/util';
 import IconizePlugin from '@app/main';
 import { IconPack } from './icon-pack';
 

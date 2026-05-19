@@ -3,12 +3,12 @@ import {
   resolveFileIconName,
   resolveFolderIcon,
   resolveFolderIconName,
-} from './index';
+} from '@/material-icon-theme/index';
 import {
   DEFAULT_FILE_ICON,
   DEFAULT_FOLDER_ICON,
   DEFAULT_FOLDER_OPEN_ICON,
-} from '@app/util';
+} from '@/util';
 
 const emptyIcons: any[] = [];
 const mockPlugin = {
