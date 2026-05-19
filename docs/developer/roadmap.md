@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-The system introduces automatic Material Icon Theme assignments into Obsidian Iconize. It relies on a generated mapping derived from the VS Code Material Icon Theme extension.
+The system introduces automatic Material Icon Theme assignments into Materialify. It relies on a generated mapping derived from the VS Code Material Icon Theme extension.
 
 1. **Generator Script**: `scripts/generate-material-icon-theme.mjs` extracts mappings and bundles SVGs from the VS Code extension into `src/material-icon-theme/generated.ts`.
 2. **Resolver System**: `src/material-icon-theme/index.ts` provides path-to-icon resolution mapping against exact filenames, extensions, folder names, and root folders.
@@ -12,13 +12,13 @@ The system introduces automatic Material Icon Theme assignments into Obsidian Ic
 ## Migration & Mapping Strategy
 
 - Reused the original SVGs directly and embedded them into a generated file, preserving their names.
-- Leveraged `toIconizeIconName` which normalizes icon IDs into `Mi` + CamelCase names (e.g. `folder-src` -> `MiFolderSrc`).
+- Leveraged `toMaterialifyIconName` which normalizes icon IDs into `Mi` + CamelCase names (e.g. `folder-src` -> `MiFolderSrc`).
 - No manual name conversion layers were built since the `getNormalizedName` lookup inherently supports mapping `MiFolderSrc` back to `folder-src.svg` data.
 
 ## Runtime Flow
 
 1. User changes the file/folder or Obsidian refreshes the Explorer.
-2. `IconizePlugin` calls `applyAutomaticIconsToExplorer`.
+2. `MaterialifyPlugin` calls `applyAutomaticIconsToExplorer`.
 3. For each file/folder, the path is passed to `resolveAutomaticIconName`.
 4. Extracted filename and extensions are matched against `fileNames` and `fileExtensions`. Folders matched against `rootFolderNames` and `folderNames`.
 5. Resolved icon name is stored in `IconCache` with an `automatic: true` flag.

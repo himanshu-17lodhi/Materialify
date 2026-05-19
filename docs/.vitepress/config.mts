@@ -1,17 +1,22 @@
 import { defineConfig } from 'vitepress';
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'Materialify',
-  description:
-    'Add icons to anything you desire in Obsidian, including files, folders, and text.',
+  title: 'Materialify Docs',
+  description: 'A Material Design inspired icon management plugin for Obsidian.',
   base: '/materialify/',
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Get Started', link: '/guide/getting-started' },
-      { text: 'API', link: '/api/getting-started' },
+      { text: 'Guide', link: '/getting-started/installation' },
+      { text: 'Features', link: '/features/files-and-folders/naming' },
+      { text: 'Reference', link: '/reference/icon-names' },
+      {
+        text: 'v2.12.0',
+        items: [
+          { text: 'Changelog', link: 'https://github.com/himanshu-17lodhi/Materialify/releases' },
+          { text: 'Migration Guide', link: '/getting-started/migration' },
+        ]
+      }
     ],
 
     search: {
@@ -20,71 +25,104 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Guide',
+        text: 'Getting Started',
         collapsed: false,
         items: [
-          { text: 'Getting Started', link: '/guide/getting-started' },
-          { text: 'Settings', link: '/guide/settings' },
-          { text: 'Icon Packs', link: '/guide/icon-packs' },
-          { text: 'Syncing', link: '/guide/syncing' },
+          { text: 'Installation', link: '/getting-started/installation' },
+          { text: 'Quick Start', link: '/getting-started/quick-start' },
+          { text: 'First Icons', link: '/getting-started/first-icons' },
+          { text: 'Migration Guide', link: '/getting-started/migration' },
         ],
       },
       {
-        text: 'Files and Folders',
+        text: 'Features',
         collapsed: false,
         items: [
           {
-            text: 'Icon before file/folder name',
-            link: '/files-and-folders/icon-before-file-or-folder',
-          },
-          { text: 'Icon in Tabs', link: '/files-and-folders/icon-tabs' },
-          { text: 'Custom Rules', link: '/files-and-folders/custom-rules' },
-          {
-            text: 'Use Frontmatter',
-            link: '/files-and-folders/use-frontmatter',
+            text: 'Files & Folders',
+            collapsed: true,
+            items: [
+              { text: 'Icon Selection', link: '/features/files-and-folders/naming' },
+              { text: 'Icon in Tabs', link: '/features/files-and-folders/tabs' },
+            ]
           },
           {
-            text: 'Change individual icon color',
-            link: '/files-and-folders/individual-icon-color',
+            text: 'Notes & Content',
+            collapsed: true,
+            items: [
+              { text: 'Inline Icons', link: '/features/notes/inline-icons' },
+              { text: 'Title Icons', link: '/features/notes/title-icons' },
+            ]
           },
+          {
+            text: 'Icon Packs',
+            collapsed: true,
+            items: [
+              { text: 'Overview', link: '/features/icon-packs/overview' },
+              { text: 'Predefined Packs', link: '/features/icon-packs/predefined-packs' },
+              { text: 'Custom Packs', link: '/features/icon-packs/custom-packs' },
+              { text: 'Emoji Support', link: '/features/icon-packs/emoji-support' },
+            ]
+          },
+          {
+            text: 'Automation',
+            collapsed: true,
+            items: [
+              { text: 'Custom Rules', link: '/features/automation/custom-rules' },
+              { text: 'Frontmatter Support', link: '/features/automation/frontmatter' },
+            ]
+          }
         ],
       },
       {
-        text: 'Notes',
-        collapsed: false,
-        items: [
-          { text: 'Icons in Notes', link: '/notes/icons-in-notes' },
-          { text: 'Icon above Title', link: '/notes/title-icon' },
-        ],
-      },
-      {
-        text: 'API',
-        collapsed: false,
-        items: [{ text: 'Getting Started', link: '/api/getting-started' }],
-      },
-      {
-        text: 'Compatibility with Plugins',
+        text: 'Customization',
         collapsed: true,
         items: [
-          { text: 'Metadatamenu', link: '/compatibility-plugins/metadatamenu' },
+          { text: 'Settings', link: '/customization/settings' },
+          { text: 'Colors', link: '/customization/colors' },
+          { text: 'Performance', link: '/customization/performance' },
+          {
+            text: 'Syncing',
+            items: [
+              { text: 'Syncing Overview', link: '/customization/syncing/overview' },
+              { text: 'Background Checker', link: '/customization/syncing/background-checker' },
+              { text: 'Troubleshooting', link: '/customization/syncing/troubleshooting' },
+            ]
+          }
         ],
       },
       {
-        text: 'Good to know',
+        text: 'Integrations',
         collapsed: true,
         items: [
-          { text: 'See icon name', link: '/good-to-know/see-icon-name' },
-          {
-            text: 'Use png in icon pack',
-            link: '/good-to-know/transform-png-to-svg',
-          },
-          { text: 'Unicode issue', link: '/good-to-know/unicode-issue' },
+          { text: 'Metadatamenu', link: '/integrations/metadatamenu' },
+        ],
+      },
+      {
+        text: 'Developer',
+        collapsed: true,
+        items: [
+          { text: 'Architecture', link: '/developer/architecture' },
+          { text: 'Contributing', link: '/developer/contributing' },
+          { text: 'API Reference', link: '/developer/api' },
+          { text: 'Roadmap', link: '/developer/roadmap' },
+        ],
+      },
+      {
+        text: 'Reference',
+        collapsed: true,
+        items: [
+          { text: 'Icon Names', link: '/reference/icon-names' },
+          { text: 'PNG to SVG', link: '/reference/png-to-svg' },
+          { text: 'Unicode Issues', link: '/reference/unicode-issues' },
         ],
       },
       {
         text: 'Deprecated',
         collapsed: true,
-        items: [{ text: 'Inheritance', link: '/deprecated/inheritance' }],
+        items: [
+          { text: 'Inheritance', link: '/deprecated/inheritance' },
+        ],
       },
     ],
 

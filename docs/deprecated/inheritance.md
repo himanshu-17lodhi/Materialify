@@ -1,13 +1,37 @@
-# Inheritance
+---
+title: Inheritance (Deprecated) | Materialify
+---
 
-<Badge type="info" text="Deprecated since v2.10.0. Use custom rules instead" />
+# Inheritance (Deprecated)
 
-Inheritance allows to add icons for a specific folder to all the files that are
-only at the root of the folder. That means that that all root files in a folder
-will have an icon, if inheritance is applied.
+<Badge type="warning" text="Deprecated since v2.10.0" />
 
-After clicking the `Inherit icon` menu item, a icon modal will pop up where
-you can select the icon you want for the inheritance. After that, all the files
-have the icon.
+## Overview
 
-![Inheritance function](../assets/add-inheritance.png)
+Inheritance was an early feature that allowed icons to be automatically applied to all files within a folder. This has been replaced by the more powerful and flexible **Custom Rules** system.
+
+## Use Cases
+
+- Maintaining old vaults that still rely on inheritance data.
+
+## Configuration
+
+### Migrating to Custom Rules
+
+Instead of using Inheritance, we recommend creating a [Custom Rule](/features/automation/custom-rules) with a path pattern.
+
+**Example:**
+To mimic inheritance for a folder named `Meetings`, create a rule with the pattern `Meetings/`.
+
+## Screenshots
+
+![Inheritance function](/public/screenshots/add-inheritance.png)
+
+## Notes
+
+- Inheritance will be fully removed in a future major version of Materialify. Please migrate your data to Custom Rules.
+
+## Related Features
+
+- [Custom Rules](/features/automation/custom-rules)
+- [File & Folder Icons](/features/files-and-folders/naming)
