@@ -1,6 +1,6 @@
 import { Mock, describe, expect, it, vi } from 'vitest';
 import twemoji from '@twemoji/api';
-import emoji from './emoji';
+import emoji from '@/emoji';
 
 vi.mock('@twemoji/api');
 
