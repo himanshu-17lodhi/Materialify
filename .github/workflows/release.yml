@@ -25,7 +25,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -37,24 +36,24 @@ jobs:
         run: pnpm typecheck
 
       - name: Run tests
-        run: pnpm test
+        run: pnpm test:run
 
       - name: Run build
         run: pnpm build
 
-      - name: Prepare release files
+      - name: Create release package
         run: |
-          mkdir release
-          cp main.js release/
-          cp manifest.json release/
-          cp src/styles.css release/
-
-      - name: Create ZIP archive
-        run: |
-          cd release
-          zip -r materialify.zip .
+          mkdir Materialify
+          cp main.js Materialify/
+          cp manifest.json Materialify/
+          cp src/styles.css Materialify/
+          cd Materialify
+          zip -r ../Materialify.zip .
 
       - name: Upload release assets
         uses: softprops/action-gh-release@v2
         with:
-          files: release/materialify.zip
+          files: |
+            Materialify.zip
+            manifest.json
+            main.js
