@@ -1,2 +1,8 @@
+packages:
+  - .
+
 allowBuilds:
   "@codemirror/language": true
+
+onlyBuiltDependencies:
+  - esbuild
