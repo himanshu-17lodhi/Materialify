@@ -10,13 +10,16 @@ import icon from '@/lib/icon';
 import iconTabs from '@/lib/icon-tabs';
 import { TabHeaderLeaf, InlineTitleView } from '@/@types/obsidian';
 
+/** Registers workspace-related events for the plugin. */
 export function registerWorkspaceEvents(plugin: IconizePlugin): void {
+  /** Layout change event */
   plugin.registerEvent(
     plugin.app.workspace.on('layout-change', () => {
       plugin.handleChangeLayout();
     }),
   );
 
+  /** CSS change event */
   plugin.registerEvent(
     plugin.app.workspace.on('css-change', () => {
       for (const openedFile of getAllOpenedFiles(plugin)) {
@@ -31,6 +34,7 @@ export function registerWorkspaceEvents(plugin: IconizePlugin): void {
     }),
   );
 
+  /** Active leaf change event */
   plugin.registerEvent(
     (plugin.app.workspace as any).on(
       'active-leaf-change',
@@ -54,11 +58,9 @@ export function registerWorkspaceEvents(plugin: IconizePlugin): void {
           }
           return;
         }
-
         if (leaf.view.getViewType() !== 'markdown') {
           return;
         }
-
         const tabHeaderLeaf = leaf as TabHeaderLeaf;
         if (tabHeaderLeaf.view.file) {
           const iconColor = plugin.getIconColor(tabHeaderLeaf.view.file.path);
@@ -75,6 +77,7 @@ export function registerWorkspaceEvents(plugin: IconizePlugin): void {
     ),
   );
 
+  /** File open event */
   plugin.registerEvent(
     plugin.app.workspace.on('file-open', (file) => {
       if (!plugin.getSettings().iconInTitleEnabled) {

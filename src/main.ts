@@ -10,11 +10,11 @@ import {
 import { registerWorkspaceEvents } from '@/plugin/workspace-events';
 
 import {
-  EditorWithEditorComponent,
   ExplorerView,
   InlineTitleView,
   TabHeaderLeaf,
 } from './@types/obsidian';
+import { registerCommands } from '@/plugin/commands';
 
 import { existsSync, mkdirSync } from 'node:fs';
 import IconsPickerModal from './ui/icons-picker-modal';
@@ -120,16 +120,6 @@ export default class IconizePlugin extends Plugin {
 
     await this.iconPackManager.init();
 
-    this.addCommand({
-      id: 'refresh-automatic-icons',
-      name: 'Refresh automatic Material icons',
-      callback: () => {
-        for (const fileExplorer of this.getRegisteredFileExplorers()) {
-          materialIconTheme.applyAutomaticIconsToExplorer(this, fileExplorer);
-        }
-      },
-    });
-
     // Heartbeat refresh to catch file explorer when it's ready
     setTimeout(() => {
       for (const fileExplorer of this.getRegisteredFileExplorers()) {
@@ -163,55 +153,12 @@ export default class IconizePlugin extends Plugin {
     await migrate(this);
 
     const usedIconNames = this.getUsedIcons();
-    // if (!this.doesUseCustomLucideIconPack()) {
     await this.iconPackManager.init();
-    // }
-    // TODO: Check if needed
     await this.iconPackManager.loadUsedIcons([...usedIconNames]);
 
     this.app.workspace.onLayoutReady(() => this.handleChangeLayout());
 
-    this.addCommand({
-      id: 'iconize:set-icon-for-file',
-      name: 'Set icon for file',
-      hotkeys: [
-        {
-          modifiers: ['Mod', 'Shift'],
-          key: 'j',
-        },
-      ],
-      editorCallback: async (editor: EditorWithEditorComponent) => {
-        const file = editor.editorComponent?.file;
-        if (!file) {
-          logger.warn(
-            `'editor.editorComponent?.file' is undefined for file: ${file}`,
-          );
-          return;
-        }
-
-        const modal = new IconsPickerModal(this.app, this, file.path);
-        modal.open();
-
-        modal.onSelect = (iconName: string): void => {
-          IconCache.getInstance().set(file.path, {
-            iconNameWithPrefix: iconName,
-          });
-
-          // Update icon in tab when setting is enabled.
-          if (this.getSettings().iconInTabsEnabled) {
-            const tabLeaves = iconTabs.getTabLeavesOfFilePath(this, file.path);
-            for (const tabLeaf of tabLeaves) {
-              iconTabs.update(this, iconName, tabLeaf.tabHeaderInnerIconEl);
-            }
-          }
-
-          // Update icon in title when setting is enabled.
-          if (this.getSettings().iconInTitleEnabled) {
-            this.addIconInTitle(iconName);
-          }
-        };
-      },
-    });
+    registerCommands(this);
 
     this.registerEvent(
       // Registering file menu event for listening to file pinning and unpinning.
