@@ -6,7 +6,7 @@ import {
   nextIdentifier,
 } from '@/icon-pack-manager/util';
 import IconizePlugin from '@app/main';
-import { IconPack } from './icon-pack';
+import type { IconPack } from '@/icon-pack-manager/icon-pack';
 
 describe('getNormalizedName', () => {
   it('should return a string with all words capitalized and no spaces or underscores', () => {

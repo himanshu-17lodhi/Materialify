@@ -27,6 +27,7 @@
     "clean": "shx rm -rf dist lib coverage",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
+    "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
     "lint": "eslint . --ext .js,.ts,.tsx --fix",
     "format": "prettier --write .",
