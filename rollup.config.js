@@ -42,7 +42,7 @@ const cmModules = [
 export default {
   input: './src/main.ts',
   output: {
-    file: './main.js',
+    file: './dist/main.js',
     sourcemap: 'inline',
     sourcemapExcludeSources: isProd,
     format: 'cjs',

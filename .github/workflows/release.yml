@@ -55,5 +55,3 @@ jobs:
         with:
           files: |
             Materialify.zip
-            manifest.json
-            main.js
