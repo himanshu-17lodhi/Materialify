@@ -1,0 +1,2 @@
+allowBuilds:
+  "@codemirror/language": true
