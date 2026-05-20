@@ -1,8 +1,8 @@
 import { Setting, ColorComponent } from 'obsidian';
 import IconFolderSetting from './iconFolderSetting';
-import helper from '../helper';
-import { ResetButtonComponent } from '../ResetButtonComponent';
-import { DEFAULT_SETTINGS } from '../data';
+import helper from '@/settings/helper';
+import { ResetButtonComponent } from '@/settings/ResetButtonComponent';
+import { DEFAULT_SETTINGS } from '@/settings/data';
 
 const DEFAULT_VALUE = DEFAULT_SETTINGS.iconColor;
 

@@ -139,3 +139,9 @@ interface EditorWithEditorComponent extends Editor {
     file?: TFile;
   };
 }
+
+interface MarkdownViewWithMode extends MarkdownView {
+  currentMode: {
+    view: InlineTitleView;
+  };
+}

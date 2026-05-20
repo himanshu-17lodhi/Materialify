@@ -3,7 +3,7 @@ import IconFolderSetting from './iconFolderSetting';
 import IconizePlugin from '@/main';
 import { readFileSync } from '@/util';
 import icon from '@/lib/icon';
-import { LucideIconPackType } from '../data';
+import { LucideIconPackType } from '@/settings/data';
 import { LUCIDE_ICON_PACK_NAME } from '@/icon-pack-manager/lucide';
 
 export default class CustomIconPackSetting extends IconFolderSetting {

@@ -17,7 +17,7 @@ import {
   removeIconFromIconPack,
   saveIconToIconPack,
 } from '@/util';
-import { CustomRule } from '../data';
+import { CustomRule } from '@/settings/data';
 import customRule from '@/lib/custom-rule';
 import iconTabs from '@/lib/icon-tabs';
 import dom from '@/utils/dom';

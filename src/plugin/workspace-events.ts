@@ -36,45 +36,42 @@ export function registerWorkspaceEvents(plugin: IconizePlugin): void {
 
   /** Active leaf change event */
   plugin.registerEvent(
-    (plugin.app.workspace as any).on(
-      'active-leaf-change',
-      (leaf: WorkspaceLeaf) => {
-        if (!plugin.getSettings().iconInTabsEnabled) {
-          return;
-        }
-        if (leaf.view.getViewType() === 'file-explorer') {
-          for (const openedFile of getAllOpenedFiles(plugin)) {
-            const leaf = openedFile.leaf as TabHeaderLeaf;
+    plugin.app.workspace.on('active-leaf-change', (leaf: WorkspaceLeaf) => {
+      if (!plugin.getSettings().iconInTabsEnabled) {
+        return;
+      }
+      if (leaf.view.getViewType() === 'file-explorer') {
+        for (const openedFile of getAllOpenedFiles(plugin)) {
+          const leaf = openedFile.leaf as TabHeaderLeaf;
 
-            const file = leaf.view.file;
-            if (!file) {
-              continue;
-            }
-            const iconColor = plugin.getIconColor(file.path);
-
-            iconTabs.add(plugin, openedFile.path, leaf.tabHeaderInnerIconEl, {
-              iconColor,
-            });
+          const file = leaf.view.file;
+          if (!file) {
+            continue;
           }
-          return;
+          const iconColor = plugin.getIconColor(file.path);
+
+          iconTabs.add(plugin, openedFile.path, leaf.tabHeaderInnerIconEl, {
+            iconColor,
+          });
         }
-        if (leaf.view.getViewType() !== 'markdown') {
-          return;
-        }
-        const tabHeaderLeaf = leaf as TabHeaderLeaf;
-        if (tabHeaderLeaf.view.file) {
-          const iconColor = plugin.getIconColor(tabHeaderLeaf.view.file.path);
-          iconTabs.add(
-            plugin,
-            tabHeaderLeaf.view.file.path,
-            tabHeaderLeaf.tabHeaderInnerIconEl,
-            {
-              iconColor,
-            },
-          );
-        }
-      },
-    ),
+        return;
+      }
+      if (leaf.view.getViewType() !== 'markdown') {
+        return;
+      }
+      const tabHeaderLeaf = leaf as TabHeaderLeaf;
+      if (tabHeaderLeaf.view.file) {
+        const iconColor = plugin.getIconColor(tabHeaderLeaf.view.file.path);
+        iconTabs.add(
+          plugin,
+          tabHeaderLeaf.view.file.path,
+          tabHeaderLeaf.tabHeaderInnerIconEl,
+          {
+            iconColor,
+          },
+        );
+      }
+    }),
   );
 
   /** File open event */

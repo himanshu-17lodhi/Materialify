@@ -12,10 +12,11 @@ import { registerWorkspaceEvents } from '@/plugin/workspace-events';
 import {
   ExplorerView,
   InlineTitleView,
+  MarkdownViewWithMode,
   TabHeaderLeaf,
 } from './@types/obsidian';
 import { registerCommands } from '@/plugin/commands';
-
+import { registerMarkdownFeatures } from '@/plugin/markdown';
 import { existsSync, mkdirSync } from 'node:fs';
 import IconsPickerModal from './ui/icons-picker-modal';
 import { DEFAULT_SETTINGS, IconFolderSettings } from '@/settings/data';
@@ -38,19 +39,11 @@ import {
 } from '@/util';
 import config from '@/config';
 import titleIcon from './lib/icon-title';
-import SuggestionIcon from './editor/icons-suggestion';
 import emoji from './emoji';
 import { IconCache } from './lib/icon-cache';
-import {
-  buildIconInLinksPlugin,
-  buildIconInTextPlugin,
-} from './editor/live-preview';
 import { PositionField, buildPositionField } from './editor/live-preview/state';
 import { calculateInlineTitleSize } from '@/utils/text';
-import {
-  processIconInTextMarkdown,
-  processIconInLinkMarkdown,
-} from './editor/markdown-processors';
+
 import ChangeColorModal from './ui/change-color-modal';
 import { logger } from '@/lib/logger-service';
 import { EventEmitter } from '@/events/emitter';
@@ -105,6 +98,7 @@ export default class IconizePlugin extends Plugin {
 
   async onload() {
     await this.loadIconFolderData();
+
     const iconPath = this.getSettings().iconPacksPath;
 
     if (!existsSync(iconPath)) {
@@ -120,7 +114,6 @@ export default class IconizePlugin extends Plugin {
 
     await this.iconPackManager.init();
 
-    // Heartbeat refresh to catch file explorer when it's ready
     setTimeout(() => {
       for (const fileExplorer of this.getRegisteredFileExplorers()) {
         materialIconTheme.applyAutomaticIconsToExplorer(this, fileExplorer);
@@ -160,6 +153,10 @@ export default class IconizePlugin extends Plugin {
 
     registerCommands(this);
 
+    registerWorkspaceEvents(this);
+
+    registerMarkdownFeatures(this);
+
     this.registerEvent(
       // Registering file menu event for listening to file pinning and unpinning.
       this.app.workspace.on('file-menu', (menu, file) => {
@@ -189,8 +186,6 @@ export default class IconizePlugin extends Plugin {
         });
       }),
     );
-
-    registerWorkspaceEvents(this);
 
     this.registerEvent(
       this.app.workspace.on('file-menu', (menu, file: TFile) => {
@@ -302,29 +297,9 @@ export default class IconizePlugin extends Plugin {
       }),
     );
 
-    if (this.getSettings().iconsInNotesEnabled) {
-      this.registerMarkdownPostProcessor((el) =>
-        processIconInTextMarkdown(this, el),
-      );
-      this.registerEditorSuggest(new SuggestionIcon(this.app, this));
-      this.registerEditorExtension([
-        this.positionField,
-        buildIconInTextPlugin(this),
-      ]);
-    }
-
-    if (this.getSettings().iconsInLinksEnabled) {
-      this.registerMarkdownPostProcessor((el, ctx) =>
-        processIconInLinkMarkdown(this, el, ctx),
-      );
-      this.registerEditorExtension([
-        this.positionField,
-        buildIconInLinksPlugin(this),
-      ]);
-    }
-
     this.addSettingTab(new IconFolderSettingsUI(this.app, this));
   }
+  /**end onload() */
 
   public notifyPlugins(): void {
     this.modifiedInternalPlugins.forEach((internalPlugin) => {
@@ -626,8 +601,10 @@ export default class IconizePlugin extends Plugin {
               this.app.workspace.getActiveViewOfType(MarkdownView);
             if (activeView) {
               const file = activeView.file;
-              const view = (activeView.leaf.view as any).currentMode
-                .view as InlineTitleView;
+              // const view = (activeView.leaf.view as any).currentMode
+              const view = (
+                activeView.leaf.view as unknown as MarkdownViewWithMode
+              ).currentMode.view;
               const iconNameWithPrefix = icon.getByPath(this, file.path);
               if (!iconNameWithPrefix) {
                 titleIcon.hide(view.inlineTitleEl);

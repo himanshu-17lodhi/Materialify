@@ -1,8 +1,8 @@
 import { Setting, SliderComponent } from 'obsidian';
 import IconFolderSetting from './iconFolderSetting';
-import { DEFAULT_SETTINGS } from '../data';
-import helper from '../helper';
-import { ResetButtonComponent } from '../ResetButtonComponent';
+import { DEFAULT_SETTINGS } from '@/settings/data';
+import helper from '@/settings/helper';
+import { ResetButtonComponent } from '@/settings/ResetButtonComponent';
 
 const values = {
   min: 10,
