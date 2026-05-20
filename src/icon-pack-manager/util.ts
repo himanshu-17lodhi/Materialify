@@ -1,8 +1,8 @@
-import { logger } from '@app/lib/logger';
+import { logger } from '@/lib/logger-service';
 import { IconPack } from './icon-pack';
-import svg from '@app/lib/util/svg';
+import svg from '@/lib/util/svg';
 import { Icon } from '.';
-import IconizePlugin from '@app/main';
+import IconizePlugin from '@/main';
 
 export function getNormalizedName(s: string): string {
   return s

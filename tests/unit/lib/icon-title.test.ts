@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import titleIcon from '@/lib/icon-title';
-import config from '@app/config';
+import config from '@/config';
 import svg from '@/lib/util/svg';
 
 describe('add', () => {

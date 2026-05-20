@@ -1,10 +1,10 @@
 import { Notice, Setting, TextComponent } from 'obsidian';
 import IconFolderSetting from './iconFolderSetting';
-import IconizePlugin from '@app/main';
-import { readFileSync } from '@app/util';
-import icon from '@app/lib/icon';
+import IconizePlugin from '@/main';
+import { readFileSync } from '@/util';
+import icon from '@/lib/icon';
 import { LucideIconPackType } from '../data';
-import { LUCIDE_ICON_PACK_NAME } from '@app/icon-pack-manager/lucide';
+import { LUCIDE_ICON_PACK_NAME } from '@/icon-pack-manager/lucide';
 
 export default class CustomIconPackSetting extends IconFolderSetting {
   private textComponent: TextComponent;

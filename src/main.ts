@@ -15,8 +15,8 @@ import {
 } from './@types/obsidian';
 import { existsSync, mkdirSync } from 'node:fs';
 import IconsPickerModal from './ui/icons-picker-modal';
-import { DEFAULT_SETTINGS, IconFolderSettings } from '@app/settings/data';
-import { migrate } from '@app/migrations';
+import { DEFAULT_SETTINGS, IconFolderSettings } from '@/settings/data';
+import { migrate } from '@/migrations';
 import IconFolderSettingsUI from './settings/ui';
 import StarredInternalPlugin from './internal-plugins/starred';
 import InternalPluginInjector from './@types/internal-plugin-injector';
@@ -32,8 +32,8 @@ import {
   removeIconFromIconPack,
   saveIconToIconPack,
   stringToHex,
-} from '@app/util';
-import config from '@app/config';
+} from '@/util';
+import config from '@/config';
 import titleIcon from './lib/icon-title';
 import SuggestionIcon from './editor/icons-suggestion';
 import emoji from './emoji';
@@ -49,7 +49,7 @@ import {
   processIconInLinkMarkdown,
 } from './editor/markdown-processors';
 import ChangeColorModal from './ui/change-color-modal';
-import { logger } from './lib/logger';
+import { logger } from '@/lib/logger-service';
 import { EventEmitter } from './lib/event/event';
 import IconizeAPI, { getApi } from './lib/api';
 import { Icon, IconPackManager } from './icon-pack-manager';

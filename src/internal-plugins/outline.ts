@@ -1,9 +1,9 @@
-import InternalPluginInjector from '@app/@types/internal-plugin-injector';
-import { createIconShortcodeRegex } from '@app/editor/markdown-processors';
-import svg from '@app/lib/util/svg';
-import icon from '@app/lib/icon';
-import { LoggerPrefix, logger } from '@app/lib/logger';
-import IconizePlugin from '@app/main';
+import InternalPluginInjector from '@/@types/internal-plugin-injector';
+import { createIconShortcodeRegex } from '@/editor/markdown-processors';
+import svg from '@/lib/util/svg';
+import icon from '@/lib/icon';
+import { LoggerPrefix, logger } from '@/lib/logger-service';
+import IconizePlugin from '@/main';
 import { requireApiVersion, View, WorkspaceLeaf } from 'obsidian';
 
 const TREE_ITEM_CLASS = 'tree-item-self';

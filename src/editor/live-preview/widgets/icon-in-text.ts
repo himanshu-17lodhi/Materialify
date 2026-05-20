@@ -1,12 +1,12 @@
-import emoji from '@app/emoji';
-import icon from '@app/lib/icon';
-import svg from '@app/lib/util/svg';
+import emoji from '@/emoji';
+import icon from '@/lib/icon';
+import svg from '@/lib/util/svg';
 import {
   HTMLHeader,
   calculateFontTextSize,
   calculateHeaderSize,
-} from '@app/lib/util/text';
-import IconizePlugin from '@app/main';
+} from '@/lib/util/text';
+import IconizePlugin from '@/main';
 import { EditorView, WidgetType } from '@codemirror/view';
 
 export class IconInTextWidget extends WidgetType {

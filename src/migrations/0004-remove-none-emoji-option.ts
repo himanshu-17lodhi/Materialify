@@ -1,4 +1,4 @@
-import IconizePlugin from '@app/main';
+import IconizePlugin from '@/main';
 
 export default async function migrate(plugin: IconizePlugin): Promise<void> {
   if (plugin.getSettings().migrated === 4) {

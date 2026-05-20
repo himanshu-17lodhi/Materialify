@@ -1,9 +1,15 @@
+import { fileURLToPath } from 'url';
+import path from 'path';
+
 import typescript from '@rollup/plugin-typescript';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import alias from '@rollup/plugin-alias';
 import copy from 'rollup-plugin-copy';
 import { obsidianExportPath } from './env.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const isProd = process.env.BUILD === 'production';
 
@@ -52,10 +58,12 @@ export default {
   external: ['obsidian', ...cmModules],
   plugins: [
     alias({
-      entries: {
-        '@app': 'src',
-        '@lib': 'src/lib',
-      },
+      entries: [
+        {
+          find: '@',
+          replacement: path.resolve(__dirname, 'src'),
+        },
+      ],
     }),
     typescript({
       tsconfig: './tsconfig.lib.json',

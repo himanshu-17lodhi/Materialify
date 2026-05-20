@@ -1,10 +1,10 @@
 import { DropdownComponent, MarkdownView, Setting } from 'obsidian';
-import { calculateInlineTitleSize } from '@app/lib/util/text';
+import { calculateInlineTitleSize } from '@/lib/util/text';
 import IconFolderSetting from './iconFolderSetting';
-import icon from '@lib/icon';
-import titleIcon from '@lib/icon-title';
-import { InlineTitleView } from '@app/@types/obsidian';
-import { IconInTitlePosition } from '@app/settings/data';
+import icon from '@/lib/icon';
+import titleIcon from '@/lib/icon-title';
+import { InlineTitleView } from '@/@types/obsidian';
+import { IconInTitlePosition } from '@/settings/data';
 
 interface UpdateLeavesOptions {
   /**

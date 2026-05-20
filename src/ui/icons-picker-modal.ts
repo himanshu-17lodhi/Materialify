@@ -1,13 +1,10 @@
 import { App, FuzzyMatch, FuzzySuggestModal } from 'obsidian';
-import IconizePlugin from '@app/main';
-import emoji from '@app/emoji';
-import { type Icon } from '@app/icon-pack-manager';
-import dom from '@app/lib/util/dom';
-import { saveIconToIconPack } from '@app/util';
-import {
-  getSvgFromLoadedIcon,
-  nextIdentifier,
-} from '@app/icon-pack-manager/util';
+import IconizePlugin from '@/main';
+import emoji from '@/emoji';
+import { type Icon } from '@/icon-pack-manager';
+import dom from '@/lib/util/dom';
+import { saveIconToIconPack } from '@/util';
+import { getSvgFromLoadedIcon, nextIdentifier } from '@/icon-pack-manager/util';
 
 export default class IconsPickerModal extends FuzzySuggestModal<any> {
   private plugin: IconizePlugin;

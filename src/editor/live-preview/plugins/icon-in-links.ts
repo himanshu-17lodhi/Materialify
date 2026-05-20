@@ -1,11 +1,11 @@
-import IconizePlugin from '@app/main';
+import IconizePlugin from '@/main';
 import {
   DecorationSet,
   EditorView,
   ViewPlugin,
   ViewUpdate,
 } from '@codemirror/view';
-import { buildLinkDecorations } from '@app/editor/live-preview/decorations';
+import { buildLinkDecorations } from '@/editor/live-preview/decorations';
 
 export const buildIconInLinksPlugin = (plugin: IconizePlugin) => {
   return ViewPlugin.fromClass(

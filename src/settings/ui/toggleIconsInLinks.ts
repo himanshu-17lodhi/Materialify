@@ -1,6 +1,6 @@
 import { Notice, Setting } from 'obsidian';
 import IconFolderSetting from './iconFolderSetting';
-import config from '@app/config';
+import config from '@/config';
 
 export default class ToggleIconsInLinks extends IconFolderSetting {
   public display(): void {

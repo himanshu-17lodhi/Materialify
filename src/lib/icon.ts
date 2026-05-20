@@ -1,22 +1,22 @@
-import { ExplorerView, TabHeaderLeaf } from '@app/@types/obsidian';
-import emoji from '@app/emoji';
-import IconizePlugin, { FolderIconObject } from '@app/main';
+import { ExplorerView, TabHeaderLeaf } from '@/@types/obsidian';
+import emoji from '@/emoji';
+import IconizePlugin, { FolderIconObject } from '@/main';
 import customRule from './custom-rule';
 import dom from './util/dom';
 import iconTabs from './icon-tabs';
-import { getFileItemInnerTitleEl, getFileItemTitleEl } from '@app/util';
-import config from '@app/config';
+import { getFileItemInnerTitleEl, getFileItemTitleEl } from '@/util';
+import config from '@/config';
 import { Notice, requireApiVersion } from 'obsidian';
 import { IconCache } from './icon-cache';
-import { logger } from './logger';
-import { Icon } from '@app/icon-pack-manager';
+import { logger } from './logger-service';
+import { Icon } from '@/icon-pack-manager';
 import {
   getNormalizedName,
   getSvgFromLoadedIcon,
   nextIdentifier,
-} from '@app/icon-pack-manager/util';
-import { LUCIDE_ICON_PACK_NAME } from '@app/icon-pack-manager/lucide';
-import * as materialIconTheme from '@app/material-icon-theme';
+} from '@/icon-pack-manager/util';
+import { LUCIDE_ICON_PACK_NAME } from '@/icon-pack-manager/lucide';
+import * as materialIconTheme from '@/material-icon-theme';
 
 const checkMissingIcons = async (
   plugin: IconizePlugin,

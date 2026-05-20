@@ -1,5 +1,5 @@
 import { it, describe, beforeEach, expect, vi, MockInstance } from 'vitest';
-import { DEFAULT_FILE_ICON } from '@app/util';
+import { DEFAULT_FILE_ICON } from '@/util';
 import iconTabs from '@/lib/icon-tabs';
 import dom from '@/lib/util/dom';
 import customRule from '@/lib/custom-rule';

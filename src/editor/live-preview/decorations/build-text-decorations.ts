@@ -1,7 +1,7 @@
-import IconizePlugin from '@app/main';
+import IconizePlugin from '@/main';
 import { Decoration, EditorView } from '@codemirror/view';
 import { editorLivePreviewField } from 'obsidian';
-import { IconInTextWidget } from '@app/editor/live-preview/widgets';
+import { IconInTextWidget } from '@/editor/live-preview/widgets';
 
 export const buildTextDecorations = (
   view: EditorView,

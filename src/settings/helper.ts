@@ -1,8 +1,8 @@
-import customRule from '@lib/custom-rule';
-import style from '@lib/util/style';
-import IconizePlugin from '@app/main';
-import { getFileItemTitleEl } from '@app/util';
-import svg from '@app/lib/util/svg';
+import customRule from '@/lib/custom-rule';
+import style from '@/lib/util/style';
+import IconizePlugin from '@/main';
+import { getFileItemTitleEl } from '@/util';
+import svg from '@/lib/util/svg';
 
 /**
  * Helper function that refreshes the style of all the icons that are defined

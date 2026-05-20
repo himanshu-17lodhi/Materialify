@@ -4,9 +4,7 @@
 
     "paths": {
       "@/*": ["src/*"],
-      "@tests/*": ["tests/*"],
-      "@app/*": ["src/*"],
-      "@lib/*": ["src/lib/*"]
+      "@tests/*": ["tests/*"]
     },
 
     "inlineSourceMap": true,

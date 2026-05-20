@@ -1,8 +1,8 @@
-import IconizePlugin from '@app/main';
-import config from '@app/config';
-import emoji from '@app/emoji';
+import IconizePlugin from '@/main';
+import config from '@/config';
+import emoji from '@/emoji';
 import svg from './util/svg';
-import { IconInTitlePosition } from '@app/settings/data';
+import { IconInTitlePosition } from '@/settings/data';
 
 const getTitleIcon = (leaf: HTMLElement): HTMLElement | null => {
   return leaf.querySelector(`.${config.TITLE_ICON_CLASS}`);

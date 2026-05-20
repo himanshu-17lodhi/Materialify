@@ -5,7 +5,7 @@ import {
   getSvgFromLoadedIcon,
   nextIdentifier,
 } from '@/icon-pack-manager/util';
-import IconizePlugin from '@app/main';
+import IconizePlugin from '@/main';
 import type { IconPack } from '@/icon-pack-manager/icon-pack';
 
 describe('getNormalizedName', () => {

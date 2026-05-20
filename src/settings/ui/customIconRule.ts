@@ -9,22 +9,22 @@ import {
   ToggleComponent,
 } from 'obsidian';
 import IconFolderSetting from './iconFolderSetting';
-import IconsPickerModal from '@app/ui/icons-picker-modal';
-import IconizePlugin from '@app/main';
+import IconsPickerModal from '@/ui/icons-picker-modal';
+import IconizePlugin from '@/main';
 import {
   getAllOpenedFiles,
   getFileItemTitleEl,
   removeIconFromIconPack,
   saveIconToIconPack,
-} from '@app/util';
+} from '@/util';
 import { CustomRule } from '../data';
-import customRule from '@lib/custom-rule';
-import iconTabs from '@lib/icon-tabs';
-import dom from '@lib/util/dom';
-import svg from '@lib/util/svg';
-import { TabHeaderLeaf } from '@app/@types/obsidian';
-import emoji from '@app/emoji';
-import { getNormalizedName } from '@app/icon-pack-manager/util';
+import customRule from '@/lib/custom-rule';
+import iconTabs from '@/lib/icon-tabs';
+import dom from '@/lib/util/dom';
+import svg from '@/lib/util/svg';
+import { TabHeaderLeaf } from '@/@types/obsidian';
+import emoji from '@/emoji';
+import { getNormalizedName } from '@/icon-pack-manager/util';
 
 export default class CustomIconRuleSetting extends IconFolderSetting {
   private app: App;

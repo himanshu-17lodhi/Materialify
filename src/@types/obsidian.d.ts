@@ -1,4 +1,4 @@
-import IconizeAPI from '@app/lib/api';
+import IconizeAPI from '@/lib/api';
 import {
   Editor,
   TAbstractFile,

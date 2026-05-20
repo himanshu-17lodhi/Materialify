@@ -1,9 +1,9 @@
 import { Plugin, TAbstractFile } from 'obsidian';
-import IconizePlugin from '@app/main';
-import { CustomRule } from '@app/settings/data';
-import { getFileItemTitleEl } from '@app/util';
-import config from '@app/config';
-import { FileItem } from '@app/@types/obsidian';
+import IconizePlugin from '@/main';
+import { CustomRule } from '@/settings/data';
+import { getFileItemTitleEl } from '@/util';
+import config from '@/config';
+import { FileItem } from '@/@types/obsidian';
 import { IconCache } from './icon-cache';
 import dom from './util/dom';
 

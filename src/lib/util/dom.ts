@@ -1,13 +1,10 @@
-import config from '@app/config';
-import IconizePlugin from '@app/main';
-// import { logger } from '@app/lib/logger';
+import config from '@/config';
+import IconizePlugin from '@/main';
+// import { logger } from '@/lib/logger-service';
 import style from './style';
 import svg from './svg';
-import emoji from '@app/emoji';
-import {
-  getSvgFromLoadedIcon,
-  nextIdentifier,
-} from '@app/icon-pack-manager/util';
+import emoji from '@/emoji';
+import { getSvgFromLoadedIcon, nextIdentifier } from '@/icon-pack-manager/util';
 
 /**
  * Removes the `iconize-icon` icon node from the provided HTMLElement.

@@ -1,10 +1,10 @@
 import { getIcon, getIconIds } from 'obsidian';
-import IconizePlugin from '@app/main';
+import IconizePlugin from '@/main';
 import { IconPackManager } from '.';
 import { getNormalizedName } from './util';
 import { IconPack } from './icon-pack';
-import { downloadZipFile } from '@app/zip-util';
-import predefinedIconPacks from '@app/icon-packs';
+import { downloadZipFile } from '@/zip-util';
+import predefinedIconPacks from '@/icon-packs';
 
 export const LUCIDE_ICON_PACK_NAME = 'lucide-icons';
 

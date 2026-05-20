@@ -1,4 +1,4 @@
-import IconizePlugin from '@app/main';
+import IconizePlugin from '@/main';
 import {
   Decoration,
   DecorationSet,
@@ -6,7 +6,7 @@ import {
   ViewPlugin,
   ViewUpdate,
 } from '@codemirror/view';
-import { buildTextDecorations } from '@app/editor/live-preview/decorations';
+import { buildTextDecorations } from '@/editor/live-preview/decorations';
 
 export const buildIconInTextPlugin = (plugin: IconizePlugin) => {
   return ViewPlugin.fromClass(

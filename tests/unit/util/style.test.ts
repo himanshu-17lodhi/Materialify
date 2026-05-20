@@ -7,7 +7,7 @@ import {
   it,
   vi,
 } from 'vitest';
-import * as util from '@app/util';
+import * as util from '@/util';
 import svg from '@/lib/util/svg';
 import style from '@/lib/util/style';
 

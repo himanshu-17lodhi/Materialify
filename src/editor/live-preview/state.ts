@@ -2,7 +2,7 @@
 // performance.
 
 import { syntaxTree, tokenClassNodeProp } from '@codemirror/language';
-import icon from '@app/lib/icon';
+import icon from '@/lib/icon';
 import {
   EditorState,
   Range,
@@ -11,8 +11,8 @@ import {
   RangeValue,
   StateField,
 } from '@codemirror/state';
-import IconizePlugin from '@app/main';
-import emoji from '@app/emoji';
+import IconizePlugin from '@/main';
+import emoji from '@/emoji';
 
 export type PositionField = StateField<RangeSet<IconPosition>>;
 

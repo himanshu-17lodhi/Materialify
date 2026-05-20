@@ -1,13 +1,13 @@
-import IconizePlugin, { FolderIconObject } from '@app/main';
+import IconizePlugin, { FolderIconObject } from '@/main';
 import {
   DEFAULT_FILE_DARK_ICON,
   DEFAULT_FILE_ICON,
   getAllOpenedFiles,
-} from '@app/util';
-import { TabHeaderLeaf } from '@app/@types/obsidian';
+} from '@/util';
+import { TabHeaderLeaf } from '@/@types/obsidian';
 import customRule from './custom-rule';
 import dom from './util/dom';
-import * as materialIconTheme from '@app/material-icon-theme';
+import * as materialIconTheme from '@/material-icon-theme';
 import { IconCache } from './icon-cache';
 
 /**

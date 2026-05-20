@@ -50,10 +50,6 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
 
       '@tests': resolve(__dirname, './tests'),
-
-      '@app': resolve(__dirname, './src'),
-
-      '@lib': resolve(__dirname, './src/lib'),
     },
   },
 });

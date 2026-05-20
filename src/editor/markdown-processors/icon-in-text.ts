@@ -1,16 +1,16 @@
 // TODO: Optimize the code to reduce the number of iterations and improve the
 // performance.
 
-import svg from '@app/lib/util/svg';
-import icon from '@app/lib/icon';
+import svg from '@/lib/util/svg';
+import icon from '@/lib/icon';
 import {
   HTMLHeader,
   calculateFontTextSize,
   calculateHeaderSize,
   isHeader,
-} from '@app/lib/util/text';
-import IconizePlugin from '@app/main';
-import emoji from '@app/emoji';
+} from '@/lib/util/text';
+import IconizePlugin from '@/main';
+import emoji from '@/emoji';
 
 export const createIconShortcodeRegex = (plugin: IconizePlugin): RegExp => {
   return new RegExp(

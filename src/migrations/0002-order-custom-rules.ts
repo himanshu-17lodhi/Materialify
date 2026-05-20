@@ -1,4 +1,4 @@
-import IconizePlugin from '@app/main';
+import IconizePlugin from '@/main';
 
 export default async function migrate(plugin: IconizePlugin): Promise<void> {
   // Migration for new order functionality of custom rules.

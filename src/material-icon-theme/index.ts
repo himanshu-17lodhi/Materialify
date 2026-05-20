@@ -1,17 +1,14 @@
 import type { TAbstractFile } from 'obsidian';
-import type { FileItem, ExplorerView } from '@app/@types/obsidian';
-import type IconizePlugin from '@app/main';
-import { Icon } from '@app/icon-pack-manager';
-import { IconPack } from '@app/icon-pack-manager/icon-pack';
-import { generateIcon, getNormalizedName } from '@app/icon-pack-manager/util';
-import customRule from '@app/lib/custom-rule';
-import { IconCache } from '@app/lib/icon-cache';
-import dom from '@app/lib/util/dom';
-import emoji from '@app/emoji';
-import {
-  getSvgFromLoadedIcon,
-  nextIdentifier,
-} from '@app/icon-pack-manager/util';
+import type { FileItem, ExplorerView } from '@/@types/obsidian';
+import type IconizePlugin from '@/main';
+import { Icon } from '@/icon-pack-manager';
+import { IconPack } from '@/icon-pack-manager/icon-pack';
+import { generateIcon, getNormalizedName } from '@/icon-pack-manager/util';
+import customRule from '@/lib/custom-rule';
+import { IconCache } from '@/lib/icon-cache';
+import dom from '@/lib/util/dom';
+import emoji from '@/emoji';
+import { getSvgFromLoadedIcon, nextIdentifier } from '@/icon-pack-manager/util';
 import {
   DEFAULT_FILE_DARK_ICON,
   DEFAULT_FILE_ICON,
@@ -20,8 +17,8 @@ import {
   DEFAULT_FOLDER_OPEN_DARK_ICON,
   DEFAULT_FOLDER_OPEN_ICON,
   getFileItemTitleEl,
-} from '@app/util';
-import config from '@app/config';
+} from '@/util';
+import config from '@/config';
 import {
   materialIconThemeManifest,
   materialIconThemeSvgByName,

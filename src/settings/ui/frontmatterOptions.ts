@@ -1,9 +1,9 @@
 import { Setting, TextComponent } from 'obsidian';
 import IconFolderSetting from './iconFolderSetting';
 import { Notice } from 'obsidian';
-import config from '@app/config';
-import { isHexadecimal, stringToHex } from '@app/util';
-import { logger } from '@app/lib/logger';
+import config from '@/config';
+import { isHexadecimal, stringToHex } from '@/util';
+import { logger } from '@/lib/logger-service';
 
 export default class FrontmatterOptions extends IconFolderSetting {
   private iconFieldNameTextComp: TextComponent;

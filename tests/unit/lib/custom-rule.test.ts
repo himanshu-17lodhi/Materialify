@@ -1,7 +1,7 @@
 import { vi, it, describe, beforeEach, expect, MockInstance } from 'vitest';
 import { Plugin, TAbstractFile } from 'obsidian';
-import { CustomRule } from '@app/settings/data';
-import config from '@app/config';
+import { CustomRule } from '@/settings/data';
+import config from '@/config';
 import dom from '@/lib/util/dom';
 import customRule, { CustomRuleFileType } from '@/lib/custom-rule';
 

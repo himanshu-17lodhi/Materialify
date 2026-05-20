@@ -1,6 +1,6 @@
 import { Setting } from 'obsidian';
-import IconizePlugin from '@app/main';
-import * as materialIconTheme from '@app/material-icon-theme';
+import IconizePlugin from '@/main';
+import * as materialIconTheme from '@/material-icon-theme';
 
 export default class ToggleAutomaticMaterialIconTheme {
   private plugin: IconizePlugin;

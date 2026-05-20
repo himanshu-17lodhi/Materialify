@@ -1,7 +1,7 @@
 import { App, Modal, ColorComponent, ButtonComponent, Notice } from 'obsidian';
-import IconizePlugin from '@app/main';
-import svg from '@app/lib/util/svg';
-import dom from '@app/lib/util/dom';
+import IconizePlugin from '@/main';
+import svg from '@/lib/util/svg';
+import dom from '@/lib/util/dom';
 
 const PREDEFINED_COLORS = [
   '#272727',

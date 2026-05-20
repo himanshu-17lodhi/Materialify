@@ -1,11 +1,11 @@
-import config from '@app/config';
-import { logger } from '@app/lib/logger';
-import IconizePlugin from '@app/main';
+import config from '@/config';
+import { logger } from '@/lib/logger-service';
+import IconizePlugin from '@/main';
 import { Notice } from 'obsidian';
 import { generateIcon, getNormalizedName } from './util';
 import JSZip from 'jszip';
-import { getExtraPath } from '@app/icon-packs';
-import { getFileFromJSZipFile } from '@app/zip-util';
+import { getExtraPath } from '@/icon-packs';
+import { getFileFromJSZipFile } from '@/zip-util';
 import { IconPack } from './icon-pack';
 import { Icon } from '.';
 

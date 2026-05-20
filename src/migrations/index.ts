@@ -1,4 +1,4 @@
-import IconizePlugin from '@app/main';
+import IconizePlugin from '@/main';
 import migrate0001 from './0001-change-migrated-true-to-1';
 import migrate0002 from './0002-order-custom-rules';
 import migrate0003 from './0003-inheritance-to-custom-rule';

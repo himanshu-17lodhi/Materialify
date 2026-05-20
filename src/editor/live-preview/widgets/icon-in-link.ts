@@ -1,12 +1,12 @@
-import emoji from '@app/emoji';
-import { Icon } from '@app/icon-pack-manager';
+import emoji from '@/emoji';
+import { Icon } from '@/icon-pack-manager';
 import {
   calculateFontTextSize,
   calculateHeaderSize,
   HeaderToken,
-} from '@app/lib/util/text';
-import svg from '@app/lib/util/svg';
-import IconizePlugin from '@app/main';
+} from '@/lib/util/text';
+import svg from '@/lib/util/svg';
+import IconizePlugin from '@/main';
 import { WidgetType } from '@codemirror/view';
 
 export class IconInLinkWidget extends WidgetType {

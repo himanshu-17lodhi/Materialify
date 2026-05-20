@@ -1,17 +1,17 @@
 import { around } from 'monkey-around';
 import { requireApiVersion, View, WorkspaceLeaf } from 'obsidian';
-import InternalPluginInjector from '@app/@types/internal-plugin-injector';
-import { BookmarkItem, BookmarkItemValue } from '@app/@types/obsidian';
-import dom from '@lib/util/dom';
-import icon from '@lib/icon';
-import IconizePlugin from '@app/main';
-import config from '@app/config';
+import InternalPluginInjector from '@/@types/internal-plugin-injector';
+import { BookmarkItem, BookmarkItemValue } from '@/@types/obsidian';
+import dom from '@/lib/util/dom';
+import icon from '@/lib/icon';
+import IconizePlugin from '@/main';
+import config from '@/config';
 import {
   DEFAULT_FILE_DARK_ICON,
   DEFAULT_FILE_ICON,
   DEFAULT_FOLDER_DARK_ICON,
   DEFAULT_FOLDER_ICON,
-} from '@app/util';
+} from '@/util';
 
 interface BookmarksView extends View {
   itemDoms: WeakMap<BookmarkItem, BookmarkItemValue>;

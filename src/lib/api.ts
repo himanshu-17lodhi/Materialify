@@ -1,13 +1,13 @@
-import IconizePlugin from '@app/main';
-import dom from '@lib/util/dom';
-import svg from '@lib/util/svg';
-import icon from '@lib/icon';
+import IconizePlugin from '@/main';
+import dom from '@/lib/util/dom';
+import svg from '@/lib/util/svg';
+import icon from '@/lib/icon';
 import { EventEmitter } from './event/event';
-import { removeIconFromIconPack, saveIconToIconPack } from '@app/util';
-import { Icon } from '@app/icon-pack-manager';
-import { IconPack } from '@app/icon-pack-manager/icon-pack';
+import { removeIconFromIconPack, saveIconToIconPack } from '@/util';
+import { Icon } from '@/icon-pack-manager';
+import { IconPack } from '@/icon-pack-manager/icon-pack';
 
-export { AllIconsLoadedEvent } from '@lib/event/events';
+export { AllIconsLoadedEvent } from '@/lib/event/events';
 
 export default interface IconizeAPI {
   getEventEmitter(): EventEmitter;

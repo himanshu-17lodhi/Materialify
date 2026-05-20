@@ -1,14 +1,14 @@
-import emoji from '@app/emoji';
-import svg from '@app/lib/util/svg';
-import icon from '@app/lib/icon';
-import { logger } from '@app/lib/logger';
+import emoji from '@/emoji';
+import svg from '@/lib/util/svg';
+import icon from '@/lib/icon';
+import { logger } from '@/lib/logger-service';
 import {
   calculateFontTextSize,
   calculateHeaderSize,
   HTMLHeader,
   isHeader,
-} from '@app/lib/util/text';
-import IconizePlugin from '@app/main';
+} from '@/lib/util/text';
+import IconizePlugin from '@/main';
 import { MarkdownPostProcessorContext } from 'obsidian';
 
 export const processIconInLinkMarkdown = (

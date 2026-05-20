@@ -1,6 +1,6 @@
-import { logger } from '@app/lib/logger';
+import { logger } from '@/lib/logger-service';
 import { generateIcon, getNormalizedName } from './util';
-import IconizePlugin from '@app/main';
+import IconizePlugin from '@/main';
 import { Icon } from '.';
 
 export class IconPack {

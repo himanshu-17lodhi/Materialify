@@ -1,4 +1,4 @@
-import IconizePlugin from '@app/main';
+import IconizePlugin from '@/main';
 
 export default abstract class IconFolderSetting {
   protected plugin: IconizePlugin;

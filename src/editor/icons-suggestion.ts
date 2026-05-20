@@ -6,10 +6,10 @@ import {
   EditorSuggestContext,
   EditorSuggestTriggerInfo,
 } from 'obsidian';
-import icon from '@app/lib/icon';
-import emoji from '@app/emoji';
-import { saveIconToIconPack } from '@app/util';
-import IconizePlugin from '@app/main';
+import icon from '@/lib/icon';
+import emoji from '@/emoji';
+import { saveIconToIconPack } from '@/util';
+import IconizePlugin from '@/main';
 
 export default class SuggestionIcon extends EditorSuggest<string> {
   constructor(

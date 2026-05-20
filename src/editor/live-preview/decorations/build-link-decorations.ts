@@ -1,11 +1,11 @@
-import IconizePlugin from '@app/main';
+import IconizePlugin from '@/main';
 import { Decoration, EditorView } from '@codemirror/view';
 import { MarkdownView, editorInfoField } from 'obsidian';
 import { RangeSetBuilder } from '@codemirror/state';
 import { syntaxTree, tokenClassNodeProp } from '@codemirror/language';
-import icon from '@lib/icon';
-import { IconInLinkWidget } from '@app/editor/live-preview/widgets';
-import { HeaderToken } from '@app/lib/util/text';
+import icon from '@/lib/icon';
+import { IconInLinkWidget } from '@/editor/live-preview/widgets';
+import { HeaderToken } from '@/lib/util/text';
 
 export const buildLinkDecorations = (
   view: EditorView,

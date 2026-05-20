@@ -1,17 +1,17 @@
-import config from '@app/config';
+import config from '@/config';
 import { Notice } from 'obsidian';
 import { LUCIDE_ICON_PACK_NAME, LucideIconPack } from './lucide';
-import IconizePlugin from '@app/main';
+import IconizePlugin from '@/main';
 import { FileManager } from './file-manager';
 import { IconPack } from './icon-pack';
-import { readZipFile } from '@app/zip-util';
-import { logger } from '@app/lib/logger';
+import { readZipFile } from '@/zip-util';
+import { logger } from '@/lib/logger-service';
 import JSZip from 'jszip';
 import { generateIcon, getNormalizedName, nextIdentifier } from './util';
 import {
   createMaterialIconPack,
   MATERIAL_ICON_PACK_NAME,
-} from '@app/material-icon-theme';
+} from '@/material-icon-theme';
 
 export interface Icon {
   name: string;

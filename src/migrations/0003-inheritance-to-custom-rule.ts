@@ -1,7 +1,7 @@
-import config from '@app/config';
-import customRule from '@app/lib/custom-rule';
-import IconizePlugin from '@app/main';
-import { CustomRule } from '@app/settings/data';
+import config from '@/config';
+import customRule from '@/lib/custom-rule';
+import IconizePlugin from '@/main';
+import { CustomRule } from '@/settings/data';
 import { Notice } from 'obsidian';
 
 interface FolderIconObject {

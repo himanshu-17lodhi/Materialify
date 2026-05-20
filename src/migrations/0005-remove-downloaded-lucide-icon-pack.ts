@@ -1,5 +1,5 @@
-import { LUCIDE_ICON_PACK_NAME } from '@app/icon-pack-manager/lucide';
-import IconizePlugin from '@app/main';
+import { LUCIDE_ICON_PACK_NAME } from '@/icon-pack-manager/lucide';
+import IconizePlugin from '@/main';
 
 export default async function migrate(plugin: IconizePlugin): Promise<void> {
   if (plugin.getSettings().migrated === 5) {
