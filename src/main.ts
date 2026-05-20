@@ -21,7 +21,7 @@ import IconFolderSettingsUI from './settings/ui';
 import StarredInternalPlugin from './internal-plugins/starred';
 import InternalPluginInjector from './@types/internal-plugin-injector';
 import iconTabs from './lib/icon-tabs';
-import dom from './lib/util/dom';
+import dom from '@/utils/dom';
 import customRule from './lib/custom-rule';
 import icon from './lib/icon';
 import BookmarkInternalPlugin from './internal-plugins/bookmark';
@@ -43,7 +43,7 @@ import {
   buildIconInTextPlugin,
 } from './editor/live-preview';
 import { PositionField, buildPositionField } from './editor/live-preview/state';
-import { calculateInlineTitleSize } from './lib/util/text';
+import { calculateInlineTitleSize } from '@/utils/text';
 import {
   processIconInTextMarkdown,
   processIconInLinkMarkdown,

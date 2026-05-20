@@ -4,8 +4,8 @@ import {
   calculateFontTextSize,
   calculateHeaderSize,
   HeaderToken,
-} from '@/lib/util/text';
-import svg from '@/lib/util/svg';
+} from '@/utils/text';
+import svg from '@/utils/svg';
 import IconizePlugin from '@/main';
 import { WidgetType } from '@codemirror/view';
 

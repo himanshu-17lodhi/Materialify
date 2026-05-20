@@ -1,7 +1,7 @@
 import { it, describe, beforeEach, expect, vi, MockInstance } from 'vitest';
 import { DEFAULT_FILE_ICON } from '@/util';
 import iconTabs from '@/lib/icon-tabs';
-import dom from '@/lib/util/dom';
+import dom from '@/utils/dom';
 import customRule from '@/lib/custom-rule';
 
 describe('getTabLeavesOfFilePath', () => {

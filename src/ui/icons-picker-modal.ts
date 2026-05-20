@@ -2,7 +2,7 @@ import { App, FuzzyMatch, FuzzySuggestModal } from 'obsidian';
 import IconizePlugin from '@/main';
 import emoji from '@/emoji';
 import { type Icon } from '@/icon-pack-manager';
-import dom from '@/lib/util/dom';
+import dom from '@/utils/dom';
 import { saveIconToIconPack } from '@/util';
 import { getSvgFromLoadedIcon, nextIdentifier } from '@/icon-pack-manager/util';
 

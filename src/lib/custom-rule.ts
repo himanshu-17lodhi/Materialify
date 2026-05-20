@@ -5,7 +5,7 @@ import { getFileItemTitleEl } from '@/util';
 import config from '@/config';
 import { FileItem } from '@/@types/obsidian';
 import { IconCache } from './icon-cache';
-import dom from './util/dom';
+import dom from '@/utils/dom';
 
 export type CustomRuleFileType = 'file' | 'folder';
 

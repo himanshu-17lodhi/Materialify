@@ -2,7 +2,7 @@ import { around } from 'monkey-around';
 import { View } from 'obsidian';
 import InternalPluginInjector from '@/@types/internal-plugin-injector';
 import { StarredFile } from '@/@types/obsidian';
-import dom from '@/lib/util/dom';
+import dom from '@/utils/dom';
 import icon from '@/lib/icon';
 import config from '@/config';
 import IconizePlugin from '@/main';

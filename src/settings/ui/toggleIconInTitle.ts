@@ -1,5 +1,5 @@
 import { DropdownComponent, MarkdownView, Setting } from 'obsidian';
-import { calculateInlineTitleSize } from '@/lib/util/text';
+import { calculateInlineTitleSize } from '@/utils/text';
 import IconFolderSetting from './iconFolderSetting';
 import icon from '@/lib/icon';
 import titleIcon from '@/lib/icon-title';

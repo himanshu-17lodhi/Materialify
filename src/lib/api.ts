@@ -1,6 +1,6 @@
 import IconizePlugin from '@/main';
-import dom from '@/lib/util/dom';
-import svg from '@/lib/util/svg';
+import dom from '@/utils/dom';
+import svg from '@/utils/svg';
 import icon from '@/lib/icon';
 import { EventEmitter } from './event/event';
 import { removeIconFromIconPack, saveIconToIconPack } from '@/util';

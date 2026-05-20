@@ -6,7 +6,7 @@ import { IconPack } from '@/icon-pack-manager/icon-pack';
 import { generateIcon, getNormalizedName } from '@/icon-pack-manager/util';
 import customRule from '@/lib/custom-rule';
 import { IconCache } from '@/lib/icon-cache';
-import dom from '@/lib/util/dom';
+import dom from '@/utils/dom';
 import emoji from '@/emoji';
 import { getSvgFromLoadedIcon, nextIdentifier } from '@/icon-pack-manager/util';
 import {

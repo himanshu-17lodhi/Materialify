@@ -1,7 +1,7 @@
 import IconizePlugin from '@/main';
 import config from '@/config';
 import emoji from '@/emoji';
-import svg from './util/svg';
+import svg from '@/utils/svg';
 import { IconInTitlePosition } from '@/settings/data';
 
 const getTitleIcon = (leaf: HTMLElement): HTMLElement | null => {

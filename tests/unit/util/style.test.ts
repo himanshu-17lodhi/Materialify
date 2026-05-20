@@ -8,8 +8,8 @@ import {
   vi,
 } from 'vitest';
 import * as util from '@/util';
-import svg from '@/lib/util/svg';
-import style from '@/lib/util/style';
+import svg from '@/utils/svg';
+import style from '@/utils/style';
 
 describe('setMargin', () => {
   it('should set the margin of an element', () => {

@@ -1,8 +1,8 @@
 import { beforeEach, it, expect, describe, vi, MockInstance } from 'vitest';
 import * as util from '@/icon-pack-manager/util';
-import dom from '@/lib/util/dom';
-import svg from '@/lib/util/svg';
-import style from '@/lib/util/style';
+import dom from '@/utils/dom';
+import svg from '@/utils/svg';
+import style from '@/utils/style';
 import twemoji from '@twemoji/api';
 
 describe('removeIconInNode', () => {

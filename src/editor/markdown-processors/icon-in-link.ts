@@ -1,5 +1,5 @@
 import emoji from '@/emoji';
-import svg from '@/lib/util/svg';
+import svg from '@/utils/svg';
 import icon from '@/lib/icon';
 import { logger } from '@/lib/logger-service';
 import {
@@ -7,7 +7,7 @@ import {
   calculateHeaderSize,
   HTMLHeader,
   isHeader,
-} from '@/lib/util/text';
+} from '@/utils/text';
 import IconizePlugin from '@/main';
 import { MarkdownPostProcessorContext } from 'obsidian';
 

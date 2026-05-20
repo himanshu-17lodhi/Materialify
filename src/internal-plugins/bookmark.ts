@@ -2,7 +2,7 @@ import { around } from 'monkey-around';
 import { requireApiVersion, View, WorkspaceLeaf } from 'obsidian';
 import InternalPluginInjector from '@/@types/internal-plugin-injector';
 import { BookmarkItem, BookmarkItemValue } from '@/@types/obsidian';
-import dom from '@/lib/util/dom';
+import dom from '@/utils/dom';
 import icon from '@/lib/icon';
 import IconizePlugin from '@/main';
 import config from '@/config';

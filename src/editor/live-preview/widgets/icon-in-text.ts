@@ -1,11 +1,11 @@
 import emoji from '@/emoji';
 import icon from '@/lib/icon';
-import svg from '@/lib/util/svg';
+import svg from '@/utils/svg';
 import {
   HTMLHeader,
   calculateFontTextSize,
   calculateHeaderSize,
-} from '@/lib/util/text';
+} from '@/utils/text';
 import IconizePlugin from '@/main';
 import { EditorView, WidgetType } from '@codemirror/view';
 

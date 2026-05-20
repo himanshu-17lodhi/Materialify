@@ -1,14 +1,14 @@
 import { MarkdownView, Setting } from 'obsidian';
 import emoji from '@/emoji';
 import customRule from '@/lib/custom-rule';
-import dom from '@/lib/util/dom';
+import dom from '@/utils/dom';
 import { FolderIconObject } from '@/main';
 import iconTabs from '@/lib/icon-tabs';
 import IconFolderSetting from './iconFolderSetting';
 import titleIcon from '@/lib/icon-title';
 import { getAllOpenedFiles } from '@/util';
 import { InlineTitleView } from '@/@types/obsidian';
-import { calculateInlineTitleSize } from '@/lib/util/text';
+import { calculateInlineTitleSize } from '@/utils/text';
 
 export default class EmojiStyleSetting extends IconFolderSetting {
   public display(): void {

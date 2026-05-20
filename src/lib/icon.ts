@@ -2,7 +2,7 @@ import { ExplorerView, TabHeaderLeaf } from '@/@types/obsidian';
 import emoji from '@/emoji';
 import IconizePlugin, { FolderIconObject } from '@/main';
 import customRule from './custom-rule';
-import dom from './util/dom';
+import dom from '@/utils/dom';
 import iconTabs from './icon-tabs';
 import { getFileItemInnerTitleEl, getFileItemTitleEl } from '@/util';
 import config from '@/config';

@@ -6,7 +6,7 @@ import {
   isHeader,
   isPx,
   pxToRem,
-} from '@/lib/util/text';
+} from '@/utils/text';
 
 describe('calculateFontTextSize', () => {
   it('should return the font text size from document body', () => {

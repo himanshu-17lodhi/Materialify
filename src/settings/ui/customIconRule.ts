@@ -20,8 +20,8 @@ import {
 import { CustomRule } from '../data';
 import customRule from '@/lib/custom-rule';
 import iconTabs from '@/lib/icon-tabs';
-import dom from '@/lib/util/dom';
-import svg from '@/lib/util/svg';
+import dom from '@/utils/dom';
+import svg from '@/utils/svg';
 import { TabHeaderLeaf } from '@/@types/obsidian';
 import emoji from '@/emoji';
 import { getNormalizedName } from '@/icon-pack-manager/util';

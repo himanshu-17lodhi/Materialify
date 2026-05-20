@@ -1,14 +1,14 @@
 // TODO: Optimize the code to reduce the number of iterations and improve the
 // performance.
 
-import svg from '@/lib/util/svg';
+import svg from '@/utils/svg';
 import icon from '@/lib/icon';
 import {
   HTMLHeader,
   calculateFontTextSize,
   calculateHeaderSize,
   isHeader,
-} from '@/lib/util/text';
+} from '@/utils/text';
 import IconizePlugin from '@/main';
 import emoji from '@/emoji';
 

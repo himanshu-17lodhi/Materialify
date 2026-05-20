@@ -1,6 +1,6 @@
 import { logger } from '@/lib/logger-service';
 import { IconPack } from './icon-pack';
-import svg from '@/lib/util/svg';
+import svg from '@/utils/svg';
 import { Icon } from '.';
 import IconizePlugin from '@/main';
 

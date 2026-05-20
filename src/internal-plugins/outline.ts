@@ -1,6 +1,6 @@
 import InternalPluginInjector from '@/@types/internal-plugin-injector';
 import { createIconShortcodeRegex } from '@/editor/markdown-processors';
-import svg from '@/lib/util/svg';
+import svg from '@/utils/svg';
 import icon from '@/lib/icon';
 import { LoggerPrefix, logger } from '@/lib/logger-service';
 import IconizePlugin from '@/main';

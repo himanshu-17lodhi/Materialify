@@ -5,7 +5,7 @@ import { RangeSetBuilder } from '@codemirror/state';
 import { syntaxTree, tokenClassNodeProp } from '@codemirror/language';
 import icon from '@/lib/icon';
 import { IconInLinkWidget } from '@/editor/live-preview/widgets';
-import { HeaderToken } from '@/lib/util/text';
+import { HeaderToken } from '@/utils/text';
 
 export const buildLinkDecorations = (
   view: EditorView,

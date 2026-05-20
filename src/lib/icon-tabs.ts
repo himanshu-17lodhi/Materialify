@@ -6,7 +6,7 @@ import {
 } from '@/util';
 import { TabHeaderLeaf } from '@/@types/obsidian';
 import customRule from './custom-rule';
-import dom from './util/dom';
+import dom from '@/utils/dom';
 import * as materialIconTheme from '@/material-icon-theme';
 import { IconCache } from './icon-cache';
 
