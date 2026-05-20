@@ -84,7 +84,7 @@ export default class IconizePlugin extends Plugin {
   private automaticIconRefreshQueue = new Set<string>();
   private automaticIconRefreshTimeout: number | null = null;
 
-  private iconPackManager: IconPackManager;
+  public iconPackManager: IconPackManager;
 
   public api: IconizeAPI;
 
@@ -244,9 +244,6 @@ export default class IconizePlugin extends Plugin {
     );
 
     registerWorkspaceEvents(this);
-    // this.registerEvent(
-    //   this.app.workspace.on('layout-change', () => this.handleChangeLayout()),
-    // );
 
     this.registerEvent(
       this.app.workspace.on('file-menu', (menu, file: TFile) => {
