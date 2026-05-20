@@ -7,12 +7,16 @@ import {
   MarkdownView,
   Notice,
 } from 'obsidian';
+
+import { registerWorkspaceEvents } from '@/plugin/workspace-events';
+
 import {
   EditorWithEditorComponent,
   ExplorerView,
   InlineTitleView,
   TabHeaderLeaf,
 } from './@types/obsidian';
+
 import { existsSync, mkdirSync } from 'node:fs';
 import IconsPickerModal from './ui/icons-picker-modal';
 import { DEFAULT_SETTINGS, IconFolderSettings } from '@/settings/data';
@@ -240,9 +244,10 @@ export default class IconizePlugin extends Plugin {
       }),
     );
 
-    this.registerEvent(
-      this.app.workspace.on('layout-change', () => this.handleChangeLayout()),
-    );
+    registerWorkspaceEvents(this);
+    // this.registerEvent(
+    //   this.app.workspace.on('layout-change', () => this.handleChangeLayout()),
+    // );
 
     this.registerEvent(
       this.app.workspace.on('file-menu', (menu, file: TFile) => {
@@ -558,7 +563,8 @@ export default class IconizePlugin extends Plugin {
     }
   }
 
-  private handleChangeLayout(): void {
+  //private handleChangeLayout(): void {
+  public handleChangeLayout(): void {
     console.log('[Iconize] Layout change detected, refreshing icons...');
     // Transform data that are objects to single strings.
     const data = Object.entries(this.data) as [
@@ -919,18 +925,18 @@ export default class IconizePlugin extends Plugin {
         }),
       );
 
-      this.registerEvent(
-        this.app.workspace.on('css-change', () => {
-          for (const openedFile of getAllOpenedFiles(this)) {
-            const activeView = openedFile.leaf.view as InlineTitleView;
-            if (activeView instanceof MarkdownView) {
-              titleIcon.updateStyle(activeView.inlineTitleEl, {
-                fontSize: calculateInlineTitleSize(),
-              });
-            }
-          }
-        }),
-      );
+      // this.registerEvent(
+      //   this.app.workspace.on('css-change', () => {
+      //     for (const openedFile of getAllOpenedFiles(this)) {
+      //       const activeView = openedFile.leaf.view as InlineTitleView;
+      //       if (activeView instanceof MarkdownView) {
+      //         titleIcon.updateStyle(activeView.inlineTitleEl, {
+      //           fontSize: calculateInlineTitleSize(),
+      //         });
+      //       }
+      //     }
+      //   }),
+      // );
     });
   }
 
