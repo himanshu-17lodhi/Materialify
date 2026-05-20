@@ -50,7 +50,7 @@ import {
 } from './editor/markdown-processors';
 import ChangeColorModal from './ui/change-color-modal';
 import { logger } from '@/lib/logger-service';
-import { EventEmitter } from './lib/event/event';
+import { EventEmitter } from '@/events/emitter';
 import IconizeAPI, { getApi } from './lib/api';
 import { Icon, IconPackManager } from './icon-pack-manager';
 import {

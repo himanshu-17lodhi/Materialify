@@ -1,4 +1,4 @@
-import { Event } from './event';
+import { Event } from '@/events/emitter';
 
 export type AllIconsLoadedEvent = Event<undefined>;
 
