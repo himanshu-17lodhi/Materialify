@@ -2,7 +2,6 @@ import {
   Plugin,
   MenuItem,
   TFile,
-  WorkspaceLeaf,
   requireApiVersion,
   MarkdownView,
   Notice,
@@ -884,59 +883,6 @@ export default class IconizePlugin extends Plugin {
           }
         }),
       );
-
-      // Register active leaf change event for adding icon of file to tab.
-      this.registerEvent(
-        this.app.workspace.on('active-leaf-change', (leaf: WorkspaceLeaf) => {
-          if (!this.getSettings().iconInTabsEnabled) {
-            return;
-          }
-
-          // TODO: Maybe change in the future to a more optimal solution.
-          // Fixes a problem when the file was clicked twice in the same tab.
-          // See https://github.com/himanshu-17lodhi/obsidian-iconize/issues/208.
-          if (leaf.view.getViewType() === 'file-explorer') {
-            for (const openedFile of getAllOpenedFiles(this)) {
-              const leaf = openedFile.leaf as TabHeaderLeaf;
-              const iconColor = this.getIconColor(leaf.view.file.path);
-              iconTabs.add(this, openedFile.path, leaf.tabHeaderInnerIconEl, {
-                iconColor,
-              });
-            }
-            return;
-          }
-
-          if (leaf.view.getViewType() !== 'markdown') {
-            return;
-          }
-
-          const tabHeaderLeaf = leaf as TabHeaderLeaf;
-          if (tabHeaderLeaf.view.file) {
-            const iconColor = this.getIconColor(tabHeaderLeaf.view.file.path);
-            iconTabs.add(
-              this,
-              tabHeaderLeaf.view.file.path,
-              tabHeaderLeaf.tabHeaderInnerIconEl,
-              {
-                iconColor,
-              },
-            );
-          }
-        }),
-      );
-
-      // this.registerEvent(
-      //   this.app.workspace.on('css-change', () => {
-      //     for (const openedFile of getAllOpenedFiles(this)) {
-      //       const activeView = openedFile.leaf.view as InlineTitleView;
-      //       if (activeView instanceof MarkdownView) {
-      //         titleIcon.updateStyle(activeView.inlineTitleEl, {
-      //           fontSize: calculateInlineTitleSize(),
-      //         });
-      //       }
-      //     }
-      //   }),
-      // );
     });
   }
 
