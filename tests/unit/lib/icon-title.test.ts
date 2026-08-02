@@ -72,7 +72,7 @@ describe('add', () => {
     const parentEl = document.createElement('div');
     const inlineTitleEl = document.createElement('div');
     const titleIconEl = document.createElement('div');
-    titleIconEl.classList.add(config.TITLE_ICON_CLASS);
+    titleIconEl.classList.add(config.CSS_PREFIX);
     parentEl.appendChild(titleIconEl);
     parentEl.appendChild(inlineTitleEl);
 
@@ -115,7 +115,7 @@ describe('updateStyle', () => {
     const parentEl = document.createElement('div');
     const inlineTitleEl = document.createElement('div');
     inlineTitleEl.innerHTML = '<svg></svg>';
-    inlineTitleEl.classList.add(config.TITLE_ICON_CLASS);
+    inlineTitleEl.classList.add(config.CSS_PREFIX);
     parentEl.appendChild(inlineTitleEl);
 
     titleIcon.updateStyle(inlineTitleEl, { fontSize: 10 });
@@ -127,7 +127,7 @@ describe('updateStyle', () => {
     const parentEl = document.createElement('div');
     const inlineTitleEl = document.createElement('div');
     inlineTitleEl.innerHTML = '👍';
-    inlineTitleEl.classList.add(config.TITLE_ICON_CLASS);
+    inlineTitleEl.classList.add(config.CSS_PREFIX);
     parentEl.appendChild(inlineTitleEl);
 
     titleIcon.updateStyle(inlineTitleEl, { fontSize: 10 });
@@ -139,7 +139,7 @@ describe('hide', () => {
   it('should set the `display` style to `none`, if the title icon element exists', () => {
     const parentEl = document.createElement('div');
     const titleIconEl = document.createElement('div');
-    titleIconEl.classList.add(config.TITLE_ICON_CLASS);
+    titleIconEl.classList.add(config.CSS_PREFIX);
     const inlineTitleEl = document.createElement('div');
     parentEl.appendChild(titleIconEl);
     parentEl.appendChild(inlineTitleEl);
@@ -168,7 +168,7 @@ describe('remove', () => {
   it('should remove the title icon element, if the title icon element exists', () => {
     const parentEl = document.createElement('div');
     const titleIconEl = document.createElement('div');
-    titleIconEl.classList.add(config.TITLE_ICON_CLASS);
+    titleIconEl.classList.add(config.CSS_PREFIX);
     const inlineTitleEl = document.createElement('div');
     parentEl.appendChild(titleIconEl);
     parentEl.appendChild(inlineTitleEl);

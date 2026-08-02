@@ -124,7 +124,7 @@ describe('removeFromAllFiles', () => {
     const node = document.createElement('div');
     node.setAttribute('data-path', 'test');
     const icon = document.createElement('div');
-    icon.setAttribute(config.ICON_ATTRIBUTE_NAME, 'IbTest');
+    icon.setAttribute(config.attributes.icon, 'IbTest');
     icon.classList.add('iconize-icon');
     node.appendChild(icon);
     document.body.appendChild(node);
@@ -137,7 +137,7 @@ describe('removeFromAllFiles', () => {
     const node = document.createElement('div');
     node.setAttribute('data-path', 'foo');
     const icon = document.createElement('div');
-    icon.setAttribute(config.ICON_ATTRIBUTE_NAME, 'IbTest');
+    icon.setAttribute(config.attributes.icon, 'IbTest');
     icon.classList.add('iconize-icon');
     node.appendChild(icon);
     document.body.appendChild(node);
@@ -151,7 +151,7 @@ describe('removeFromAllFiles', () => {
     const node = document.createElement('div');
     node.setAttribute('data-path', 'test');
     const icon = document.createElement('div');
-    icon.setAttribute(config.ICON_ATTRIBUTE_NAME, 'IbTest');
+    icon.setAttribute(config.attributes.icon, 'IbTest');
     icon.classList.add('iconize-icon');
     node.appendChild(icon);
     document.body.appendChild(node);
@@ -162,7 +162,7 @@ describe('removeFromAllFiles', () => {
 
   it('should not call `removeIconInNode` when `data-path` attribute in parent is not found', async () => {
     const icon = document.createElement('div');
-    icon.setAttribute(config.ICON_ATTRIBUTE_NAME, 'IbTest');
+    icon.setAttribute(config.attributes.icon, 'IbTest');
     icon.classList.add('iconize-icon');
     document.body.appendChild(icon);
 

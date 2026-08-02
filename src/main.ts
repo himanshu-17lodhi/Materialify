@@ -7,7 +7,7 @@ import {
   Notice,
 } from 'obsidian';
 
-import { registerWorkspaceEvents } from '@/plugin/workspace-events';
+import { registerWorkspaceEvents } from '@/plugin/workspaceEvents';
 
 import {
   ExplorerView,

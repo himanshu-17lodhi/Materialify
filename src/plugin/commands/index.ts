@@ -1,6 +1,6 @@
 import IconizePlugin from '@/main';
-import * as refreshIcons from './refresh-icons';
-import * as setFileIcon from './set-file-icon';
+import * as refreshIcons from './refreshIcons';
+import * as setFileIcon from './setFileIcon';
 
 export function registerCommands(plugin: IconizePlugin): void {
   refreshIcons.register(plugin);
