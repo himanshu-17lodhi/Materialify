@@ -1,13 +1,9 @@
-import { ExplorerView, TabHeaderLeaf } from '@/@types/obsidian';
 import emoji from '@/emoji';
 import IconizePlugin, { FolderIconObject } from '@/main';
 import customRule from './custom-rule';
 import dom from '@/utils/dom';
-import iconTabs from './icon-tabs';
-import { getFileItemInnerTitleEl, getFileItemTitleEl } from '@/util';
 import config from '@/config';
-import { Notice, requireApiVersion } from 'obsidian';
-import { IconCache } from './icon-cache';
+import { Notice } from 'obsidian';
 import { logger } from './logger-service';
 import { Icon } from '@/engine';
 import {
@@ -17,6 +13,7 @@ import {
 } from '@/engine/util';
 import { LUCIDE_ICON_PACK_NAME } from '@/engine/lucide';
 import * as materialIconTheme from '@/material-icon-theme';
+import addAll from './icon/addAll';
 
 const checkMissingIcons = async (
   plugin: IconizePlugin,
@@ -182,96 +179,96 @@ const checkMissingIcons = async (
  * @param callback Callback is being called whenever the icons are added to one file
  * explorer.
  */
-const addAll = (
-  plugin: IconizePlugin,
-  data: [string, string | FolderIconObject][],
-  registeredFileExplorers: WeakSet<ExplorerView>,
-  callback?: () => void,
-): void => {
-  const fileExplorers = plugin.app.workspace.getLeavesOfType('file-explorer');
+// const addAll = (
+//   plugin: IconizePlugin,
+//   data: [string, string | FolderIconObject][],
+//   registeredFileExplorers: WeakSet<ExplorerView>,
+//   callback?: () => void,
+// ): void => {
+//   const fileExplorers = plugin.app.workspace.getLeavesOfType('file-explorer');
 
-  for (const fileExplorer of fileExplorers) {
-    if (registeredFileExplorers.has(fileExplorer.view)) {
-      continue;
-    }
+//   for (const fileExplorer of fileExplorers) {
+//     if (registeredFileExplorers.has(fileExplorer.view)) {
+//       continue;
+//     }
 
-    registeredFileExplorers.add(fileExplorer.view);
+//     registeredFileExplorers.add(fileExplorer.view);
 
-    const setIcons = async () => {
-      // Adds icons to already open file tabs.
-      if (plugin.getSettings().iconInTabsEnabled) {
-        for (const leaf of plugin.app.workspace.getLeavesOfType('markdown')) {
-          const filePath = leaf.view.file?.path ?? leaf.view.getState().file;
-          if (typeof filePath === 'string') {
-            const tabHeaderLeaf = leaf as TabHeaderLeaf;
-            const iconColor = plugin.getIconColor(filePath);
-            iconTabs.add(plugin, filePath, tabHeaderLeaf.tabHeaderInnerIconEl, {
-              iconColor,
-            });
-          }
-        }
-      }
+//     const setIcons = async () => {
+//       // Adds icons to already open file tabs.
+//       if (plugin.getSettings().iconInTabsEnabled) {
+//         for (const leaf of plugin.app.workspace.getLeavesOfType('markdown')) {
+//           const filePath = leaf.view.file?.path ?? leaf.view.getState().file;
+//           if (typeof filePath === 'string') {
+//             const tabHeaderLeaf = leaf as TabHeaderLeaf;
+//             const iconColor = plugin.getIconColor(filePath);
+//             iconTabs.add(plugin, filePath, tabHeaderLeaf.tabHeaderInnerIconEl, {
+//               iconColor,
+//             });
+//           }
+//         }
+//       }
 
-      for (const [dataPath, value] of data) {
-        const fileItem = fileExplorer.view.fileItems[dataPath];
-        if (fileItem) {
-          const titleEl = getFileItemTitleEl(fileItem);
-          const titleInnerEl = getFileItemInnerTitleEl(fileItem);
+//       for (const [dataPath, value] of data) {
+//         const fileItem = fileExplorer.view.fileItems[dataPath];
+//         if (fileItem) {
+//           const titleEl = getFileItemTitleEl(fileItem);
+//           const titleInnerEl = getFileItemInnerTitleEl(fileItem);
 
-          // Need to check this because refreshing the plugin will duplicate all the icons.
-          if (titleEl.children.length === 2 || titleEl.children.length === 1) {
-            const iconName = typeof value === 'string' ? value : value.iconName;
-            const iconColor =
-              typeof value === 'string' ? undefined : value.iconColor;
-            if (iconName) {
-              // Removes a possible existing icon.
-              const existingIcon = titleEl.querySelector('.iconize-icon');
-              if (existingIcon) {
-                existingIcon.remove();
-              }
+//           // Need to check this because refreshing the plugin will duplicate all the icons.
+//           if (titleEl.children.length === 2 || titleEl.children.length === 1) {
+//             const iconName = typeof value === 'string' ? value : value.iconName;
+//             const iconColor =
+//               typeof value === 'string' ? undefined : value.iconColor;
+//             if (iconName) {
+//               // Removes a possible existing icon.
+//               const existingIcon = titleEl.querySelector('.iconize-icon');
+//               if (existingIcon) {
+//                 existingIcon.remove();
+//               }
 
-              // Creates the new node with the icon inside.
-              const iconNode = titleEl.createDiv();
-              iconNode.setAttribute(config.attributes.icon, iconName);
-              iconNode.classList.add('iconize-icon');
+//               // Creates the new node with the icon inside.
+//               const iconNode = titleEl.createDiv();
+//               iconNode.setAttribute(config.attributes.icon, iconName);
+//               iconNode.classList.add('iconize-icon');
 
-              IconCache.getInstance().set(dataPath, {
-                iconNameWithPrefix: iconName,
-              });
-              dom.setIconForNode(plugin, iconName, iconNode, {
-                color: iconColor,
-              });
+//               IconCache.getInstance().set(dataPath, {
+//                 iconNameWithPrefix: iconName,
+//               });
+//               dom.setIconForNode(plugin, iconName, iconNode, {
+//                 color: iconColor,
+//               });
 
-              titleEl.insertBefore(iconNode, titleInnerEl);
-            }
-          }
-        }
-      }
+//               titleEl.insertBefore(iconNode, titleInnerEl);
+//             }
+//           }
+//         }
+//       }
 
-      // Handles the custom rules before automatic Material icons so user rules win.
-      for (const rule of customRule.getSortedRules(plugin)) {
-        await customRule.addToAllFiles(plugin, rule);
-      }
+//       // Handles the custom rules before automatic Material icons so user rules win.
+//       for (const rule of customRule.getSortedRules(plugin)) {
+//         await customRule.addToAllFiles(plugin, rule);
+//       }
 
-      materialIconTheme.applyAutomaticIconsToExplorer(
-        plugin,
-        fileExplorer.view,
-      );
+//       materialIconTheme.applyAutomaticIconsToExplorer(
+//         plugin,
+//         fileExplorer.view,
+//       );
 
-      // Callback function to register other events to this file explorer.
-      callback?.();
-    };
+//       // Callback function to register other events to this file explorer.
+//       callback?.();
+//     };
 
-    if (requireApiVersion('1.7.2')) {
-      // TODO: Remove loading deferred view to improve performance.
-      fileExplorer.loadIfDeferred().then(() => {
-        void setIcons();
-      });
-    } else {
-      void setIcons();
-    }
-  }
-};
+//     if (requireApiVersion('1.7.2')) {
+//       // TODO: Remove loading deferred view to improve performance.
+//       fileExplorer.loadIfDeferred().then(() => {
+//         void setIcons();
+//       });
+//     } else {
+//       void setIcons();
+//     }
+//   }
+// };
 
 /**
  * Gets the icon of a given path. This function returns the first occurrence of an icon.
