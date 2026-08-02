@@ -39,12 +39,7 @@ const calculateInlineTitleSize = (): number => {
 export type HTMLHeader = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 // Type is being used for the header token types in codemirror.
 export type HeaderToken =
-  | 'header-1'
-  | 'header-2'
-  | 'header-3'
-  | 'header-4'
-  | 'header-5'
-  | 'header-6';
+  'header-1' | 'header-2' | 'header-3' | 'header-4' | 'header-5' | 'header-6';
 
 const isHeader = (value: string): boolean => {
   return /^h[1-6]$/.test(value);

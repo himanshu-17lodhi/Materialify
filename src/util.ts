@@ -4,7 +4,7 @@ import { getSvgFromLoadedIcon, nextIdentifier } from './engine/util';
 import IconizePlugin from './main';
 
 export const DEFAULT_FILE_ICON =
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill="#90a4ae"d="M9 1H3.5A1.5 1.5 0 0 0 2 2.5v11A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V6L9 1zm0 1.5L12.5 6H9V2.5zm3.5 11h-9v-11h4v4h5v7z"/></svg>';
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill="#90a4ae"d="M9 1H3.5A1.5 1.5 0 0 0 2 2.5v11A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V6L9 1zm0 1.5L12.5 6H9V2.5zm3.5 11h-9v-11h4v4h5v7z"/></svg>';
 
 export const DEFAULT_FOLDER_ICON =
   '<svg xmlns="http://www.w3.org/2000/svg"viewBox="0 0 24 24" width="100" height="100"> <path fill="#90a4ae" d="M10,4H4C2.89,4,2,4.89,2,6v12a2,2 0 0,0 2,2h16a2,2 0 0,0 2-2V8c0-1.11-.9-2-2-2H12L10,4Z" /></svg>';
@@ -16,7 +16,7 @@ export const DEFAULT_FOLDER_DARK_ICON =
   '<svg xmlns="http://www.w3.org/2000/svg"viewBox="0 0 24 24" width="100" height="100"> <path fill="#90a4ae" d="M10,4H4C2.89,4,2,4.89,2,6v12a2,2 0 0,0 2,2h16a2,2 0 0,0 2-2V8c0-1.11-.9-2-2-2H12L10,4Z" /></svg>';
 
 export const DEFAULT_FOLDER_OPEN_DARK_ICON =
-   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="128" height="128"> <path fill="#90a4ae" d="M14.483 6H4.721a1 1 0 0 0-.949.684L2 12V5h12a1 1 0 0 0-1-1H7.562a1 1 0 0 1-.64-.232l-.644-.536A1 1 0 0 0 5.638 3H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h11l2.403-5.606A1 1 0 0 0 14.483 6" /></svg>';
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="128" height="128"> <path fill="#90a4ae" d="M14.483 6H4.721a1 1 0 0 0-.949.684L2 12V5h12a1 1 0 0 0-1-1H7.562a1 1 0 0 1-.64-.232l-.644-.536A1 1 0 0 0 5.638 3H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h11l2.403-5.606A1 1 0 0 0 14.483 6" /></svg>';
 
 export const DEFAULT_FILE_DARK_ICON =
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill="#90a4ae"d="M9 1H3.5A1.5 1.5 0 0 0 2 2.5v11A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V6L9 1zm0 1.5L12.5 6H9V2.5zm3.5 11h-9v-11h4v4h5v7z"/></svg>';
