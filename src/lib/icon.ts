@@ -114,7 +114,7 @@ const checkMissingIcons = async (
   for (const icon of missingIcons) {
     const normalizedName = getNormalizedName(icon.prefix + icon.name);
     const nodesWithIcon = document.querySelectorAll(
-      `[${config.ICON_ATTRIBUTE_NAME}="${normalizedName}"]`,
+      `[${config.attributes.icon}="${normalizedName}"]`,
     );
 
     nodesWithIcon.forEach((node: HTMLElement) => {
@@ -232,7 +232,7 @@ const addAll = (
 
               // Creates the new node with the icon inside.
               const iconNode = titleEl.createDiv();
-              iconNode.setAttribute(config.ICON_ATTRIBUTE_NAME, iconName);
+              iconNode.setAttribute(config.attributes.icon, iconName);
               iconNode.classList.add('iconize-icon');
 
               IconCache.getInstance().set(dataPath, {

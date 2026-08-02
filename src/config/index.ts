@@ -1,18 +1,19 @@
-const PLUGIN_NAME = 'iconize';
-
-const TITLE_ICON_CLASS = 'iconize-title-icon';
-
-const INLINE_TITLE_WRAPPER_CLASS = 'iconize-inline-title-wrapper';
+const PLUGIN_NAME = 'Materialify';
+const CSS_PREFIX = 'mf';
 
 /**
- * The name of the attribute that is used to store the icon name in the node.
- * The value of this attributes contains the prefix and the name of the icon.
+ * The name of the attribute that stores the icon identifier.
  */
 const ICON_ATTRIBUTE_NAME = 'data-icon';
 
 export default {
   PLUGIN_NAME,
-  TITLE_ICON_CLASS,
-  INLINE_TITLE_WRAPPER_CLASS,
-  ICON_ATTRIBUTE_NAME,
+  CSS_PREFIX,
+  classes: {
+    titleIcon: `${CSS_PREFIX}-title-icon`,
+    inlineTitle: `${CSS_PREFIX}-inline-title`,
+  },
+  attributes: {
+    icon: ICON_ATTRIBUTE_NAME,
+  },
 };

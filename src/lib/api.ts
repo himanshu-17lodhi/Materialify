@@ -7,7 +7,7 @@ import { removeIconFromIconPack, saveIconToIconPack } from '@/util';
 import { Icon } from '@/engine';
 import { IconPack } from '@/engine/icon-pack';
 
-export { AllIconsLoadedEvent } from '@/events/events';
+export { AllIconsLoadedEvent } from '@/events/event-types';
 
 export default interface IconizeAPI {
   getEventEmitter(): EventEmitter;

@@ -64,7 +64,7 @@ const removeFromAllFiles = async (
   rule: CustomRule,
 ): Promise<void> => {
   const nodesWithIcon = document.querySelectorAll(
-    `[${config.ICON_ATTRIBUTE_NAME}="${rule.icon}"]`,
+    `[${config.attributes.icon}="${rule.icon}"]`,
   );
 
   for (let i = 0; i < nodesWithIcon.length; i++) {

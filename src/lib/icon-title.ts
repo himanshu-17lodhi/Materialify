@@ -5,7 +5,7 @@ import svg from '@/utils/svg';
 import { IconInTitlePosition } from '@/settings/data';
 
 const getTitleIcon = (leaf: HTMLElement): HTMLElement | null => {
-  return leaf.querySelector(`.${config.TITLE_ICON_CLASS}`);
+  return leaf.querySelector(`.${config.CSS_PREFIX}`);
 };
 
 interface Options {
@@ -44,7 +44,7 @@ const add = (
     titleIcon.style.marginInline = '0';
   }
 
-  titleIcon.classList.add(config.TITLE_ICON_CLASS);
+  titleIcon.classList.add(config.CSS_PREFIX);
   // Checks if the passed element is an emoji.
   if (emoji.isEmoji(svgElement) && options.fontSize) {
     svgElement =
@@ -62,17 +62,17 @@ const add = (
   // This should only happen in the beginning.
   if (
     wrapperElement &&
-    !wrapperElement.classList.contains(config.INLINE_TITLE_WRAPPER_CLASS)
+    !wrapperElement.classList.contains(config.classes.inlineTitle)
   ) {
     wrapperElement = wrapperElement.querySelector(
-      `.${config.INLINE_TITLE_WRAPPER_CLASS}`,
+      `.${config.classes.inlineTitle}`,
     );
   }
 
   // Whenever there is no correct wrapper element, we create one.
   if (!wrapperElement) {
     wrapperElement = inlineTitleEl.parentElement.createDiv();
-    wrapperElement.classList.add(config.INLINE_TITLE_WRAPPER_CLASS);
+    wrapperElement.classList.add(config.classes.inlineTitle);
   }
 
   // Avoiding adding the same nodes together when changing the title.

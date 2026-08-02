@@ -1,4 +1,4 @@
-import type { EventType, EventMap, AnyEvent } from './events';
+import type { EventType, EventMap, AnyEvent } from './event-types';
 
 export interface Event<P = unknown> {
   payload?: P;

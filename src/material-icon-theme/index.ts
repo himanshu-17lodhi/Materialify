@@ -103,7 +103,7 @@ const resolveMappedFileIconName = (
 
   for (const extension of getFileExtensionCandidates(fileName)) {
     /* if comment if you want to use .md icon instead of deafult */
-    if (extension === "md") continue;
+    if (extension === 'md') continue;
     const name = toIconizeIconName(plugin, fileExtensions[extension]);
     if (name) return name;
   }
@@ -462,7 +462,7 @@ export const applyAutomaticIconToFileItem = (
   if (!iconName) {
     const existing = container
       .querySelector('.iconize-icon')
-      ?.getAttribute(config.ICON_ATTRIBUTE_NAME);
+      ?.getAttribute(config.attributes.icon);
     if (existing?.startsWith(MATERIAL_ICON_PACK_PREFIX)) {
       dom.removeIconInNode(container);
       IconCache.getInstance().invalidate(path);
@@ -479,9 +479,7 @@ export const applyAutomaticIconToFileItem = (
   const existingIconNode = container.querySelector(
     '.iconize-icon',
   ) as HTMLElement | null;
-  const existingIcon = existingIconNode?.getAttribute(
-    config.ICON_ATTRIBUTE_NAME,
-  );
+  const existingIcon = existingIconNode?.getAttribute(config.attributes.icon);
   if (existingIcon === iconName) {
     if (existingIconNode && MATERIAL_DEFAULT_ICON_IDS.has(iconName)) {
       dom.setIconForNode(plugin, iconName, existingIconNode);

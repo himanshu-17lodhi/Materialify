@@ -136,11 +136,11 @@ const createIconNode = (
 
   let iconNode: HTMLDivElement = node.querySelector('.iconize-icon');
   if (iconNode) {
-    iconNode.setAttribute(config.ICON_ATTRIBUTE_NAME, iconName);
+    iconNode.setAttribute(config.attributes.icon, iconName);
     setIconForNode(plugin, iconName, iconNode, { color: options?.color });
   } else {
     iconNode = document.createElement('div');
-    iconNode.setAttribute(config.ICON_ATTRIBUTE_NAME, iconName);
+    iconNode.setAttribute(config.attributes.icon, iconName);
     iconNode.classList.add('iconize-icon');
 
     setIconForNode(plugin, iconName, iconNode, { color: options?.color });
@@ -170,7 +170,7 @@ const doesElementHasIconNode = (element: HTMLElement): boolean => {
  */
 const getIconFromElement = (element: HTMLElement): string | undefined => {
   const iconNode = element.querySelector('.iconize-icon');
-  const existingIcon = iconNode?.getAttribute(config.ICON_ATTRIBUTE_NAME);
+  const existingIcon = iconNode?.getAttribute(config.attributes.icon);
   return existingIcon;
 };
 
