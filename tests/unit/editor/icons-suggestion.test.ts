@@ -8,7 +8,7 @@ import {
   vi,
 } from 'vitest';
 import icon from '@/lib/icon';
-import { IconPackManager } from '@/icon-pack-manager';
+import { IconPackManager } from '@/engine';
 import * as util from '@/util';
 import SuggestionIcon from '@/editor/icons-suggestion';
 

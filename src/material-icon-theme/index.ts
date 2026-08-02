@@ -1,14 +1,14 @@
 import type { TAbstractFile } from 'obsidian';
 import type { FileItem, ExplorerView } from '@/@types/obsidian';
 import type IconizePlugin from '@/main';
-import { Icon } from '@/icon-pack-manager';
-import { IconPack } from '@/icon-pack-manager/icon-pack';
-import { generateIcon, getNormalizedName } from '@/icon-pack-manager/util';
+import { Icon } from '@/engine';
+import { IconPack } from '@/engine/icon-pack';
+import { generateIcon, getNormalizedName } from '@/engine/util';
 import customRule from '@/lib/custom-rule';
 import { IconCache } from '@/lib/icon-cache';
 import dom from '@/utils/dom';
 import emoji from '@/emoji';
-import { getSvgFromLoadedIcon, nextIdentifier } from '@/icon-pack-manager/util';
+import { getSvgFromLoadedIcon, nextIdentifier } from '@/engine/util';
 import {
   DEFAULT_FILE_DARK_ICON,
   DEFAULT_FILE_ICON,

@@ -1,5 +1,5 @@
 import { beforeEach, it, expect, describe, vi, MockInstance } from 'vitest';
-import * as util from '@/icon-pack-manager/util';
+import * as util from '@/engine';
 import dom from '@/utils/dom';
 import svg from '@/utils/svg';
 import style from '@/utils/style';

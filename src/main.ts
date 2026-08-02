@@ -48,12 +48,12 @@ import ChangeColorModal from './ui/change-color-modal';
 import { logger } from '@/lib/logger-service';
 import { EventEmitter } from '@/events/emitter';
 import IconizeAPI, { getApi } from './lib/api';
-import { Icon, IconPackManager } from './icon-pack-manager';
+import { Icon, IconPackManager } from './engine';
 import {
   getNormalizedName,
   getSvgFromLoadedIcon,
   nextIdentifier,
-} from './icon-pack-manager/util';
+} from './engine/util';
 import * as materialIconTheme from './material-icon-theme';
 
 export interface FolderIconObject {

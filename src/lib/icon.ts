@@ -9,13 +9,13 @@ import config from '@/config';
 import { Notice, requireApiVersion } from 'obsidian';
 import { IconCache } from './icon-cache';
 import { logger } from './logger-service';
-import { Icon } from '@/icon-pack-manager';
+import { Icon } from '@/engine';
 import {
   getNormalizedName,
   getSvgFromLoadedIcon,
   nextIdentifier,
-} from '@/icon-pack-manager/util';
-import { LUCIDE_ICON_PACK_NAME } from '@/icon-pack-manager/lucide';
+} from '@/engine/util';
+import { LUCIDE_ICON_PACK_NAME } from '@/engine/lucide';
 import * as materialIconTheme from '@/material-icon-theme';
 
 const checkMissingIcons = async (

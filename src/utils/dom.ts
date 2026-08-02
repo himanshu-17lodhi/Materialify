@@ -4,7 +4,7 @@ import IconizePlugin from '@/main';
 import style from './style';
 import svg from './svg';
 import emoji from '@/emoji';
-import { getSvgFromLoadedIcon, nextIdentifier } from '@/icon-pack-manager/util';
+import { getSvgFromLoadedIcon, nextIdentifier } from '@/engine/util';
 
 /**
  * Removes the `iconize-icon` icon node from the provided HTMLElement.

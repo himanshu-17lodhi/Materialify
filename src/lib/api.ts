@@ -4,8 +4,8 @@ import svg from '@/utils/svg';
 import icon from '@/lib/icon';
 import { EventEmitter } from '@/events/emitter';
 import { removeIconFromIconPack, saveIconToIconPack } from '@/util';
-import { Icon } from '@/icon-pack-manager';
-import { IconPack } from '@/icon-pack-manager/icon-pack';
+import { Icon } from '@/engine';
+import { IconPack } from '@/engine/icon-pack';
 
 export { AllIconsLoadedEvent } from '@/events/events';
 

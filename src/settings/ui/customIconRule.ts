@@ -24,7 +24,7 @@ import dom from '@/utils/dom';
 import svg from '@/utils/svg';
 import { TabHeaderLeaf } from '@/@types/obsidian';
 import emoji from '@/emoji';
-import { getNormalizedName } from '@/icon-pack-manager/util';
+import { getNormalizedName } from '@/engine';
 
 export default class CustomIconRuleSetting extends IconFolderSetting {
   private app: App;

@@ -426,3 +426,7 @@ export class IconPackManager {
     return this.fileManager;
   }
 }
+
+export { LUCIDE_ICON_PACK_NAME, LucideIconPack } from './lucide';
+export { getNormalizedName } from './util';
+export { IconPack } from './icon-pack';

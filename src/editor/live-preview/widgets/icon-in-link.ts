@@ -1,5 +1,5 @@
 import emoji from '@/emoji';
-import { Icon } from '@/icon-pack-manager';
+import { Icon } from '@/engine';
 import {
   calculateFontTextSize,
   calculateHeaderSize,

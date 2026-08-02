@@ -4,9 +4,9 @@ import {
   getNormalizedName,
   getSvgFromLoadedIcon,
   nextIdentifier,
-} from '@/icon-pack-manager/util';
+} from '@/engine';
 import IconizePlugin from '@/main';
-import type { IconPack } from '@/icon-pack-manager/icon-pack';
+import type { IconPack } from '@/engine/icon-pack';
 
 describe('getNormalizedName', () => {
   it('should return a string with all words capitalized and no spaces or underscores', () => {

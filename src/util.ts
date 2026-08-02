@@ -1,6 +1,6 @@
 import { FileItem, FileWithLeaf } from './@types/obsidian';
-import { LUCIDE_ICON_PACK_NAME } from './icon-pack-manager/lucide';
-import { getSvgFromLoadedIcon, nextIdentifier } from './icon-pack-manager/util';
+import { LUCIDE_ICON_PACK_NAME } from './engine/lucide';
+import { getSvgFromLoadedIcon, nextIdentifier } from './engine/util';
 import IconizePlugin from './main';
 
 export const DEFAULT_FILE_ICON =

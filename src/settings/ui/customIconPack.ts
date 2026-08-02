@@ -4,7 +4,7 @@ import IconizePlugin from '@/main';
 import { readFileSync } from '@/util';
 import icon from '@/lib/icon';
 import { LucideIconPackType } from '@/settings/data';
-import { LUCIDE_ICON_PACK_NAME } from '@/icon-pack-manager/lucide';
+import { LUCIDE_ICON_PACK_NAME } from '@/engine/lucide';
 
 export default class CustomIconPackSetting extends IconFolderSetting {
   private textComponent: TextComponent;

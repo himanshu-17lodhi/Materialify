@@ -2,7 +2,7 @@ import { App, FuzzyMatch, FuzzySuggestModal, Notice } from 'obsidian';
 import predefinedIconPacks, { PredefinedIconPack } from '@/icon-packs';
 import IconizePlugin from '@/main';
 import { downloadZipFile } from '@/zip-util';
-import { IconPack } from '@/icon-pack-manager/icon-pack';
+import { IconPack } from '@/engine';
 
 export default class IconPackBrowserModal extends FuzzySuggestModal<PredefinedIconPack> {
   private plugin: IconizePlugin;
