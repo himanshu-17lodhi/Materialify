@@ -102,6 +102,8 @@ const resolveMappedFileIconName = (
   }
 
   for (const extension of getFileExtensionCandidates(fileName)) {
+    /* if comment if you want to use .md icon instead of deafult */
+    if (extension === "md") continue;
     const name = toIconizeIconName(plugin, fileExtensions[extension]);
     if (name) return name;
   }
