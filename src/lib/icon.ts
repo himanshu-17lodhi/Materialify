@@ -17,9 +17,6 @@ import {
 } from '@/engine/util';
 import { LUCIDE_ICON_PACK_NAME } from '@/engine/lucide';
 import * as materialIconTheme from '@/material-icon-theme';
-import getIconByName from './icon/getIconByName';
-import getIconByPath from './icon/getIconByPath';
-import getByPath from './icon/getByPath';
 
 const checkMissingIcons = async (
   plugin: IconizePlugin,
@@ -282,32 +279,32 @@ const addAll = (
  * @param path Path to get the icon of.
  * @returns The icon of the path if it exists, undefined otherwise.
  */
-// const getByPath = (plugin: IconizePlugin, path: string): string | undefined => {
-//   if (path === 'settings' || path === 'migrated') {
-//     return undefined;
-//   }
+const getByPath = (plugin: IconizePlugin, path: string): string | undefined => {
+  if (path === 'settings' || path === 'migrated') {
+    return undefined;
+  }
 
-//   const value = plugin.getData()[path];
-//   if (typeof value === 'string') {
-//     // If the value is a plain icon name, return it.
-//     return value;
-//   } else if (typeof value === 'object') {
-//     const v = value as FolderIconObject;
-//     if (v.iconName !== null) {
-//       return v.iconName;
-//     }
-//   }
+  const value = plugin.getData()[path];
+  if (typeof value === 'string') {
+    // If the value is a plain icon name, return it.
+    return value;
+  } else if (typeof value === 'object') {
+    const v = value as FolderIconObject;
+    if (v.iconName !== null) {
+      return v.iconName;
+    }
+  }
 
-//   // Tries to get the custom rule for the path and returns its icon if it exists.
-//   const rule = customRule.getSortedRules(plugin).find((rule) => {
-//     return customRule.doesMatchPath(rule, path);
-//   });
-//   if (rule) {
-//     return rule.icon;
-//   }
+  // Tries to get the custom rule for the path and returns its icon if it exists.
+  const rule = customRule.getSortedRules(plugin).find((rule) => {
+    return customRule.doesMatchPath(rule, path);
+  });
+  if (rule) {
+    return rule.icon;
+  }
 
-//   return materialIconTheme.resolveAutomaticIconName(plugin, path);
-// };
+  return materialIconTheme.resolveAutomaticIconName(plugin, path);
+};
 
 interface IconWithPath {
   path: string;
@@ -350,25 +347,25 @@ const getAllWithPath = (plugin: IconizePlugin): IconWithPath[] => {
  * icon name.
  * @returns Icon if it exists, `null` otherwise.
  */
-// const getIconByName = (
-//   plugin: IconizePlugin,
-//   iconNameWithPrefix: string,
-// ): Icon | null => {
-//   const iconNextIdentifier = nextIdentifier(iconNameWithPrefix);
-//   const iconName = iconNameWithPrefix.substring(iconNextIdentifier);
-//   const iconPrefix = iconNameWithPrefix.substring(0, iconNextIdentifier);
-//   const iconPack = plugin.getIconPackManager().getIconPackByPrefix(iconPrefix);
-//   if (!iconPack) {
-//     return null;
-//   }
+const getIconByName = (
+  plugin: IconizePlugin,
+  iconNameWithPrefix: string,
+): Icon | null => {
+  const iconNextIdentifier = nextIdentifier(iconNameWithPrefix);
+  const iconName = iconNameWithPrefix.substring(iconNextIdentifier);
+  const iconPrefix = iconNameWithPrefix.substring(0, iconNextIdentifier);
+  const iconPack = plugin.getIconPackManager().getIconPackByPrefix(iconPrefix);
+  if (!iconPack) {
+    return null;
+  }
 
-//   const icon = iconPack.getIcon(iconName);
-//   if (!icon) {
-//     return null;
-//   }
+  const icon = iconPack.getIcon(iconName);
+  if (!icon) {
+    return null;
+  }
 
-//   return icon;
-// };
+  return icon;
+};
 
 /**
  * Returns the {@link Icon} for the given path.
@@ -376,21 +373,21 @@ const getAllWithPath = (plugin: IconizePlugin): IconWithPath[] => {
  * @param path String which is the path to get the icon of.
  * @returns Icon or Emoji as string if it exists, `null` otherwise.
  */
-// const getIconByPath = (
-//   plugin: IconizePlugin,
-//   path: string,
-// ): Icon | string | null => {
-//   const iconNameWithPrefix = getByPath(plugin, path);
-//   if (!iconNameWithPrefix) {
-//     return null;
-//   }
+const getIconByPath = (
+  plugin: IconizePlugin,
+  path: string,
+): Icon | string | null => {
+  const iconNameWithPrefix = getByPath(plugin, path);
+  if (!iconNameWithPrefix) {
+    return null;
+  }
 
-//   if (emoji.isEmoji(iconNameWithPrefix)) {
-//     return iconNameWithPrefix;
-//   }
+  if (emoji.isEmoji(iconNameWithPrefix)) {
+    return iconNameWithPrefix;
+  }
 
-//   return getIconByName(plugin, iconNameWithPrefix);
-// };
+  return getIconByName(plugin, iconNameWithPrefix);
+};
 
 export default {
   addAll,
