@@ -4,22 +4,22 @@ import { getSvgFromLoadedIcon, nextIdentifier } from './icon-pack-manager/util';
 import IconizePlugin from './main';
 
 export const DEFAULT_FILE_ICON =
-  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M6 2H14L20 8V20C20 21.1046 19.1046 22 18 22H6C4.89543 22 4 21.1046 4 20V4C4 2.89543 4.89543 2 6 2Z" fill="#8FA1B3"/> <path d="M14 2V8H20" fill="#C7D2DB"/> <path d="M8 13H16" stroke="#E4EBF0" stroke-width="1.4" stroke-linecap="round"/> <path d="M8 16H14" stroke="#E4EBF0" stroke-width="1.4" stroke-linecap="round"/> </svg>';
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill="#90a4ae"d="M9 1H3.5A1.5 1.5 0 0 0 2 2.5v11A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V6L9 1zm0 1.5L12.5 6H9V2.5zm3.5 11h-9v-11h4v4h5v7z"/></svg>';
 
 export const DEFAULT_FOLDER_ICON =
-  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M3 6C3 4.89543 3.89543 4 5 4H10L12 6H19C20.1046 6 21 6.89543 21 8V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V6Z" fill="#7B8A97"/> <path d="M3 9H21V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V9Z" fill="#97A6B3"/> <path d="M3 9H21" stroke="#AFC1CF" stroke-width="1" opacity="0.5"/> </svg>';
+  '<svg xmlns="http://www.w3.org/2000/svg"viewBox="0 0 24 24" width="100" height="100"> <path fill="#90a4ae" d="M10,4H4C2.89,4,2,4.89,2,6v12a2,2 0 0,0 2,2h16a2,2 0 0,0 2-2V8c0-1.11-.9-2-2-2H12L10,4Z" /></svg>';
 
 export const DEFAULT_FOLDER_OPEN_ICON =
-  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M3 7C3 5.89543 3.89543 5 5 5H10L12 7H20C20.7403 7 21.3866 7.4022 21.7324 8H8L6 18H19C19.9624 18 20.7872 17.3141 20.962 16.3678L22.2 9.1322C22.3786 8.1658 21.6364 7.28571 20.6536 7.28571H3Z" fill="#8C9BA8"/> <path d="M6 10H22L20.8 16.4C20.6227 17.3598 19.7861 18.0579 18.81 18.0579H5.7C4.51891 18.0579 3.62794 16.9877 3.84282 15.8263L5 10Z" fill="#AFC1CF"/> <path d="M6 10H22" stroke="#D7E2EA" stroke-width="1" opacity="0.45"/> </svg>';
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="128" height="128"> <path fill="#90a4ae" d="M14.483 6H4.721a1 1 0 0 0-.949.684L2 12V5h12a1 1 0 0 0-1-1H7.562a1 1 0 0 1-.64-.232l-.644-.536A1 1 0 0 0 5.638 3H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h11l2.403-5.606A1 1 0 0 0 14.483 6" /></svg>';
 
 export const DEFAULT_FOLDER_DARK_ICON =
-  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M3 6C3 4.89543 3.89543 4 5 4H10L12 6H19C20.1046 6 21 6.89543 21 8V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V6Z" fill="#7B8A97"/> <path d="M3 9H21V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V9Z" fill="#97A6B3"/> <path d="M3 9H21" stroke="#AFC1CF" stroke-width="1" opacity="0.5"/> </svg>';
+  '<svg xmlns="http://www.w3.org/2000/svg"viewBox="0 0 24 24" width="100" height="100"> <path fill="#90a4ae" d="M10,4H4C2.89,4,2,4.89,2,6v12a2,2 0 0,0 2,2h16a2,2 0 0,0 2-2V8c0-1.11-.9-2-2-2H12L10,4Z" /></svg>';
 
 export const DEFAULT_FOLDER_OPEN_DARK_ICON =
-  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M3 7C3 5.89543 3.89543 5 5 5H10L12 7H20C20.7403 7 21.3866 7.4022 21.7324 8H8L6 18H19C19.9624 18 20.7872 17.3141 20.962 16.3678L22.2 9.1322C22.3786 8.1658 21.6364 7.28571 20.6536 7.28571H3Z" fill="#8C9BA8"/> <path d="M6 10H22L20.8 16.4C20.6227 17.3598 19.7861 18.0579 18.81 18.0579H5.7C4.51891 18.0579 3.62794 16.9877 3.84282 15.8263L5 10Z" fill="#AFC1CF"/> <path d="M6 10H22" stroke="#D7E2EA" stroke-width="1" opacity="0.45"/> </svg>';
+   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="128" height="128"> <path fill="#90a4ae" d="M14.483 6H4.721a1 1 0 0 0-.949.684L2 12V5h12a1 1 0 0 0-1-1H7.562a1 1 0 0 1-.64-.232l-.644-.536A1 1 0 0 0 5.638 3H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h11l2.403-5.606A1 1 0 0 0 14.483 6" /></svg>';
 
 export const DEFAULT_FILE_DARK_ICON =
-  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M6 2H14L20 8V20C20 21.1046 19.1046 22 18 22H6C4.89543 22 4 21.1046 4 20V4C4 2.89543 4.89543 2 6 2Z" fill="#8FA1B3"/> <path d="M14 2V8H20" fill="#C7D2DB"/> <path d="M8 13H16" stroke="#E4EBF0" stroke-width="1.4" stroke-linecap="round"/> <path d="M8 16H14" stroke="#E4EBF0" stroke-width="1.4" stroke-linecap="round"/> </svg>';
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill="#90a4ae"d="M9 1H3.5A1.5 1.5 0 0 0 2 2.5v11A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V6L9 1zm0 1.5L12.5 6H9V2.5zm3.5 11h-9v-11h4v4h5v7z"/></svg>';
 
 /**
  * Tries to read the file synchronously.
