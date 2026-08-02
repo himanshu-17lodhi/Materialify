@@ -1,7 +1,7 @@
 {
   "js/ts.updateImportsOnFileMove.enabled": "always",
   "markdown.updateLinksOnFileMove.enabled": "always",
-
+  "files.eol": "\n",
   "search.exclude": {
     "**/node_modules": true,
     "**/dist": true,
