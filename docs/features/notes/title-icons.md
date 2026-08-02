@@ -47,7 +47,7 @@ When enabled, a note with a `Briefcase` icon will display that icon directly abo
 ## Notes
 
 - The title icon size is automatically scaled to match your theme's H1 size by default.
-- This feature respects both manual icons and [Custom Rules](/features/automation/custom-rules).
+- This feature respects both manual icons and [Custom Rules](/features/automation/customRules).
 
 ## Related Features
 

@@ -18,7 +18,7 @@ Inheritance was an early feature that allowed icons to be automatically applied 
 
 ### Migrating to Custom Rules
 
-Instead of using Inheritance, we recommend creating a [Custom Rule](/features/automation/custom-rules) with a path pattern.
+Instead of using Inheritance, we recommend creating a [Custom Rule](/features/automation/customRules) with a path pattern.
 
 **Example:**
 To mimic inheritance for a folder named `Meetings`, create a rule with the pattern `Meetings/`.
@@ -33,5 +33,5 @@ To mimic inheritance for a folder named `Meetings`, create a rule with the patte
 
 ## Related Features
 
-- [Custom Rules](/features/automation/custom-rules)
+- [Custom Rules](/features/automation/customRules)
 - [File & Folder Icons](/features/files-and-folders/naming)

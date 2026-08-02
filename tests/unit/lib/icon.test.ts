@@ -1,6 +1,6 @@
 import { it, describe, beforeEach, expect, vi } from 'vitest';
 import icon from '@/lib/icon';
-import customRule from '@/lib/custom-rule';
+import customRule from '@/lib/customRule';
 
 describe('getAllWithPath', () => {
   let plugin: any;

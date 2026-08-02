@@ -1,6 +1,6 @@
 import { MarkdownView, Setting } from 'obsidian';
 import emoji from '@/emoji';
-import customRule from '@/lib/custom-rule';
+import customRule from '@/lib/customRule';
 import dom from '@/utils/dom';
 import { FolderIconObject } from '@/main';
 import iconTabs from '@/lib/icon-tabs';

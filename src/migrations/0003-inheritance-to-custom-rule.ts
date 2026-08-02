@@ -1,5 +1,5 @@
 import config from '@/config';
-import customRule from '@/lib/custom-rule';
+import customRule from '@/lib/customRule';
 import IconizePlugin from '@/main';
 import { CustomRule } from '@/settings/data';
 import { Notice } from 'obsidian';

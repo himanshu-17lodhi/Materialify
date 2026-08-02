@@ -48,6 +48,6 @@ Icons set directly on a file or folder have the **highest priority**. They will 
 
 ## Related Features
 
-- [Custom Rules](/features/automation/custom-rules)
+- [Custom Rules](/features/automation/customRules)
 - [Icon Colors](/customization/colors)
 - [Inheritance](/deprecated/inheritance)

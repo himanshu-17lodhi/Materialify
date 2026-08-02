@@ -26,7 +26,7 @@ import StarredInternalPlugin from './internal-plugins/starred';
 import InternalPluginInjector from './@types/internal-plugin-injector';
 import iconTabs from './lib/icon-tabs';
 import dom from '@/utils/dom';
-import customRule from './lib/custom-rule';
+import customRule from './lib/customRule';
 import icon from './lib/icon';
 import BookmarkInternalPlugin from './internal-plugins/bookmark';
 import OutlineInternalPlugin from './internal-plugins/outline';

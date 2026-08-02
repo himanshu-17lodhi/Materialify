@@ -1,4 +1,4 @@
-import customRule from '@/lib/custom-rule';
+import customRule from '@/lib/customRule';
 import style from '@/utils/style';
 import IconizePlugin from '@/main';
 import { getFileItemTitleEl } from '@/util';

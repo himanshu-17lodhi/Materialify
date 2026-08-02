@@ -18,7 +18,7 @@ import {
   saveIconToIconPack,
 } from '@/util';
 import { CustomRule } from '@/settings/data';
-import customRule from '@/lib/custom-rule';
+import customRule from '@/lib/customRule';
 import iconTabs from '@/lib/icon-tabs';
 import dom from '@/utils/dom';
 import svg from '@/utils/svg';

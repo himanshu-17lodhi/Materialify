@@ -89,7 +89,7 @@ export default defineConfig({
             items: [
               {
                 text: 'Custom Rules',
-                link: '/features/automation/custom-rules',
+                link: '/features/automation/customRules',
               },
               {
                 text: 'Frontmatter Support',

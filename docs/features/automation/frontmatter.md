@@ -55,5 +55,5 @@ _(Frontmatter example in editor coming soon)_
 
 ## Related Features
 
-- [Custom Rules](/features/automation/custom-rules)
+- [Custom Rules](/features/automation/customRules)
 - [Metadatamenu Integration](/integrations/metadatamenu)

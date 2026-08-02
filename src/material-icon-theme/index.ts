@@ -4,7 +4,7 @@ import type IconizePlugin from '@/main';
 import { Icon } from '@/engine';
 import { IconPack } from '@/engine/icon-pack';
 import { generateIcon, getNormalizedName } from '@/engine/util';
-import customRule from '@/lib/custom-rule';
+import customRule from '@/lib/customRule';
 import { IconCache } from '@/lib/icon-cache';
 import dom from '@/utils/dom';
 import emoji from '@/emoji';

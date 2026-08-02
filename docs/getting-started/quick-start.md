@@ -51,4 +51,4 @@ Once a pack is installed, you can add icons to your files and folders.
 
 - [Icon Packs](/features/icon-packs/overview)
 - [Files and Folders](/features/files-and-folders/naming)
-- [Custom Rules](/features/automation/custom-rules)
+- [Custom Rules](/features/automation/customRules)

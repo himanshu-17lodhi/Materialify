@@ -47,4 +47,4 @@ To return an icon to the default editor color:
 ## Related Features
 
 - [File & Folder Icons](/features/files-and-folders/naming)
-- [Custom Rules](/features/automation/custom-rules)
+- [Custom Rules](/features/automation/customRules)

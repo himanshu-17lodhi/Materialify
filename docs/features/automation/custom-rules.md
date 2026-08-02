@@ -28,7 +28,7 @@ Custom Rules allow you to automate icon assignment based on file names, folder p
 
 To set a default icon for your entire vault, use the pattern `.` (which matches everything).
 
-![Default icon through custom rule](/public/screenshots/default-icon-through-custom-rules.png)
+![Default icon through custom rule](/public/screenshots/default-icon-through-customRules.png)
 
 ## Examples
 

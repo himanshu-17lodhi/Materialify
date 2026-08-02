@@ -1,7 +1,7 @@
 import type { ExplorerView, TabHeaderLeaf } from '@/@types/obsidian';
 
 import config from '@/config';
-import customRule from '@/lib/custom-rule';
+import customRule from '@/lib/customRule';
 import { IconCache } from '@/lib/icon-cache';
 import iconTabs from '@/lib/icon-tabs';
 import * as materialIconTheme from '@/material-icon-theme';

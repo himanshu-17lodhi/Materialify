@@ -1,7 +1,7 @@
 import type { FolderIconObject } from '@/main';
 import IconizePlugin from '@/main';
 
-import customRule from '@/lib/custom-rule';
+import customRule from '@/lib/customRule';
 import * as materialIconTheme from '@/material-icon-theme';
 
 export default function getByPath(
