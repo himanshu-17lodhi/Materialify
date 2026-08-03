@@ -4,7 +4,7 @@ import config from '@/config';
 import customRule from '@/lib/customRule';
 import { IconCache } from '@/lib/icon-cache';
 import iconTabs from '@/lib/icon-tabs';
-import * as materialIconTheme from '@/material-icon-theme';
+import * as materialIconTheme from '@/materialifyIcons';
 import IconizePlugin, { FolderIconObject } from '@/main';
 import { getFileItemInnerTitleEl, getFileItemTitleEl } from '@/util';
 import dom from '@/utils/dom';

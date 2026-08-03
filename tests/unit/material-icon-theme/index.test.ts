@@ -3,7 +3,7 @@ import {
   resolveFileIconName,
   resolveFolderIcon,
   resolveFolderIconName,
-} from '@/material-icon-theme/index';
+} from '@/materialifyIcons/index';
 import {
   DEFAULT_FILE_ICON,
   DEFAULT_FOLDER_ICON,

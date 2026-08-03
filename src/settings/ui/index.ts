@@ -8,7 +8,7 @@ import IconColorSetting from './iconColor';
 import IconFontSizeSetting from './iconFontSize';
 import IconPacksPathSetting from './iconPacksPath';
 import IconPacksBackgroundChecker from './iconPacksBackgroundChecker';
-import PredefinedIconPacksSetting from './predefinedIconPacks';
+// import PredefinedIconPacksSetting from './predefinedIconPacks';
 import RecentlyUsedIconsSetting from './recentlyUsedIcons';
 import ToggleIconInTabs from './toggleIconInTabs';
 import ToggleIconInTitle from './toggleIconInTitle';
@@ -63,9 +63,9 @@ export default class IconFolderSettings extends PluginSettingTab {
     ).display();
 
     containerEl.createEl('h1', { text: 'Icon packs' });
-    new PredefinedIconPacksSetting(plugin, containerEl, app, () =>
-      this.display(),
-    ).display();
+    // new PredefinedIconPacksSetting(plugin, containerEl, app, () =>
+    //   this.display(),
+    // ).display();
     new CustomIconPackSetting(plugin, containerEl, () =>
       this.display(),
     ).display();

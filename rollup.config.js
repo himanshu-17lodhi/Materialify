@@ -48,7 +48,7 @@ const cmModules = [
 export default {
   input: './src/main.ts',
   output: {
-    file: './dist/main.js',
+    file: `${obsidianExportPath}/main.js`,
     sourcemap: 'inline',
     sourcemapExcludeSources: isProd,
     format: 'cjs',
@@ -72,12 +72,23 @@ export default {
     commonjs(),
     copy({
       targets: [
-        { src: './main.js', dest: obsidianExportPath },
         { src: './manifest.json', dest: obsidianExportPath },
         { src: './src/styles.css', dest: obsidianExportPath },
       ],
       hook: 'writeBundle',
     }),
+    {
+      name: 'build-summary',
+      writeBundle() {
+        console.log(`
+Build output:
+  ✓ main.js
+  ✓ manifest.json
+  ✓ styles.css
+  → ${obsidianExportPath}
+`);
+      },
+    },
   ],
   onwarn: (warning) => {
     if (warning.code === 'THIS_IS_UNDEFINED') return;

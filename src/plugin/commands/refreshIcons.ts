@@ -1,5 +1,5 @@
 import IconizePlugin from '@/main';
-import * as materialIconTheme from '@/material-icon-theme';
+import * as materialIconTheme from '@/materialifyIcons';
 
 export function register(plugin: IconizePlugin): void {
   plugin.addCommand({

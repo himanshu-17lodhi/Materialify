@@ -1,6 +1,5 @@
 import config from '@/config';
 import { Notice } from 'obsidian';
-import { LUCIDE_ICON_PACK_NAME, LucideIconPack } from './lucide';
 import IconizePlugin from '@/main';
 import { FileManager } from './file-manager';
 import { IconPack } from './icon-pack';
@@ -8,10 +7,8 @@ import { readZipFile } from '@/zip-util';
 import { logger } from '@/lib/logger-service';
 import JSZip from 'jszip';
 import { generateIcon, getNormalizedName, nextIdentifier } from './util';
-import {
-  createMaterialIconPack,
-  MATERIAL_ICON_PACK_NAME,
-} from '@/material-icon-theme';
+import { MATERIAL_ICON_PACK_NAME } from '@/materialifyIcons/constants';
+import { createMaterialIconPack } from '@/materialifyIcons/pack';
 
 export interface Icon {
   name: string;
@@ -27,7 +24,6 @@ export interface Icon {
 export class IconPackManager {
   private path: string;
   private iconPacks: IconPack[];
-  private lucideIconPack: LucideIconPack;
   private fileManager: FileManager;
 
   private preloadedIcons: Icon[];
@@ -38,7 +34,6 @@ export class IconPackManager {
   ) {
     this.setPath(path);
 
-    this.lucideIconPack = new LucideIconPack(plugin, this);
     this.fileManager = new FileManager(plugin);
     this.iconPacks = [];
     this.preloadedIcons = [];
@@ -58,21 +53,17 @@ export class IconPackManager {
           continue;
         }
 
-        let iconPack = new IconPack(this.plugin, iconPackName, false);
-
-        if (iconPackName === LUCIDE_ICON_PACK_NAME) {
-          iconPack = this.lucideIconPack.init(iconPack);
-        }
+        const iconPack = new IconPack(this.plugin, iconPackName, false);
 
         this.iconPacks.push(iconPack);
         logger.info(`Initialized icon pack '${iconPackName}'`);
       }
     }
 
-    if (this.plugin.doesUseNativeLucideIconPack()) {
-      const iconPack = this.lucideIconPack.init();
-      this.iconPacks.push(iconPack);
-    }
+    // if (this.plugin.doesUseNativeLucideIconPack()) {
+    //   const iconPack = this.lucideIconPack.init();
+    //   this.iconPacks.push(iconPack);
+    // }
   }
 
   public async loadAll(): Promise<void> {
@@ -144,12 +135,6 @@ export class IconPackManager {
         iconPack,
         files,
       );
-      if (
-        zipFile === LUCIDE_ICON_PACK_NAME &&
-        !this.plugin.doesUseCustomLucideIconPack()
-      ) {
-        continue;
-      }
 
       iconPack.setIcons(loadedIcons);
       if (!existingIconPack) {
@@ -222,26 +207,6 @@ export class IconPackManager {
       return;
     }
 
-    if (
-      iconPack.getName() === LUCIDE_ICON_PACK_NAME &&
-      this.plugin.doesUseNativeLucideIconPack()
-    ) {
-      // Native lucide icons already exist for Obsidian.
-      const lucideIcons = this.iconPacks.find(
-        (iconPack) => iconPack.getName() === LUCIDE_ICON_PACK_NAME,
-      );
-      const icon = lucideIcons.getIcons().find((icon) => icon.name === name);
-      if (!icon) {
-        logger.warn(
-          `Icon ${icon} does not exist in the native Lucide icon pack.`,
-        );
-        return;
-      }
-
-      this.preloadedIcons.push(icon);
-      return;
-    }
-
     const fullPath = this.path + '/' + iconPack.getName() + '/' + name + '.svg';
     if (!(await this.plugin.app.vault.adapter.exists(fullPath))) {
       logger.error(
@@ -259,23 +224,6 @@ export class IconPackManager {
     await this.fileManager.createDirectory(this.path, dir);
     const iconPack = new IconPack(this.plugin, dir, true);
     this.iconPacks.push(iconPack);
-  }
-
-  public async registerIconPack(
-    name: string,
-    arrayBuffer: ArrayBuffer,
-  ): Promise<void> {
-    const files = await readZipFile(arrayBuffer);
-    const iconPack = new IconPack(this.plugin, name, false);
-    const loadedIcons: Icon[] = await this.fileManager.getIconsFromZipFile(
-      iconPack,
-      files,
-    );
-    iconPack.setIcons(loadedIcons);
-    this.addIconPack(iconPack);
-    logger.info(
-      `Loaded icon pack ${name} (amount of icons: ${loadedIcons.length})`,
-    );
   }
 
   public async moveIconPackDirectories(
@@ -398,10 +346,6 @@ export class IconPackManager {
     await iconPack.delete();
   }
 
-  public getLucideIconPack(): LucideIconPack {
-    return this.lucideIconPack;
-  }
-
   public getPath(): string {
     return this.path;
   }
@@ -427,7 +371,6 @@ export class IconPackManager {
   }
 }
 
-export { LUCIDE_ICON_PACK_NAME, LucideIconPack } from './lucide';
 export {
   getNormalizedName,
   nextIdentifier,

@@ -5,7 +5,6 @@ import {
   getSvgFromLoadedIcon,
   nextIdentifier,
 } from '@/engine/util';
-import { LUCIDE_ICON_PACK_NAME } from '@/engine/lucide';
 import emoji from '@/emoji';
 import { logger } from '@/lib/logger-service';
 import IconizePlugin, { FolderIconObject } from '@/main';
@@ -32,13 +31,6 @@ export default async function checkMissingIcons(
       .getIconPackByPrefix(iconPrefix);
 
     if (!iconPack) {
-      return null;
-    }
-
-    if (
-      iconPack.getName() === LUCIDE_ICON_PACK_NAME &&
-      !plugin.doesUseCustomLucideIconPack()
-    ) {
       return null;
     }
 

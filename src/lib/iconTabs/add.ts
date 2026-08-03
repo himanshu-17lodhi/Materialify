@@ -1,5 +1,5 @@
 import IconizePlugin, { FolderIconObject } from '@/main';
-import * as materialIconTheme from '@/material-icon-theme';
+import * as materialIconTheme from '@/materialifyIcons';
 import customRule from '../customRule';
 import { IconCache } from '../icon-cache';
 import dom from '@/utils/dom';

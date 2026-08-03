@@ -54,7 +54,7 @@ import {
   getSvgFromLoadedIcon,
   nextIdentifier,
 } from './engine/util';
-import * as materialIconTheme from './material-icon-theme';
+import * as materialIconTheme from './materialifyIcons';
 
 export interface FolderIconObject {
   iconName: string | null;
@@ -1012,14 +1012,6 @@ export default class IconizePlugin extends Plugin {
 
   getRegisteredFileExplorers(): Set<ExplorerView> {
     return this.registeredFileExplorers;
-  }
-
-  doesUseCustomLucideIconPack(): boolean {
-    return this.getSettings().lucideIconPackType === 'custom';
-  }
-
-  doesUseNativeLucideIconPack(): boolean {
-    return this.getSettings().lucideIconPackType === 'native';
   }
 
   /**

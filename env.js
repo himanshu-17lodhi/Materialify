@@ -1,1 +1,1 @@
-export const obsidianExportPath = './dist/';
+export const obsidianExportPath = './dist';

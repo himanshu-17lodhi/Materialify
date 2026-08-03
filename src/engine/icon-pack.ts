@@ -93,3 +93,5 @@ export class IconPack {
     return this.icons;
   }
 }
+
+export { Icon };
