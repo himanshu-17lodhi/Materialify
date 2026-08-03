@@ -4,12 +4,13 @@ import IconizePlugin from '@/main';
 import style from './style';
 import svg from './svg';
 import emoji from '@/emoji';
-import { getSvgFromLoadedIcon, nextIdentifier } from '@/engine/util';
+import { getSvgFromLoadedIcon, nextIdentifier } from '@/engine';
 
 /**
  * Removes the `iconize-icon` icon node from the provided HTMLElement.
  * @param el HTMLElement from which the icon node will be removed.
  */
+
 const removeIconInNode = (el: HTMLElement): void => {
   const iconNode = el.querySelector('.iconize-icon');
   if (!iconNode) {

@@ -30,20 +30,22 @@ describe('add', () => {
     parentEl.appendChild(inlineTitleEl);
 
     titleIcon.add(plugin, inlineTitleEl, '<svg></svg>');
-    expect(parentEl).toMatchInlineSnapshot(`<div>
-  <div
-    class="iconize-inline-title-wrapper"
-    style="display: block;"
-  >
-    <div
-      class="iconize-title-icon"
-      style="display: block; width: var(--line-width); transform: translateY(9%);"
-    >
-      <svg />
-    </div>
-    <div />
-  </div>
-</div>`);
+    expect(parentEl).toMatchInlineSnapshot(`
+      <div>
+        <div
+          class="mf-inline-title"
+          style="display: block;"
+        >
+          <div
+            class="mf"
+            style="display: block; width: var(--line-width); transform: translateY(9%);"
+          >
+            <svg />
+          </div>
+          <div />
+        </div>
+      </div>
+    `);
   });
 
   it('should create a title icon with a font size when the passed in element is not an svg element', () => {
@@ -52,20 +54,22 @@ describe('add', () => {
     parentEl.appendChild(inlineTitleEl);
 
     titleIcon.add(plugin, inlineTitleEl, '👍', { fontSize: 10 });
-    expect(parentEl).toMatchInlineSnapshot(`<div>
-  <div
-    class="iconize-inline-title-wrapper"
-    style="display: block;"
-  >
-    <div
-      class="iconize-title-icon"
-      style="display: block; width: var(--line-width); font-size: 10px; transform: translateY(9%);"
-    >
-      👍
-    </div>
-    <div />
-  </div>
-</div>`);
+    expect(parentEl).toMatchInlineSnapshot(`
+      <div>
+        <div
+          class="mf-inline-title"
+          style="display: block;"
+        >
+          <div
+            class="mf"
+            style="display: block; width: var(--line-width); font-size: 10px; transform: translateY(9%);"
+          >
+            👍
+          </div>
+          <div />
+        </div>
+      </div>
+    `);
   });
 
   it('should update the title icon when the title icon already exist', () => {
@@ -77,20 +81,22 @@ describe('add', () => {
     parentEl.appendChild(inlineTitleEl);
 
     titleIcon.add(plugin, inlineTitleEl, '<svg></svg>');
-    expect(parentEl).toMatchInlineSnapshot(`<div>
-  <div
-    class="iconize-inline-title-wrapper"
-    style="display: block;"
-  >
-    <div
-      class="iconize-title-icon"
-      style="display: block; width: var(--line-width); transform: translateY(9%);"
-    >
-      <svg />
-    </div>
-    <div />
-  </div>
-</div>`);
+    expect(parentEl).toMatchInlineSnapshot(`
+      <div>
+        <div
+          class="mf-inline-title"
+          style="display: block;"
+        >
+          <div
+            class="mf"
+            style="display: block; width: var(--line-width); transform: translateY(9%);"
+          >
+            <svg />
+          </div>
+          <div />
+        </div>
+      </div>
+    `);
   });
 
   it('should call `svg.setFontSize if the `fontSize` option is provided', () => {

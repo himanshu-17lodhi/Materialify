@@ -320,6 +320,11 @@ export const resolveFileIconName = (
   );
   if (regularIcon) return regularIcon;
 
+  if (fileName.toLowerCase().endsWith('.md')) {
+    const markdownIcon = toIconizeIconName(plugin, 'markdown');
+    if (markdownIcon) return markdownIcon;
+  }
+
   const isDark = document.body.classList.contains('theme-dark');
   return isDark ? DEFAULT_FILE_DARK_ICON : DEFAULT_FILE_ICON;
 };

@@ -428,5 +428,10 @@ export class IconPackManager {
 }
 
 export { LUCIDE_ICON_PACK_NAME, LucideIconPack } from './lucide';
-export { getNormalizedName } from './util';
+export {
+  getNormalizedName,
+  nextIdentifier,
+  generateIcon,
+  getSvgFromLoadedIcon,
+} from './util';
 export { IconPack } from './icon-pack';

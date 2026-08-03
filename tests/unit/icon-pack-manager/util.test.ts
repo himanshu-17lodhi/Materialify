@@ -2,8 +2,8 @@ import { it, describe, expect, vi } from 'vitest';
 import {
   generateIcon,
   getNormalizedName,
-  getSvgFromLoadedIcon,
   nextIdentifier,
+  getSvgFromLoadedIcon,
 } from '@/engine';
 import IconizePlugin from '@/main';
 import type { IconPack } from '@/engine/icon-pack';

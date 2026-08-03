@@ -1,5 +1,4 @@
-import { beforeEach, it, expect, describe, vi, MockInstance } from 'vitest';
-import * as util from '@/engine';
+import { beforeEach, it, expect, describe, vi } from 'vitest';
 import dom from '@/utils/dom';
 import svg from '@/utils/svg';
 import style from '@/utils/style';
@@ -85,28 +84,35 @@ describe('getIconFromElement', () => {
 });
 
 describe('setIconForNode', () => {
-  let getSvgFromLoadedIcon: MockInstance;
   let plugin: any;
+  let settings: any;
+
   beforeEach(() => {
     vi.restoreAllMocks();
+
+    settings = {
+      emojiStyle: 'native',
+      extraMargin: {},
+    };
+
     plugin = {
-      getSettings: () => ({
-        emojiStyle: 'native',
-        extraMargin: {},
-      }),
+      getSettings: () => settings,
       getIconPackManager: () => ({
-        getIconPacks: (): any => [],
-        getPreloadedIcons: (): any => [],
+        getIconPacks: () => [],
+        getPreloadedIcons: () => [
+          {
+            prefix: 'Ib',
+            name: 'Test',
+            svgElement: '<svg test-icon="IbTest"></svg>',
+          },
+        ],
       }),
     };
-    getSvgFromLoadedIcon = vi.spyOn(util, 'getSvgFromLoadedIcon');
-    getSvgFromLoadedIcon.mockImplementationOnce(
-      () => '<svg test-icon="IbTest"></svg>',
-    );
   });
 
   it('should set the `innerHTML` with the icon for the provided node', () => {
     const node = document.createElement('div');
+
     dom.setIconForNode(plugin, 'IbTest', node);
 
     expect(node.innerHTML).toEqual('<svg test-icon="IbTest"></svg>');
@@ -114,76 +120,76 @@ describe('setIconForNode', () => {
 
   it('should call `svg.colorize` with the provided color when defined', () => {
     const node = document.createElement('div');
+
     const colorize = vi
       .spyOn(svg, 'colorize')
-      .mockImplementationOnce((icon) => icon);
+      .mockImplementation((icon) => icon);
 
     dom.setIconForNode(plugin, 'IbTest', node, { color: 'purple' });
 
-    expect(colorize).toBeCalledTimes(2); // 2 times because of `applyAll` and `colorize`.
-    colorize.mockRestore();
+    expect(colorize).toHaveBeenCalledTimes(2);
   });
 
   it('should set the `innerHTML` with the emoji for the provided node', () => {
-    getSvgFromLoadedIcon.mockRestore();
-    const applyAll = vi
-      .spyOn(style, 'applyAll')
-      .mockImplementationOnce(() => '😃');
+    const applyAll = vi.spyOn(style, 'applyAll').mockImplementation(() => '😃');
 
     const node = document.createElement('div');
+
     dom.setIconForNode(plugin, '😃', node);
 
     expect(node.innerHTML).toEqual('😃');
-    expect(applyAll).toBeCalledTimes(1);
-
-    applyAll.mockRestore();
+    expect(applyAll).toHaveBeenCalledTimes(1);
   });
 
   it('should parse twemoji if the emoji style is `twemoji`', () => {
-    getSvgFromLoadedIcon.mockRestore();
-    const applyAll = vi
-      .spyOn(style, 'applyAll')
-      .mockImplementationOnce(() => '😃');
-    const parse = vi.spyOn(twemoji, 'parse').mockImplementationOnce(() => '😃');
-    plugin.getSettings().emojiStyle = 'twemoji';
+    settings.emojiStyle = 'twemoji';
+
+    // const applyAll = vi.spyOn(style, 'applyAll').mockImplementation(() => '😃');
+
+    const parse = vi.spyOn(twemoji, 'parse').mockImplementation(() => '😃');
 
     const node = document.createElement('div');
-    dom.setIconForNode(plugin, '😃', node);
-    expect(node.innerHTML).toEqual('😃');
 
-    parse.mockRestore();
-    applyAll.mockRestore();
+    dom.setIconForNode(plugin, '😃', node);
+
+    expect(node.innerHTML).toEqual('😃');
+    expect(parse).toHaveBeenCalled();
   });
 
   it('should set `shouldApplyAllStyles` to `true` by default', () => {
-    const applyAll = vi
-      .spyOn(style, 'applyAll')
-      .mockImplementationOnce(() => '');
+    const applyAll = vi.spyOn(style, 'applyAll').mockImplementation(() => '');
 
     const node = document.createElement('div');
+
     dom.setIconForNode(plugin, 'IbTest', node, { color: 'blue' });
-    expect(applyAll).toBeCalledTimes(1);
+    expect(applyAll).toHaveBeenCalledTimes(1);
 
     dom.setIconForNode(plugin, 'IbTest', node);
-    expect(applyAll).toBeCalledTimes(2);
+    expect(applyAll).toHaveBeenCalledTimes(2);
   });
 });
 
 describe('createIconNode', () => {
-  let getSvgFromLoadedIcon: MockInstance;
   let plugin: any;
   beforeEach(() => {
     document.body.innerHTML = '';
     vi.restoreAllMocks();
     plugin = {
       getSettings: () => ({
+        emojiStyle: 'native',
         extraMargin: {},
       }),
+      getIconPackManager: () => ({
+        getPreloadedIcons: () => [
+          {
+            prefix: 'Ib',
+            name: 'Test',
+            svgElement: '<svg test-icon="IbTest"></svg>',
+          },
+        ],
+        getIconPacks: () => [],
+      }),
     };
-    getSvgFromLoadedIcon = vi.spyOn(util, 'getSvgFromLoadedIcon');
-    getSvgFromLoadedIcon.mockImplementationOnce(
-      () => '<svg test-icon="IbTest"></svg>',
-    );
   });
 
   it('should create a new icon node with the provided icon name if an icon node does not already exist', () => {
