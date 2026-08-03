@@ -3,7 +3,8 @@ import { Plugin, TAbstractFile } from 'obsidian';
 import { CustomRule } from '@/settings/data';
 import config from '@/config';
 import dom from '@/utils/dom';
-import customRule, { CustomRuleFileType } from '@/lib/customRule';
+import customRule from '@/lib/customRule';
+import type { CustomRuleFileType } from '@/lib/customRule/matching/doesMatchFileType';
 
 describe('doesMatchFileType', () => {
   let rule: CustomRule;

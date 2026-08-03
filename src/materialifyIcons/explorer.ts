@@ -8,7 +8,8 @@ import config from '@/config';
 import customRule from '@/lib/customRule';
 import { getFileItemTitleEl } from '@/util';
 import IconizePlugin from '@/main';
-import { resolveAutomaticIconName, resolveFolderIcon } from './index';
+import { resolveAutomaticIconName } from './resolver';
+import { resolveFolderIcon } from './folderIcon';
 import dom from '@/utils/dom';
 import { TAbstractFile } from 'obsidian';
 

@@ -1,11 +1,15 @@
 import type IconizePlugin from '@/main';
-import { IconPack, generateIcon, getNormalizedName } from '@/engine';
+
+import { IconPack } from '@/engine/icon-pack';
 import type { Icon } from '@/engine/icon-pack';
+
+import { generateIcon, getNormalizedName } from '@/engine/util';
+
 import { materialIconThemeSvgByName } from './generated';
 
 import {
-  MATERIAL_ICON_PACK_NAME,
   MATERIAL_DEFAULT_ICON_OVERRIDES,
+  MATERIAL_ICON_PACK_NAME,
 } from './constants';
 
 export const createMaterialIconPack = (plugin: IconizePlugin): IconPack => {

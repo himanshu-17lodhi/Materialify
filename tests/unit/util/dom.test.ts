@@ -98,7 +98,7 @@ describe('setIconForNode', () => {
     plugin = {
       getSettings: () => settings,
       getIconPackManager: () => ({
-        getIconPacks: () => [],
+        getIconPacks: (): never[] => [],
         getPreloadedIcons: () => [
           {
             prefix: 'Ib',
@@ -187,7 +187,7 @@ describe('createIconNode', () => {
             svgElement: '<svg test-icon="IbTest"></svg>',
           },
         ],
-        getIconPacks: () => [],
+        getIconPacks: (): never[] => [],
       }),
     };
   });

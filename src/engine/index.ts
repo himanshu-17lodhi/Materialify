@@ -8,10 +8,8 @@ import { readZipFile } from '@/zip-util';
 import { logger } from '@/lib/logger-service';
 import JSZip from 'jszip';
 import { generateIcon, getNormalizedName, nextIdentifier } from './util';
-import {
-  createMaterialIconPack,
-  MATERIAL_ICON_PACK_NAME,
-} from '@/materialifyIcons';
+import { MATERIAL_ICON_PACK_NAME } from '@/materialifyIcons/constants';
+import { createMaterialIconPack } from '@/materialifyIcons/pack';
 
 export interface Icon {
   name: string;
