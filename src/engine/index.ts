@@ -11,7 +11,7 @@ import { generateIcon, getNormalizedName, nextIdentifier } from './util';
 import {
   createMaterialIconPack,
   MATERIAL_ICON_PACK_NAME,
-} from '@/material-icon-theme';
+} from '@/materialifyIcons';
 
 export interface Icon {
   name: string;

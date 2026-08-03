@@ -54,7 +54,7 @@ import {
   getSvgFromLoadedIcon,
   nextIdentifier,
 } from './engine/util';
-import * as materialIconTheme from './material-icon-theme';
+import * as materialIconTheme from './materialifyIcons';
 
 export interface FolderIconObject {
   iconName: string | null;

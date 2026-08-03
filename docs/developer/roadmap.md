@@ -4,8 +4,8 @@
 
 The system introduces automatic Material Icon Theme assignments into Materialify. It relies on a generated mapping derived from the VS Code Material Icon Theme extension.
 
-1. **Generator Script**: `scripts/generate-material-icon-theme.mjs` extracts mappings and bundles SVGs from the VS Code extension into `src/material-icon-theme/generated.ts`.
-2. **Resolver System**: `src/material-icon-theme/index.ts` provides path-to-icon resolution mapping against exact filenames, extensions, folder names, and root folders.
+1. **Generator Script**: `scripts/generate-materialifyIcons.mjs` extracts mappings and bundles SVGs from the VS Code extension into `src/materialifyIcons/generated.ts`.
+2. **Resolver System**: `src/materialifyIcons/index.ts` provides path-to-icon resolution mapping against exact filenames, extensions, folder names, and root folders.
 3. **Runtime Integration**: Intercepts Obsidian vault events (`create`, `rename`, `delete`) and Explorer `layout-ready`/refresh states to inject automatic icons without mutating the core settings icon data.
 4. **Fallback Strategy**: Automatic icons only apply if no manual icon or custom rule applies to a given path.
 

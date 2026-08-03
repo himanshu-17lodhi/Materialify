@@ -33,7 +33,7 @@ export default defineConfig({
         'src/editor/live-preview/**',
         'src/editor/markdown-processors/**',
 
-        'src/material-icon-theme/generated.ts',
+        'src/materialifyIcons/generated.ts',
       ],
 
       thresholds: {
