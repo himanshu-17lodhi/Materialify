@@ -10,8 +10,7 @@ const materialRepoPath = resolve(
     '/mnt/d/Workspace/vscode-materialifyIcons',
 );
 const outputPath = resolve(
-  process.env.MATERIAL_ICON_THEME_OUTPUT ??
-    'src/materialifyIcons/generated.ts',
+  process.env.MATERIAL_ICON_THEME_OUTPUT ?? 'src/materialifyIcons/generated.ts',
 );
 
 if (!existsSync(materialRepoPath)) {

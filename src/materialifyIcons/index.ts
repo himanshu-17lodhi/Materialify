@@ -1,9 +1,7 @@
 import type { TAbstractFile } from 'obsidian';
 import type { FileItem, ExplorerView } from '@/@types/obsidian';
 import type IconizePlugin from '@/main';
-import { Icon } from '@/engine';
-import { IconPack } from '@/engine/icon-pack';
-import { generateIcon, getNormalizedName } from '@/engine/util';
+import { getNormalizedName } from '@/engine/util';
 import customRule from '@/lib/customRule';
 import { IconCache } from '@/lib/icon-cache';
 import dom from '@/utils/dom';
@@ -25,7 +23,9 @@ import {
 } from './generated';
 import { materialCanonicalFolderIconNames } from './canonical-folder-icon-names';
 
-export const MATERIAL_ICON_PACK_NAME = 'material-icons';
+export { createMaterialIconPack } from './pack';
+export { MATERIAL_ICON_PACK_NAME } from './constants';
+
 const MATERIAL_ICON_PACK_PREFIX = 'Mi';
 const OPEN_SUFFIX = 'Open';
 const MATERIAL_DEFAULT_ICON_IDS = new Set<string>([
@@ -63,14 +63,6 @@ const rootFolderNames = normalizeRecord(
 const languageIds = normalizeRecord(materialIconThemeManifest.languageIds);
 
 const isFolder = (file: TAbstractFile): boolean => 'children' in file;
-
-const MATERIAL_DEFAULT_ICON_OVERRIDES: Record<string, string> = {
-  file: DEFAULT_FILE_ICON,
-  folder: DEFAULT_FOLDER_ICON,
-  'folder-open': DEFAULT_FOLDER_OPEN_ICON,
-  'folder-root': DEFAULT_FOLDER_ICON,
-  'folder-root-open': DEFAULT_FOLDER_OPEN_ICON,
-};
 
 const getPathSuffixes = (path: string): string[] => {
   const parts = normalizeLookupKey(path).split('/').filter(Boolean);
@@ -263,23 +255,6 @@ export const resolveFolderIcon = (
     if (iconExists(plugin, openIconId)) return openIconId;
   }
   return baseIconId;
-};
-
-export const createMaterialIconPack = (plugin: IconizePlugin): IconPack => {
-  const iconPack = new IconPack(plugin, MATERIAL_ICON_PACK_NAME, true);
-  const icons = Object.entries(materialIconThemeSvgByName).reduce<Icon[]>(
-    (result, [iconName, svgContent]) => {
-      const resolvedSvgContent =
-        MATERIAL_DEFAULT_ICON_OVERRIDES[iconName] ?? svgContent;
-      const normalizedName = getNormalizedName(iconName);
-      const icon = generateIcon(iconPack, normalizedName, resolvedSvgContent);
-      if (icon) result.push(icon);
-      return result;
-    },
-    [],
-  );
-  iconPack.setIcons(icons);
-  return iconPack;
 };
 
 export const resolveFileIconName = (
