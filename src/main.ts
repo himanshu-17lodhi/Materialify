@@ -1014,14 +1014,6 @@ export default class IconizePlugin extends Plugin {
     return this.registeredFileExplorers;
   }
 
-  doesUseCustomLucideIconPack(): boolean {
-    return this.getSettings().lucideIconPackType === 'custom';
-  }
-
-  doesUseNativeLucideIconPack(): boolean {
-    return this.getSettings().lucideIconPackType === 'native';
-  }
-
   /**
    * Returns a possible data path by the given value. This function checks for
    * direct icon and custom rules.

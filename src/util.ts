@@ -1,5 +1,4 @@
 import { FileItem, FileWithLeaf } from './@types/obsidian';
-import { LUCIDE_ICON_PACK_NAME } from './engine/lucide';
 import { getSvgFromLoadedIcon, nextIdentifier } from './engine/util';
 import IconizePlugin from './main';
 
@@ -92,12 +91,6 @@ export const saveIconToIconPack = (
   }
 
   const iconPack = plugin.getIconPackManager().getIconPackByPrefix(iconPrefix);
-  if (
-    iconPack.getName() === LUCIDE_ICON_PACK_NAME &&
-    !plugin.doesUseCustomLucideIconPack()
-  ) {
-    return;
-  }
 
   const icon = iconPack.getIcon(iconName);
   plugin.getIconPackManager().extractIcon(icon, possibleIcon);

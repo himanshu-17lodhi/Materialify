@@ -2,11 +2,8 @@ import { Notice, Setting, TextComponent } from 'obsidian';
 import IconFolderSetting from './iconFolderSetting';
 import IconizePlugin from '@/main';
 import { readFileSync } from '@/util';
-import icon from '@/lib/icon';
-import { LucideIconPackType } from '@/settings/data';
-import { LUCIDE_ICON_PACK_NAME } from '@/engine/lucide';
 
-export default class CustomIconPackSetting extends IconFolderSetting {
+export default class CustomIconsSetting extends IconFolderSetting {
   private textComponent: TextComponent;
   private dragOverElement: HTMLElement;
   private closeTimer: NodeJS.Timeout;
@@ -103,91 +100,16 @@ export default class CustomIconPackSetting extends IconFolderSetting {
     // Sorts lucide icon pack always to the top.
     const iconPacks = [...this.plugin.getIconPackManager().getIconPacks()].sort(
       (a, b) => {
-        if (a.getName() === LUCIDE_ICON_PACK_NAME) return -1;
-        if (b.getName() === LUCIDE_ICON_PACK_NAME) return 1;
+        // if (a.getName() === LUCIDE_ICON_PACK_NAME) return -1;
+        // if (b.getName() === LUCIDE_ICON_PACK_NAME) return 1;
         return a.getName().localeCompare(b.getName());
       },
     );
 
     iconPacks.forEach((iconPack) => {
-      const isLucideIconPack = iconPack.getName() === LUCIDE_ICON_PACK_NAME;
-      const additionalLucideDescription =
-        '(Native Pack has fewer icons but 100% Obsidian Sync support)';
       const iconPackSetting = new Setting(this.containerEl)
         .setName(`${iconPack.getName()} (${iconPack.getPrefix()})`)
-        .setDesc(
-          `Total icons: ${iconPack.getIcons().length}${isLucideIconPack ? ` ${additionalLucideDescription}` : ''}`,
-        );
-      // iconPackSetting.addButton((btn) => {
-      //   btn.setIcon('broken-link');
-      //   btn.setTooltip('Try to fix icon pack');
-      //   btn.onClick(async () => {
-      //     new Notice('Try to fix icon pack...');
-      //     getIconPack(iconPack.name).icons = [];
-      //     const icons = await getFilesInDirectory(this.plugin, `${getPath()}/${iconPack.name}`);
-      //     for (let i = 0; i < icons.length; i++) {
-      //       const filePath = icons[i];
-      //       const fileName = filePath.split('/').pop();
-      //       const file = await this.plugin.app.vault.adapter.read(filePath);
-      //       const iconContent = file
-      //         .replace(/stroke="#fff"/g, 'stroke="currentColor"')
-      //         .replace(/fill="#fff"/g, 'fill="currentColor"');
-
-      //       await this.plugin.app.vault.adapter.write(filePath, iconContent);
-      //       await normalizeFileName(this.plugin, filePath);
-
-      //       addIconToIconPack(iconPack.name, fileName, iconContent);
-      //     }
-      //     new Notice('...tried to fix icon pack');
-
-      //     // Refreshes the DOM.
-      //     Object.entries(this.plugin.getData()).forEach(async ([k, v]) => {
-      //       const doesPathExist = await this.plugin.app.vault.adapter.exists(k, true);
-      //       if (doesPathExist && typeof v === 'string') {
-      //         // dom.removeIconInPath(k);
-      //         dom.createIconNode(this.plugin, k, v);
-      //       }
-      //     });
-      //   });
-      // });
-
-      if (isLucideIconPack) {
-        iconPackSetting.addDropdown((dropdown) => {
-          dropdown.addOptions({
-            native: 'Native',
-            custom: 'Custom',
-            none: 'None',
-          } satisfies Record<LucideIconPackType, string>);
-          dropdown.setValue(this.plugin.getSettings().lucideIconPackType);
-          dropdown.onChange(async (value: LucideIconPackType) => {
-            dropdown.setDisabled(true);
-            new Notice('Changing icon packs...');
-            this.plugin.getSettings().lucideIconPackType = value;
-            await this.plugin.saveIconFolderData();
-            if (value === 'native' || value === 'none') {
-              await this.plugin
-                .getIconPackManager()
-                .getLucideIconPack()
-                .removeCustom();
-              this.plugin.getIconPackManager().getLucideIconPack().init();
-            } else {
-              await this.plugin
-                .getIconPackManager()
-                .getLucideIconPack()
-                .addCustom();
-              await icon.checkMissingIcons(
-                this.plugin,
-                Object.entries(this.plugin.getData()) as any,
-              );
-            }
-
-            dropdown.setDisabled(false);
-            new Notice('Done. This change requires a restart of Obsidian');
-          });
-        });
-        return;
-      }
-
+        .setDesc(`Total icons: ${iconPack.getIcons().length}`);
       iconPackSetting.addButton((btn) => {
         btn.setIcon('plus');
         btn.setTooltip('Add an icon');
@@ -222,9 +144,7 @@ export default class CustomIconPackSetting extends IconFolderSetting {
       });
       iconPackSetting.addButton((btn) => {
         btn.setIcon('trash');
-        btn.setTooltip('Remove the icon pack');
         btn.onClick(async () => {
-          await this.plugin.getIconPackManager().removeIconPack(iconPack);
           this.refreshDisplay();
           new Notice('Icon pack successfully deleted.');
         });

@@ -4,10 +4,9 @@ import IconizePlugin from '@/main';
 import { Notice } from 'obsidian';
 import { generateIcon, getNormalizedName } from './util';
 import JSZip from 'jszip';
-import { getExtraPath } from '@/icon-packs';
 import { getFileFromJSZipFile } from '@/zip-util';
-import { IconPack } from './icon-pack';
 import { Icon } from '.';
+import { IconPack } from './icon-pack';
 
 export class FileManager {
   constructor(private plugin: IconizePlugin) {}
@@ -98,14 +97,10 @@ export class FileManager {
     files: JSZip.JSZipObject[],
   ): Promise<Icon[]> {
     const loadedIcons: Icon[] = [];
-    const extraPath = getExtraPath(iconPack.getName());
 
     for (let j = 0; j < files.length; j++) {
       // Checks if the icon pack has an extra path. Also ignores files which do not start
       // with the extra path.
-      if (extraPath && !files[j].name.startsWith(extraPath)) {
-        continue;
-      }
 
       const file = await getFileFromJSZipFile(files[j]);
       const iconContent = await file.text();
