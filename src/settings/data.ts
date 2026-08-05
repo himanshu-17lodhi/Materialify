@@ -67,7 +67,6 @@ export interface IconFolderSettings {
    * The version of the settings which is used for migrations. This number should be
    * bumped up for every migration.
    */
-  migrated: number;
   /**
    * Sets the path of where the icon packs are located and stored.
    * @default '.obsidian/icons'
@@ -184,7 +183,6 @@ export interface IconFolderSettings {
 }
 
 export const DEFAULT_SETTINGS: IconFolderSettings = {
-  migrated: 2,
   iconPacksPath: '.obsidian/icons',
   fontSize: 16,
   emojiStyle: 'native',

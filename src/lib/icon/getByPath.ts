@@ -8,7 +8,7 @@ export default function getByPath(
   plugin: IconizePlugin,
   path: string,
 ): string | undefined {
-  if (path === 'settings' || path === 'migrated') {
+  if (path === 'settings') {
     return undefined;
   }
 

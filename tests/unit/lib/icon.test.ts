@@ -67,12 +67,11 @@ describe('getByPath', () => {
     };
   });
 
-  it('should return `undefined` when path is `settings` or `migrated', () => {
+  it('should return `undefined` when path is `settings` ', () => {
     const mockPlugin = {
       getSettings: () => ({ automaticMaterialIconTheme: false }),
     } as any;
     expect(icon.getByPath(mockPlugin, 'settings')).toBeUndefined();
-    expect(icon.getByPath(mockPlugin, 'migrated')).toBeUndefined();
   });
 
   it('should return the value if value in data of path is a string', () => {

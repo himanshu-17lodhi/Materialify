@@ -10,7 +10,7 @@ export default function getAllWithPath(plugin: IconizePlugin): IconWithPath[] {
   const result: IconWithPath[] = [];
 
   Object.entries(plugin.getData()).forEach(([path, value]) => {
-    if (path === 'settings' || path === 'migrated') {
+    if (path === 'settings') {
       return;
     }
 
