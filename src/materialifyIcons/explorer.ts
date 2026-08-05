@@ -1,4 +1,4 @@
-import { ExplorerView, FileItem } from '@/@types/obsidian';
+import { ExplorerView, FileItem } from '@/types/obsidian';
 import {
   MATERIAL_DEFAULT_ICON_IDS,
   MATERIAL_ICON_PACK_PREFIX,

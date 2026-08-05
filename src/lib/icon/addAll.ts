@@ -1,4 +1,4 @@
-import type { ExplorerView, TabHeaderLeaf } from '@/@types/obsidian';
+import type { ExplorerView, TabHeaderLeaf } from '@/types/obsidian';
 
 import config from '@/config';
 import customRule from '@/lib/customRule';

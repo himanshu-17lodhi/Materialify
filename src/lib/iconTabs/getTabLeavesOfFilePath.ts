@@ -1,4 +1,4 @@
-import { TabHeaderLeaf } from '@/@types/obsidian';
+import { TabHeaderLeaf } from '@/types/obsidian';
 import IconizePlugin from '@/main';
 import { getAllOpenedFiles } from '@/util';
 

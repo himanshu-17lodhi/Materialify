@@ -22,14 +22,14 @@ import customRule from '@/lib/customRule';
 import iconTabs from '@/lib/icon-tabs';
 import dom from '@/utils/dom';
 import svg from '@/utils/svg';
-import { TabHeaderLeaf } from '@/@types/obsidian';
+import { TabHeaderLeaf } from '@/types/obsidian';
 import emoji from '@/emoji';
 import { getNormalizedName } from '@/engine';
 
 export default class CustomIconRuleSetting extends IconFolderSetting {
   private app: App;
-  private textComponent: TextComponent;
-  private chooseIconBtn: ButtonComponent;
+  private textComponent: TextComponent | undefined;
+  private chooseIconBtn: ButtonComponent | undefined;
   private refreshDisplay: () => void;
 
   constructor(

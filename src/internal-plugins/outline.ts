@@ -1,4 +1,4 @@
-import InternalPluginInjector from '@/@types/internal-plugin-injector';
+import InternalPluginInjector from '@/types/internal-plugin-injector';
 import { createIconShortcodeRegex } from '@/editor/markdown-processors';
 import svg from '@/utils/svg';
 import icon from '@/lib/icon';

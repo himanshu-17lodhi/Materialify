@@ -1,4 +1,4 @@
-import { FileItem, FileWithLeaf } from './@types/obsidian';
+import { FileItem, FileWithLeaf } from './types/obsidian';
 import { getSvgFromLoadedIcon, nextIdentifier } from './engine/util';
 import IconizePlugin from './main';
 

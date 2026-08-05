@@ -1,6 +1,6 @@
 import { Setting } from 'obsidian';
 import iconTabs from '@/lib/icon-tabs';
-import { TabHeaderLeaf } from '@/@types/obsidian';
+import { TabHeaderLeaf } from '@/types/obsidian';
 import IconFolderSetting from './iconFolderSetting';
 
 export default class ToggleIconInTabs extends IconFolderSetting {

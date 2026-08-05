@@ -1,6 +1,6 @@
 import { WorkspaceLeaf } from 'obsidian';
 
-import type { TabHeaderLeaf } from '@/@types/obsidian';
+import type { TabHeaderLeaf } from '@/types/obsidian';
 import iconTabs from '@/lib/icon-tabs';
 import IconizePlugin from '@/main';
 import { getAllOpenedFiles } from '@/util';

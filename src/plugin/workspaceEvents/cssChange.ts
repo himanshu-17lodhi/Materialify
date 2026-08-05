@@ -1,5 +1,5 @@
 import { MarkdownView } from 'obsidian';
-import type { InlineTitleView } from '@/@types/obsidian';
+import type { InlineTitleView } from '@/types/obsidian';
 import titleIcon from '@/lib/icon-title';
 import IconizePlugin from '@/main';
 import { getAllOpenedFiles } from '@/util';

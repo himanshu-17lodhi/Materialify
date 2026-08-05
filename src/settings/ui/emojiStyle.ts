@@ -7,7 +7,7 @@ import iconTabs from '@/lib/icon-tabs';
 import IconFolderSetting from './iconFolderSetting';
 import titleIcon from '@/lib/icon-title';
 import { getAllOpenedFiles } from '@/util';
-import { InlineTitleView } from '@/@types/obsidian';
+import { InlineTitleView } from '@/types/obsidian';
 import { calculateInlineTitleSize } from '@/utils/text';
 
 export default class EmojiStyleSetting extends IconFolderSetting {

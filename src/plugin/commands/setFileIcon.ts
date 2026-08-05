@@ -1,4 +1,4 @@
-import { EditorWithEditorComponent } from '@/@types/obsidian';
+import { EditorWithEditorComponent } from '@/types/obsidian';
 import { IconCache } from '@/lib/icon-cache';
 import iconTabs from '@/lib/icon-tabs';
 import { logger } from '@/lib/logger-service';

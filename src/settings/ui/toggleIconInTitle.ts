@@ -3,7 +3,7 @@ import { calculateInlineTitleSize } from '@/utils/text';
 import IconFolderSetting from './iconFolderSetting';
 import icon from '@/lib/icon';
 import titleIcon from '@/lib/icon-title';
-import { InlineTitleView } from '@/@types/obsidian';
+import { InlineTitleView } from '@/types/obsidian';
 import { IconInTitlePosition } from '@/settings/data';
 
 interface UpdateLeavesOptions {

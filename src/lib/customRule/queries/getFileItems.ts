@@ -5,7 +5,7 @@
  * @returns True if the rule exists in the path, false otherwise.
  */
 
-import { FileItem } from '@/@types/obsidian';
+import { FileItem } from '@/types/obsidian';
 import IconizePlugin from '@/main';
 import { CustomRule } from '@/settings/data';
 import isApplicable from '../matching/isApplicable';

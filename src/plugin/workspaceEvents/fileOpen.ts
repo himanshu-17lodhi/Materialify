@@ -1,4 +1,4 @@
-import type { InlineTitleView } from '@/@types/obsidian';
+import type { InlineTitleView } from '@/types/obsidian';
 import emoji from '@/emoji';
 import icon from '@/lib/icon';
 import titleIcon from '@/lib/icon-title';

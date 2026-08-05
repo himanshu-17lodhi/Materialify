@@ -14,7 +14,7 @@ import {
   InlineTitleView,
   MarkdownViewWithMode,
   TabHeaderLeaf,
-} from './@types/obsidian';
+} from './types/obsidian';
 import { registerCommands } from '@/plugin/commands';
 import { registerMarkdownFeatures } from '@/plugin/markdown';
 import { existsSync, mkdirSync } from 'node:fs';
@@ -23,7 +23,7 @@ import { DEFAULT_SETTINGS, IconFolderSettings } from '@/settings/data';
 import { migrate } from '@/migrations';
 import IconFolderSettingsUI from './settings/ui';
 import StarredInternalPlugin from './internal-plugins/starred';
-import InternalPluginInjector from './@types/internal-plugin-injector';
+import InternalPluginInjector from './types/internal-plugin-injector';
 import iconTabs from './lib/icon-tabs';
 import dom from '@/utils/dom';
 import customRule from './lib/customRule';
