@@ -20,7 +20,6 @@ import { registerMarkdownFeatures } from '@/plugin/markdown';
 import { existsSync, mkdirSync } from 'node:fs';
 import IconsPickerModal from './ui/icons-picker-modal';
 import { DEFAULT_SETTINGS, IconFolderSettings } from '@/settings/data';
-import { migrate } from '@/migrations';
 import IconFolderSettingsUI from './settings/ui';
 import InternalPluginInjector from './types/internal-plugin-injector';
 import iconTabs from './lib/icon-tabs';
@@ -140,8 +139,6 @@ export default class IconizePlugin extends Plugin {
 
     // await this.iconPackManager.createDefaultDirectory();
     await this.checkRecentlyUsedIcons();
-
-    await migrate(this);
 
     const usedIconNames = this.getUsedIcons();
     await this.iconPackManager.init();
