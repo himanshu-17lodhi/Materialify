@@ -22,7 +22,6 @@ import IconsPickerModal from './ui/icons-picker-modal';
 import { DEFAULT_SETTINGS, IconFolderSettings } from '@/settings/data';
 import { migrate } from '@/migrations';
 import IconFolderSettingsUI from './settings/ui';
-import StarredInternalPlugin from './internal-plugins/starred';
 import InternalPluginInjector from './types/internal-plugin-injector';
 import iconTabs from './lib/icon-tabs';
 import dom from '@/utils/dom';
@@ -131,9 +130,8 @@ export default class IconizePlugin extends Plugin {
     if (this.getSettings().useInternalPlugins) {
       // Registers all modified internal plugins.
       // Only adds star plugin for obsidian under v0.12.6.
-      if (!requireApiVersion('0.12.6')) {
-        this.modifiedInternalPlugins.push(new StarredInternalPlugin(this));
-      } else if (requireApiVersion('1.2.0')) {
+
+      if (requireApiVersion('1.2.0')) {
         this.modifiedInternalPlugins.push(new BookmarkInternalPlugin(this));
       }
 

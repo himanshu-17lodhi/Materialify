@@ -14,20 +14,6 @@ interface InternalPlugin {
   disable: (b: boolean) => void;
 }
 
-interface StarredFile {
-  type: 'file';
-  title: string;
-  path: string;
-}
-
-interface StarredInternalPlugin extends InternalPlugin {
-  instance: {
-    addItem: (file: StarredFile) => void;
-    removeItem: (file: StarredFile) => void;
-    items: StarredFile[];
-  };
-}
-
 interface BookmarkItem {
   ctime: number;
   type: 'file' | 'folder' | 'group';
@@ -54,7 +40,6 @@ type OutlineInternalPlugin = InternalPlugin;
 type FileExplorerInternalPlugin = InternalPlugin;
 
 interface InternalPlugins {
-  starred: StarredInternalPlugin;
   bookmarks: BookmarkInternalPlugin;
   'file-explorer': FileExplorerInternalPlugin;
   outline: OutlineInternalPlugin;
