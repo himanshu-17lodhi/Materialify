@@ -11,7 +11,6 @@ describe('add', () => {
       getSettings: (): any => {
         return {
           iconInTitlePosition: 'above',
-          emojiStyle: 'native',
         };
       },
     };
@@ -41,30 +40,6 @@ describe('add', () => {
             style="display: block; width: var(--line-width); transform: translateY(9%);"
           >
             <svg />
-          </div>
-          <div />
-        </div>
-      </div>
-    `);
-  });
-
-  it('should create a title icon with a font size when the passed in element is not an svg element', () => {
-    const parentEl = document.createElement('div');
-    const inlineTitleEl = document.createElement('div');
-    parentEl.appendChild(inlineTitleEl);
-
-    titleIcon.add(plugin, inlineTitleEl, '👍', { fontSize: 10 });
-    expect(parentEl).toMatchInlineSnapshot(`
-      <div>
-        <div
-          class="mf-inline-title"
-          style="display: block;"
-        >
-          <div
-            class="mf"
-            style="display: block; width: var(--line-width); font-size: 10px; transform: translateY(9%);"
-          >
-            👍
           </div>
           <div />
         </div>
@@ -127,17 +102,6 @@ describe('updateStyle', () => {
     titleIcon.updateStyle(inlineTitleEl, { fontSize: 10 });
     expect(setFontSize).toBeCalledTimes(1);
     expect(setFontSize).toHaveBeenCalledWith('<svg></svg>', 10);
-  });
-
-  it('should update font size of the title icon element when it is an emoji', () => {
-    const parentEl = document.createElement('div');
-    const inlineTitleEl = document.createElement('div');
-    inlineTitleEl.innerHTML = '👍';
-    inlineTitleEl.classList.add(config.CSS_PREFIX);
-    parentEl.appendChild(inlineTitleEl);
-
-    titleIcon.updateStyle(inlineTitleEl, { fontSize: 10 });
-    expect(inlineTitleEl.style.fontSize).toEqual('10px');
   });
 });
 

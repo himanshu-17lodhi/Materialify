@@ -1,4 +1,3 @@
-import emoji from '@/emoji';
 import svg from '@/utils/svg';
 import icon from '@/lib/icon';
 import { logger } from '@/lib/logger-service';
@@ -71,19 +70,11 @@ export const processIconInLinkMarkdown = (
     rootSpan.style.color =
       plugin.getIconColor(path) ?? plugin.getSettings().iconColor;
 
-    if (emoji.isEmoji(iconName)) {
-      const parsedEmoji =
-        emoji.parseEmoji(plugin.getSettings().emojiStyle, iconName, fontSize) ??
-        iconName;
-      rootSpan.style.transform = 'translateY(0)';
-      rootSpan.innerHTML = parsedEmoji;
-    } else {
-      let svgEl = icon.getIconByName(plugin, iconName).svgElement;
-      svgEl = svg.setFontSize(svgEl, fontSize);
-      if (svgEl) {
-        rootSpan.style.transform = 'translateY(20%)';
-        rootSpan.innerHTML = svgEl;
-      }
+    let svgEl = icon.getIconByName(plugin, iconName).svgElement;
+    svgEl = svg.setFontSize(svgEl, fontSize);
+    if (svgEl) {
+      rootSpan.style.transform = 'translateY(20%)';
+      rootSpan.innerHTML = svgEl;
     }
 
     linkElement.prepend(rootSpan);

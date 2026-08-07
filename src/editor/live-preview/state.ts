@@ -12,7 +12,6 @@ import {
   StateField,
 } from '@codemirror/state';
 import IconizePlugin from '@/main';
-import emoji from '@/emoji';
 
 export type PositionField = StateField<RangeSet<IconPosition>>;
 
@@ -101,27 +100,6 @@ export const buildPositionField = (plugin: IconizePlugin) => {
       }
 
       updateRange(from, to, new IconPosition(iconName), true);
-    }
-
-    for (const { 0: emojiName, index: offset } of text.matchAll(
-      emoji.getRegex(),
-    )) {
-      if (!emoji.isEmoji(emojiName)) {
-        continue;
-      }
-
-      const from = offset;
-      const to = offset + emojiName.length;
-      if (!isNodeInRangeAccepted(state, from, to)) {
-        continue;
-      }
-
-      if (offset < excludeFrom || offset > excludeTo) {
-        updateRange(from, to, new IconPosition(emojiName), isSourceMode);
-        continue;
-      }
-
-      updateRange(from, to, new IconPosition(emojiName), true);
     }
   };
 

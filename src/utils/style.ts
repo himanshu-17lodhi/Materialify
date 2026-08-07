@@ -2,7 +2,6 @@
 // only include utility functions for setting styles for nodes or icons. The only
 // dependency is the `svg` library.
 
-import emoji from '@/emoji';
 import IconizePlugin from '@/main';
 import { getFileItemTitleEl } from '@/util';
 import svg from './svg';
@@ -27,8 +26,8 @@ const setMargin = (el: HTMLElement, margin: Margin): HTMLElement => {
 
 /**
  * Applies all stylings to the specified svg icon string and applies styling to the node
- * (container). The styling to the specified element is only modified when it is an emoji
- * or extra margin is defined in the settings.
+ * (container). The styling to the specified element is only modified when
+ * extra margin is defined in the settings.
  * @param plugin Instance of the IconizePlugin.
  * @param iconString SVG that will be used to apply the svg styles to.
  * @param el Node for manipulating the style.
@@ -53,11 +52,6 @@ const applyAll = (
   };
   if (plugin.getSettings().extraMargin) {
     setMargin(container, normalizedMargin);
-  }
-
-  if (emoji.isEmoji(iconString)) {
-    container.style.fontSize = `${plugin.getSettings().fontSize}px`;
-    container.style.lineHeight = `${plugin.getSettings().fontSize}px`;
   }
 
   return iconString;

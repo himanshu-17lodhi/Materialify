@@ -1,4 +1,3 @@
-import emoji from '@/emoji';
 import icon from '@/lib/icon';
 import svg from '@/utils/svg';
 import {
@@ -69,12 +68,6 @@ export class IconInTextWidget extends WidgetType {
       wrap.style.display = 'inline-flex';
       wrap.style.transform = 'translateY(13%)';
       wrap.innerHTML = svgElement;
-    } else if (emoji.isEmoji(this.id)) {
-      wrap.innerHTML = emoji.parseEmoji(
-        this.plugin.getSettings().emojiStyle,
-        this.id,
-        fontSize,
-      );
     } else {
       wrap.append(
         `${this.plugin.getSettings().iconIdentifier}${this.id}${

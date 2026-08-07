@@ -13,22 +13,22 @@ export default interface IconizeAPI {
   getEventEmitter(): EventEmitter;
   getIconByName(iconNameWithPrefix: string): Icon | null;
   /**
-   * Returns the {@link Icon} or emoji as string for the given path.
+   * Returns the {@link Icon} for the given path.
    * @param path String which is the path to get the icon of.
-   * @returns Icon or Emoji as string if it exists, `null` otherwise.
+   * @returns Icon as string if it exists, `null` otherwise.
    */
   getIconByPath(path: string): Icon | string | null;
   /**
-   * Gets the icon name or emoji of a given path. This function returns the first occurrence of an icon.
+   * Gets the icon name of a given path. This function returns the first occurrence of an icon.
    * @param path Path to get the icon of.
-   * @returns The icon name or emoji of the path if it exists, undefined otherwise.
+   * @returns The icon name of the path if it exists, undefined otherwise.
    */
   getIconNameByPath(path: string): string | undefined;
   /**
-   * Sets an icon or emoji for an HTMLElement based on the specified icon name and color.
+   * Sets an icon for an HTMLElement based on the specified icon name and color.
    * The function manipulates the specified node inline.
-   * @param iconName Name of the icon or emoji to add.
-   * @param node HTMLElement to which the icon or emoji will be added.
+   * @param iconName Name of the icon to add.
+   * @param node HTMLElement to which the icon will be added.
    * @param color Optional color of the icon to add.
    */
   setIconForNode(iconName: string, node: HTMLElement, color?: string): void;
@@ -56,6 +56,11 @@ export default interface IconizeAPI {
   };
 }
 
+/**
+ * Returns the public Iconize API object for plugin integration.
+ *
+ * @param plugin Plugin instance.
+ */
 export function getApi(plugin: IconizePlugin): IconizeAPI {
   return {
     getEventEmitter: () => plugin.getEventEmitter(),

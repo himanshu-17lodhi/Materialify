@@ -1,5 +1,3 @@
-export type EmojiStyle = 'native' | 'twemoji';
-
 export enum IconInTitlePosition {
   Above = 'above',
   Inline = 'inline',
@@ -77,11 +75,6 @@ export interface IconFolderSettings {
    * @default 16
    */
   fontSize: number;
-  /**
-   * Sets the style of the emoji. The option `none` means that no emojis will be used.
-   * @default 'native'
-   */
-  emojiStyle: EmojiStyle;
   /**
    * Sets the overall color of all the icons. Setting this option to `null` will use the
    * default color of the theme.
@@ -185,7 +178,6 @@ export interface IconFolderSettings {
 export const DEFAULT_SETTINGS: IconFolderSettings = {
   iconPacksPath: '.obsidian/icons',
   fontSize: 16,
-  emojiStyle: 'native',
   iconColor: null,
   recentlyUsedIcons: [],
   recentlyUsedIconsSize: 5,

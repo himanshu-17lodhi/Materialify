@@ -71,13 +71,6 @@ describe('applyAll', () => {
     style.applyAll(plugin as any, iconString, container);
     expect(container.style.margin).toBe('4px');
   });
-
-  it('should apply emoji styles when specified icon is an emoji', () => {
-    iconString = '😀';
-    style.applyAll(plugin as any, iconString, container);
-    expect(container.style.fontSize).toBe('16px');
-    expect(container.style.lineHeight).toBe('16px');
-  });
 });
 
 describe('refreshIconNodes', () => {

@@ -135,14 +135,6 @@ describe('getIconByPath', () => {
     expect(result).toBe('IbTest');
   });
 
-  it('should return emoji for a given path', () => {
-    plugin.getData = () => ({
-      folder: '😁',
-    });
-    const result = icon.getIconByPath(plugin, 'folder');
-    expect(result).toBe('😁');
-  });
-
   it('should return `null` when no icon was found', () => {
     const result = icon.getIconByPath(plugin, 'foo');
     expect(result).toBeNull();

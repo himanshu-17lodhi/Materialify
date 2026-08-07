@@ -1,5 +1,3 @@
-import emoji from '@/emoji';
-
 import IconizePlugin, { FolderIconObject } from '@/main';
 
 interface IconWithPath {
@@ -17,18 +15,16 @@ export default function getAllWithPath(plugin: IconizePlugin): IconWithPath[] {
     const icon =
       typeof value === 'string' ? value : (value as FolderIconObject).iconName;
 
-    if (icon && !emoji.isEmoji(icon)) {
+    if (icon) {
       result.push({ path, icon });
     }
   });
 
   for (const rule of plugin.getSettings().rules) {
-    if (!emoji.isEmoji(rule.icon)) {
-      result.push({
-        path: rule.rule,
-        icon: rule.icon,
-      });
-    }
+    result.push({
+      path: rule.rule,
+      icon: rule.icon,
+    });
   }
 
   return result;

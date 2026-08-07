@@ -3,7 +3,6 @@ import IconizePlugin from '@/main';
 // import { logger } from '@/lib/logger-service';
 import style from './style';
 import svg from './svg';
-import emoji from '@/emoji';
 import { getSvgFromLoadedIcon, nextIdentifier } from '@/engine';
 
 /**
@@ -49,11 +48,11 @@ interface SetIconForNodeOptions {
 }
 
 /**
- * Sets an icon or emoji for an HTMLElement based on the specified icon name and color.
+ * Sets an icon for an HTMLElement based on the specified icon name and color.
  * The function manipulates the specified node inline.
  * @param plugin Instance of the IconizePlugin.
- * @param iconName Name of the icon or emoji to add.
- * @param node HTMLElement to which the icon or emoji will be added.
+ * @param iconName Name of the icon to add.
+ * @param node HTMLElement to which the icon will be added.
  * @param options Options for adjusting settings while the icon is being set.
  */
 const setIconForNode = (
@@ -87,12 +86,10 @@ const setIconForNode = (
       iconContent = svg.colorize(iconContent, options.color);
     }
     node.innerHTML = iconContent;
-  } else {
-    const parsedEmoji =
-      emoji.parseEmoji(plugin.getSettings().emojiStyle, iconName) ?? iconName;
+  } else if (iconName.includes('<svg')) {
     node.innerHTML = options?.shouldApplyAllStyles
-      ? style.applyAll(plugin, parsedEmoji, node)
-      : parsedEmoji;
+      ? style.applyAll(plugin, iconName, node)
+      : iconName;
   }
 
   node.setAttribute('title', iconName);
@@ -114,7 +111,7 @@ interface CreateOptions {
  * Creates an icon node for the specified path and inserts it to the DOM.
  * @param plugin Instance of the IconizePlugin.
  * @param path Path for which the icon node will be created.
- * @param iconName Name of the icon or emoji to add.
+ * @param iconName Name of the icon to add.
  * @param options Optional creation options.
  */
 const createIconNode = (

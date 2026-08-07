@@ -1,6 +1,5 @@
 import { App, FuzzyMatch, FuzzySuggestModal } from 'obsidian';
 import IconizePlugin from '@/main';
-import emoji from '@/emoji';
 import { type Icon } from '@/engine';
 import dom from '@/utils/dom';
 import { saveIconToIconPack } from '@/util';
@@ -27,10 +26,7 @@ export default class IconsPickerModal extends FuzzySuggestModal<any> {
     ];
     this.recentlyUsedItems = new Set(
       pluginRecentltyUsedItems.reverse().filter((iconName) => {
-        return (
-          this.plugin.getIconPackManager().doesIconExists(iconName) ||
-          emoji.isEmoji(iconName)
-        );
+        return this.plugin.getIconPackManager().doesIconExists(iconName);
       }),
     );
 
@@ -56,20 +52,6 @@ export default class IconsPickerModal extends FuzzySuggestModal<any> {
     if (this.inputEl.value.length === 0) {
       this.renderIndex = 0;
       this.recentlyUsedItems.forEach((iconName) => {
-        if (emoji.isEmoji(iconName)) {
-          iconKeys.push({
-            name: emoji.shortNames[iconName],
-            prefix: 'Emoji',
-            displayName: iconName,
-            iconPackName: null,
-            filename: '',
-            svgContent: '',
-            svgElement: '',
-            svgViewbox: '',
-          });
-          return;
-        }
-
         const nextLetter = nextIdentifier(iconName);
         const iconPrefix = iconName.substring(0, nextLetter);
         const iconPack = this.plugin
@@ -93,44 +75,19 @@ export default class IconsPickerModal extends FuzzySuggestModal<any> {
       iconKeys.push(icon);
     }
 
-    Object.entries(emoji.shortNames).forEach(([unicode, shortName]) => {
-      iconKeys.push({
-        name: shortName,
-        prefix: 'Emoji',
-        displayName: unicode,
-        iconPackName: null,
-        filename: '',
-        svgContent: '',
-        svgElement: '',
-        svgViewbox: '',
-      });
-      iconKeys.push({
-        name: unicode,
-        prefix: 'Emoji',
-        displayName: unicode,
-        iconPackName: null,
-        filename: '',
-        svgContent: '',
-        svgElement: '',
-        svgViewbox: '',
-      });
-    });
-
     return iconKeys;
   }
 
   onChooseItem(item: Icon | string): void {
     const iconNameWithPrefix =
       typeof item === 'object'
-        ? item.prefix === 'Emoji'
-          ? item.displayName
-          : item.prefix + item.name
+        ? item.prefix + item.name
         : item;
     dom.createIconNode(this.plugin, this.path, iconNameWithPrefix);
     this.onSelect?.(iconNameWithPrefix);
     this.plugin.addFolderIcon(this.path, item);
     // Extracts the icon file to the icon pack.
-    if (typeof item === 'object' && !emoji.isEmoji(iconNameWithPrefix)) {
+    if (typeof item === 'object') {
       saveIconToIconPack(this.plugin, iconNameWithPrefix);
     }
     this.plugin.notifyPlugins();
@@ -161,25 +118,13 @@ export default class IconsPickerModal extends FuzzySuggestModal<any> {
     }
 
     if (item.item.name !== 'default') {
-      if (item.item.prefix === 'Emoji') {
-        const displayName = emoji.parseEmoji(
-          this.plugin.getSettings().emojiStyle,
-          item.item.displayName,
-        );
-        if (!displayName) {
-          return;
-        }
-
-        el.innerHTML = `<div>${el.innerHTML}</div><div class="iconize-icon-preview">${displayName}</div>`;
-      } else {
-        el.innerHTML = `<div>${
-          el.innerHTML
-        }</div><div class="iconize-icon-preview">${getSvgFromLoadedIcon(
-          this.plugin,
-          item.item.prefix,
-          item.item.name,
-        )}</div>`;
-      }
+      el.innerHTML = `<div>${
+        el.innerHTML
+      }</div><div class="iconize-icon-preview">${getSvgFromLoadedIcon(
+        this.plugin,
+        item.item.prefix,
+        item.item.name,
+      )}</div>`;
     }
 
     this.renderIndex++;

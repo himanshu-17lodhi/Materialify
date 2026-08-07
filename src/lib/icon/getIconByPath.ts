@@ -1,5 +1,4 @@
 import { Icon } from '@/engine';
-import emoji from '@/emoji';
 import IconizePlugin from '@/main';
 
 import getByPath from './getByPath';
@@ -13,10 +12,6 @@ export default function getIconByPath(
 
   if (!iconNameWithPrefix) {
     return null;
-  }
-
-  if (emoji.isEmoji(iconNameWithPrefix)) {
-    return iconNameWithPrefix;
   }
 
   return getIconByName(plugin, iconNameWithPrefix);

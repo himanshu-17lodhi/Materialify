@@ -7,10 +7,12 @@ import {
   EditorSuggestTriggerInfo,
 } from 'obsidian';
 import icon from '@/lib/icon';
-import emoji from '@/emoji';
 import { saveIconToIconPack } from '@/util';
 import IconizePlugin from '@/main';
 
+/**
+ * Editor suggest provider for inserting icons using colon shortcode syntax in notes.
+ */
 export default class SuggestionIcon extends EditorSuggest<string> {
   constructor(
     app: App,
@@ -77,13 +79,7 @@ export default class SuggestionIcon extends EditorSuggest<string> {
       })
       .map((iconObject) => iconObject.prefix + iconObject.name);
 
-    // Store all emojis correspoding to the current query - parsing whitespaces and
-    // colons for shortcodes compatibility.
-    const emojisNameArray = Object.keys(emoji.shortNames).filter((e) =>
-      emoji.getShortcode(e)?.includes(queryLowerCase),
-    );
-
-    return [...iconsNameArray, ...emojisNameArray];
+    return iconsNameArray;
   }
 
   renderSuggestion(value: string, el: HTMLElement): void {
@@ -94,27 +90,16 @@ export default class SuggestionIcon extends EditorSuggest<string> {
     if (iconObject) {
       // Suggest an icon.
       el.innerHTML = `${iconObject.svgElement} <span>${value}</span>`;
-    } else {
-      // Suggest an emoji - display its shortcode version.
-      const shortcode = emoji.getShortcode(value);
-      if (shortcode) {
-        el.innerHTML = `<span>${value}</span> <span>${shortcode}</span>`;
-      }
     }
   }
 
   selectSuggestion(value: string): void {
-    const isEmoji = emoji.isEmoji(value.replace(/_/g, ' '));
-    if (!isEmoji) {
-      saveIconToIconPack(this.plugin, value);
-    }
+    saveIconToIconPack(this.plugin, value);
 
-    // Replace query with iconNameWithPrefix or emoji unicode directly.
-    const updatedValue = isEmoji
-      ? value
-      : `${this.plugin.getSettings().iconIdentifier}${value}${
-          this.plugin.getSettings().iconIdentifier
-        }`;
+    // Replace query with iconNameWithPrefix.
+    const updatedValue = `${this.plugin.getSettings().iconIdentifier}${value}${
+      this.plugin.getSettings().iconIdentifier
+    }`;
     this.context.editor.replaceRange(
       updatedValue,
       this.context.start,

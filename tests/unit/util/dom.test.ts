@@ -2,7 +2,6 @@ import { beforeEach, it, expect, describe, vi } from 'vitest';
 import dom from '@/utils/dom';
 import svg from '@/utils/svg';
 import style from '@/utils/style';
-import twemoji from '@twemoji/api';
 
 describe('removeIconInNode', () => {
   it('should remove the icon node from the provided element', () => {
@@ -91,7 +90,6 @@ describe('setIconForNode', () => {
     vi.restoreAllMocks();
 
     settings = {
-      emojiStyle: 'native',
       extraMargin: {},
     };
 
@@ -118,6 +116,15 @@ describe('setIconForNode', () => {
     expect(node.innerHTML).toEqual('<svg test-icon="IbTest"></svg>');
   });
 
+  it('should render fallback raw SVG string when provided', () => {
+    const node = document.createElement('div');
+    const defaultSvg = '<svg viewBox="0 0 24 24"><path d="M10,4H4Z" /></svg>';
+
+    dom.setIconForNode(plugin, defaultSvg, node);
+
+    expect(node.innerHTML).toContain('<svg viewBox="0 0 24 24">');
+  });
+
   it('should call `svg.colorize` with the provided color when defined', () => {
     const node = document.createElement('div');
 
@@ -128,32 +135,6 @@ describe('setIconForNode', () => {
     dom.setIconForNode(plugin, 'IbTest', node, { color: 'purple' });
 
     expect(colorize).toHaveBeenCalledTimes(2);
-  });
-
-  it('should set the `innerHTML` with the emoji for the provided node', () => {
-    const applyAll = vi.spyOn(style, 'applyAll').mockImplementation(() => '😃');
-
-    const node = document.createElement('div');
-
-    dom.setIconForNode(plugin, '😃', node);
-
-    expect(node.innerHTML).toEqual('😃');
-    expect(applyAll).toHaveBeenCalledTimes(1);
-  });
-
-  it('should parse twemoji if the emoji style is `twemoji`', () => {
-    settings.emojiStyle = 'twemoji';
-
-    // const applyAll = vi.spyOn(style, 'applyAll').mockImplementation(() => '😃');
-
-    const parse = vi.spyOn(twemoji, 'parse').mockImplementation(() => '😃');
-
-    const node = document.createElement('div');
-
-    dom.setIconForNode(plugin, '😃', node);
-
-    expect(node.innerHTML).toEqual('😃');
-    expect(parse).toHaveBeenCalled();
   });
 
   it('should set `shouldApplyAllStyles` to `true` by default', () => {
@@ -176,7 +157,6 @@ describe('createIconNode', () => {
     vi.restoreAllMocks();
     plugin = {
       getSettings: () => ({
-        emojiStyle: 'native',
         extraMargin: {},
       }),
       getIconPackManager: () => ({

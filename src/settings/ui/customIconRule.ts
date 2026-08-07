@@ -23,7 +23,6 @@ import iconTabs from '@/lib/icon-tabs';
 import dom from '@/utils/dom';
 import svg from '@/utils/svg';
 import { TabHeaderLeaf } from '@/types/obsidian';
-import emoji from '@/emoji';
 import { getNormalizedName } from '@/engine';
 
 export default class CustomIconRuleSetting extends IconFolderSetting {
@@ -125,9 +124,7 @@ export default class CustomIconRuleSetting extends IconFolderSetting {
           modal.onChooseItem = async (item) => {
             const icon =
               typeof item === 'object'
-                ? item.prefix === 'Emoji'
-                  ? item.displayName
-                  : item.prefix + item.name
+                ? item.prefix + item.name
                 : getNormalizedName(item);
 
             const rule: CustomRule = {
@@ -356,9 +353,7 @@ export default class CustomIconRuleSetting extends IconFolderSetting {
             modal.onChooseItem = async (item) => {
               const icon =
                 typeof item === 'object'
-                  ? item.prefix === 'Emoji'
-                    ? item.displayName
-                    : item.prefix + item.name
+                  ? item.prefix + item.name
                   : getNormalizedName(item);
               rule.icon = icon;
               dom.setIconForNode(this.plugin, rule.icon, iconPreviewEl);
@@ -396,16 +391,12 @@ export default class CustomIconRuleSetting extends IconFolderSetting {
           button.buttonEl.style.float = 'right';
           button.setButtonText('Save Changes');
           button.onClick(async () => {
-            if (!emoji.isEmoji(oldRule.icon)) {
-              // Tries to remove the previously used icon from the icon pack.
-              removeIconFromIconPack(this.plugin, oldRule.icon);
-            }
+            // Tries to remove the previously used icon from the icon pack.
+            removeIconFromIconPack(this.plugin, oldRule.icon);
 
-            if (!emoji.isEmoji(rule.icon)) {
-              // Tries to add the newly used icon to the icon pack.
-              saveIconToIconPack(this.plugin, rule.icon);
-              rule.icon = getNormalizedName(rule.icon);
-            }
+            // Tries to add the newly used icon to the icon pack.
+            saveIconToIconPack(this.plugin, rule.icon);
+            rule.icon = getNormalizedName(rule.icon);
 
             this.refreshDisplay();
             new Notice('Custom rule updated.');

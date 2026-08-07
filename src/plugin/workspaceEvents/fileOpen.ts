@@ -1,5 +1,4 @@
 import type { InlineTitleView } from '@/types/obsidian';
-import emoji from '@/emoji';
 import icon from '@/lib/icon';
 import titleIcon from '@/lib/icon-title';
 import IconizePlugin from '@/main';
@@ -26,24 +25,20 @@ export function register(plugin: IconizePlugin): void {
           return;
         }
 
-        let foundIcon: string | undefined = iconNameWithPrefix;
+        let foundIcon: string | undefined = icon.getIconByName(
+          plugin,
+          iconNameWithPrefix,
+        )?.svgElement;
 
-        if (!emoji.isEmoji(foundIcon)) {
-          foundIcon = icon.getIconByName(
-            plugin,
-            iconNameWithPrefix,
-          )?.svgElement;
-
-          if (
-            !foundIcon &&
-            plugin.iconPackManager.getPreloadedIcons().length > 0
-          ) {
-            foundIcon = plugin.iconPackManager
-              .getPreloadedIcons()
-              .find(
-                (icon) => icon.prefix + icon.name === iconNameWithPrefix,
-              )?.svgElement;
-          }
+        if (
+          !foundIcon &&
+          plugin.iconPackManager.getPreloadedIcons().length > 0
+        ) {
+          foundIcon = plugin.iconPackManager
+            .getPreloadedIcons()
+            .find(
+              (icon) => icon.prefix + icon.name === iconNameWithPrefix,
+            )?.svgElement;
         }
 
         if (foundIcon) {

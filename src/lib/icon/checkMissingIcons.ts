@@ -5,7 +5,6 @@ import {
   getSvgFromLoadedIcon,
   nextIdentifier,
 } from '@/engine/util';
-import emoji from '@/emoji';
 import { logger } from '@/lib/logger-service';
 import IconizePlugin, { FolderIconObject } from '@/main';
 import dom from '@/utils/dom';
@@ -66,14 +65,12 @@ export default async function checkMissingIcons(
   };
 
   for (const rule of plugin.getSettings().rules) {
-    if (!emoji.isEmoji(rule.icon)) {
-      allIcons.set(rule.icon, true);
+    allIcons.set(rule.icon, true);
 
-      const icon = await getMissingIcon(rule.icon);
+    const icon = await getMissingIcon(rule.icon);
 
-      if (icon) {
-        missingIcons.add(icon);
-      }
+    if (icon) {
+      missingIcons.add(icon);
     }
   }
 
@@ -84,7 +81,7 @@ export default async function checkMissingIcons(
       iconNameWithPrefix = value.iconName;
     }
 
-    if (iconNameWithPrefix && !emoji.isEmoji(iconNameWithPrefix)) {
+    if (iconNameWithPrefix) {
       allIcons.set(iconNameWithPrefix, true);
 
       const icon = await getMissingIcon(iconNameWithPrefix);

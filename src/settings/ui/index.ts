@@ -2,7 +2,6 @@ import { App, PluginSettingTab } from 'obsidian';
 import IconizePlugin from '@/main';
 import CustomIconPackSetting from './customIconPack';
 import CustomIconRuleSetting from './customIconRule';
-import EmojiStyleSetting from './emojiStyle';
 import ExtraMarginSetting from './extraMargin';
 import IconColorSetting from './iconColor';
 import IconFontSizeSetting from './iconFontSize';
@@ -37,7 +36,6 @@ export default class IconFolderSettings extends PluginSettingTab {
     new RecentlyUsedIconsSetting(plugin, containerEl).display();
     new IconPacksPathSetting(plugin, containerEl).display();
     new IconPacksBackgroundChecker(plugin, containerEl).display();
-    new EmojiStyleSetting(plugin, containerEl).display();
     new IconIdentifierSetting(plugin, containerEl).display();
     new UseInternalPlugins(plugin, containerEl).display();
     new DebugMode(plugin, containerEl).display();

@@ -1,6 +1,5 @@
 import IconizePlugin from '@/main';
 import config from '@/config';
-import emoji from '@/emoji';
 import svg from '@/utils/svg';
 import { IconInTitlePosition } from '@/settings/data';
 
@@ -12,6 +11,14 @@ interface Options {
   fontSize?: number;
 }
 
+/**
+ * Inserts or updates an icon element in a note's inline title header.
+ *
+ * @param plugin Plugin instance.
+ * @param inlineTitleEl Inline title element.
+ * @param svgElement SVG string of the icon.
+ * @param options Styling options.
+ */
 const add = (
   plugin: IconizePlugin,
   inlineTitleEl: HTMLElement,
@@ -45,16 +52,6 @@ const add = (
   }
 
   titleIcon.classList.add(config.CSS_PREFIX);
-  // Checks if the passed element is an emoji.
-  if (emoji.isEmoji(svgElement) && options.fontSize) {
-    svgElement =
-      emoji.parseEmoji(
-        plugin.getSettings().emojiStyle,
-        svgElement,
-        options.fontSize,
-      ) ?? svgElement;
-    titleIcon.style.fontSize = `${options.fontSize}px`;
-  }
   titleIcon.innerHTML = svgElement;
 
   let wrapperElement = inlineTitleEl.parentElement;
@@ -88,12 +85,7 @@ const add = (
       null,
     ).getPropertyValue('padding-top');
     titleIcon.style.paddingTop = inlineTitlePaddingTop;
-
-    if (emoji.isEmoji(svgElement)) {
-      titleIcon.style.transform = 'translateY(-9%)';
-    } else {
-      titleIcon.style.transform = 'translateY(9%)';
-    }
+    titleIcon.style.transform = 'translateY(9%)';
   } else {
     wrapperElement.style.display = 'block';
     titleIcon.style.transform = 'translateY(9%)';
@@ -114,14 +106,10 @@ const updateStyle = (inlineTitleEl: HTMLElement, options: Options): void => {
   }
 
   if (options.fontSize) {
-    if (!emoji.isEmoji(titleIcon.innerHTML)) {
-      titleIcon.innerHTML = svg.setFontSize(
-        titleIcon.innerHTML,
-        options.fontSize,
-      );
-    } else {
-      titleIcon.style.fontSize = `${options.fontSize}px`;
-    }
+    titleIcon.innerHTML = svg.setFontSize(
+      titleIcon.innerHTML,
+      options.fontSize,
+    );
   }
 };
 

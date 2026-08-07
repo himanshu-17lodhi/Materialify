@@ -53,23 +53,6 @@ beforeEach(() => {
 });
 
 describe('selectSuggestion', () => {
-  it('should replace the range with the emoji when the value is an emoji', () => {
-    const emojiValue = 'smiley_face';
-    suggestionIcon.selectSuggestion(emojiValue);
-    expect(replaceRangeMock).toHaveBeenCalledTimes(1);
-    expect(replaceRangeMock).toHaveBeenCalledWith(
-      `:${emojiValue}:`,
-      {
-        line: 0,
-        ch: 0,
-      },
-      {
-        line: 0,
-        ch: 0,
-      },
-    );
-  });
-
   it('should replace the range with the icon when the value is an icon', () => {
     const iconValue = 'heart_fill';
     suggestionIcon.selectSuggestion(iconValue);
@@ -102,32 +85,6 @@ describe('renderSuggestion', () => {
     suggestionIcon.renderSuggestion('heart_fill', el);
 
     expect(el.innerHTML).toBe('<svg></svg> <span>heart_fill</span>');
-
-    getIconByName.mockRestore();
-  });
-
-  it('should render a emoji suggestion when the value is an icon', () => {
-    const getIconByName = vi.spyOn(icon, 'getIconByName');
-    getIconByName.mockImplementationOnce(() => null as any);
-
-    const el = document.createElement('div');
-    suggestionIcon.renderSuggestion('😁', el);
-
-    expect(el.innerHTML).toBe(
-      '<span>😁</span> <span>beaming_face_with_smiling_eyes</span>',
-    );
-
-    getIconByName.mockRestore();
-  });
-
-  it('should not render emoji shortcode if the emoji has no shortcode', () => {
-    const getIconByName = vi.spyOn(icon, 'getIconByName');
-    getIconByName.mockImplementationOnce(() => null as any);
-
-    const el = document.createElement('div');
-    suggestionIcon.renderSuggestion('hehe', el);
-
-    expect(el.innerHTML).toBe('');
 
     getIconByName.mockRestore();
   });
