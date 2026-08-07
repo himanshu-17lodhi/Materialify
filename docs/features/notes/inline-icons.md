@@ -18,7 +18,7 @@ Materialify allows you to insert icons directly into your note content using a s
 
 ### Using Colon Syntax
 
-In any note, type `:` followed by the name of an icon or emoji. A suggestion list will appear.
+In any note, type `:` followed by the name of an icon. A suggestion list will appear.
 
 1. Type `:`.
 2. Start typing the icon name (e.g., `:heart`).
@@ -45,9 +45,8 @@ If you prefer to only use icons in the file explorer, you can disable the sugges
 ## Notes
 
 - Inline icons work in both **Live Preview** and **Reading Mode**.
-- You can use icons from any installed icon pack or native emojis.
+- You can use icons from any installed icon pack.
 
 ## Related Features
 
-- [Emoji Support](/features/icon-packs/emoji-support)
 - [Predefined Icon Packs](/features/icon-packs/predefined-packs)

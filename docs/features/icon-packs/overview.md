@@ -43,4 +43,3 @@ All icon pack management is done within the **Materialify Settings**.
 
 - [Predefined Packs](/features/icon-packs/predefined-packs)
 - [Custom Packs](/features/icon-packs/custom-packs)
-- [Emoji Support](/features/icon-packs/emoji-support)
