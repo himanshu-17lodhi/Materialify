@@ -9,12 +9,6 @@ import {
 import { MATERIAL_ICON_PACK_PREFIX } from './constants';
 import { stripSvgExtension } from './path';
 import { resolveFolderIcon } from './folderIcon';
-import {
-  DEFAULT_FOLDER_DARK_ICON,
-  DEFAULT_FOLDER_ICON,
-  DEFAULT_FOLDER_OPEN_DARK_ICON,
-  DEFAULT_FOLDER_OPEN_ICON,
-} from '@/util';
 
 const normalizeRecord = (
   record: Record<string, string>,
@@ -88,9 +82,22 @@ export const toIconizeIconName = (
   return undefined;
 };
 
+/**
+ * Normalizes a file or folder path for lookup.
+ *
+ * @param key Path key to normalize.
+ */
 export const normalizeLookupKey = (key: string): string =>
   key.toLowerCase().replace(/\\/g, '/');
 
+/**
+ * Resolves an icon name from file name or extension mappings in the manifest.
+ *
+ * @param plugin Plugin instance.
+ * @param normalizedPath Normalized vault path.
+ * @param fileName File name with extension.
+ * @returns Resolved icon identifier, or undefined if no mapping matches.
+ */
 export const resolveMappedFileIconName = (
   plugin: IconizePlugin,
   normalizedPath: string,
@@ -117,6 +124,12 @@ export const resolveMappedFileIconName = (
   return undefined;
 };
 
+/**
+ * Infers a language icon identifier for an extension based on manifest language mappings.
+ *
+ * @param plugin Plugin instance.
+ * @param extension File extension to match.
+ */
 export const resolveInferredLanguageIconForExtension = (
   plugin: IconizePlugin,
   extension: string,
@@ -163,6 +176,13 @@ export const resolveInferredLanguageIconForExtension = (
   return toIconizeIconName(plugin, bestMatch[0]);
 };
 
+/**
+ * Resolves the folder icon name based on path name mappings and open/closed state.
+ *
+ * @param plugin Plugin instance.
+ * @param path Vault path of the folder.
+ * @param expanded Whether the folder is expanded.
+ */
 export const resolveFolderIconName = (
   plugin: IconizePlugin,
   path: string,
@@ -183,14 +203,14 @@ export const resolveFolderIconName = (
     }
   }
 
-  if (icon) return resolveFolderIcon(plugin, icon, expanded);
+  if (!icon) {
+    const defaultFolder = isRoot
+      ? (materialIconThemeManifest.rootFolder ??
+        materialIconThemeManifest.folder ??
+        'folder')
+      : (materialIconThemeManifest.folder ?? 'folder');
+    icon = toIconizeIconName(plugin, defaultFolder);
+  }
 
-  const isDark = document.body.classList.contains('theme-dark');
-  return expanded
-    ? isDark
-      ? DEFAULT_FOLDER_OPEN_DARK_ICON
-      : DEFAULT_FOLDER_OPEN_ICON
-    : isDark
-      ? DEFAULT_FOLDER_DARK_ICON
-      : DEFAULT_FOLDER_ICON;
+  return resolveFolderIcon(plugin, icon ?? 'Mifolder', expanded);
 };

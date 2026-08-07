@@ -70,6 +70,13 @@ const isFolderExpanded = (fileItem: FileItem): boolean => {
   return !folderEl.classList.contains('is-collapsed');
 };
 
+/**
+ * Applies an automatic or custom icon to a single file explorer item.
+ *
+ * @param plugin Plugin instance.
+ * @param fileItem File explorer item to update.
+ * @returns True if an icon was applied, false otherwise.
+ */
 export const applyAutomaticIconToFileItem = (
   plugin: IconizePlugin,
   fileItem: FileItem,
@@ -140,6 +147,12 @@ export const applyAutomaticIconToFileItem = (
   return true;
 };
 
+/**
+ * Applies automatic icons across all items in a file explorer view and registers mutation observers.
+ *
+ * @param plugin Plugin instance.
+ * @param fileExplorer Target file explorer view.
+ */
 export const applyAutomaticIconsToExplorer = (
   plugin: IconizePlugin,
   fileExplorer: ExplorerView,
@@ -206,6 +219,13 @@ export const applyAutomaticIconsToExplorer = (
   }
 };
 
+/**
+ * Refreshes automatic icon rendering for a specific vault path across file explorers.
+ *
+ * @param plugin Plugin instance.
+ * @param path Vault path to refresh.
+ * @returns True if any explorer item was updated.
+ */
 export const refreshPath = (
   plugin: IconizePlugin,
   path: string,

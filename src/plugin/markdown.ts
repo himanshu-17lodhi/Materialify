@@ -7,6 +7,11 @@ import {
 } from '@/editor/markdown-processors';
 import IconizePlugin from '@/main';
 
+/**
+ * Registers markdown post-processors, editor extensions, and suggestion providers for icons in notes.
+ *
+ * @param plugin Plugin instance.
+ */
 export function registerMarkdownFeatures(plugin: IconizePlugin): void {
   if (plugin.getSettings().iconsInNotesEnabled) {
     /** Registering markdown post processor for icons in text and editor extension for live preview and editor */

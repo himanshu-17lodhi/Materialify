@@ -12,6 +12,11 @@ import {
   MATERIAL_ICON_PACK_NAME,
 } from './constants';
 
+/**
+ * Creates and populates the built-in Material icon theme pack instance.
+ *
+ * @param plugin Plugin instance.
+ */
 export const createMaterialIconPack = (plugin: IconizePlugin): IconPack => {
   const iconPack = new IconPack(plugin, MATERIAL_ICON_PACK_NAME, true);
   const icons = Object.entries(materialIconThemeSvgByName).reduce<Icon[]>(

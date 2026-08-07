@@ -21,6 +21,9 @@ const calculateFontTextSize = () => {
   return fontSize;
 };
 
+/**
+ * Calculates the computed font size for note inline titles.
+ */
 const calculateInlineTitleSize = (): number => {
   const fontSize = calculateFontTextSize();
   const inlineTitleSizeValue = getComputedStyle(document.body).getPropertyValue(
@@ -59,6 +62,11 @@ const getHTMLHeaderByToken = (header: HeaderToken): HTMLHeader | null => {
   return null;
 };
 
+/**
+ * Calculates the computed font size for a given markdown header level.
+ *
+ * @param header Header tag or token name.
+ */
 const calculateHeaderSize = (header: HTMLHeader | HeaderToken): number => {
   const fontSize = calculateFontTextSize();
   const htmlHeader = getHTMLHeaderByToken(header as HeaderToken) ?? header;

@@ -1,8 +1,7 @@
 import type { TAbstractFile } from 'obsidian';
 import type IconizePlugin from '@/main';
 
-import { DEFAULT_FILE_DARK_ICON, DEFAULT_FILE_ICON } from '@/util';
-
+import { materialIconThemeManifest } from './generated';
 import { MATERIAL_ICON_PACK_PREFIX } from './constants';
 
 import {
@@ -15,6 +14,13 @@ import {
 
 const isFolder = (file: TAbstractFile): boolean => 'children' in file;
 
+/**
+ * Resolves the automatic icon name for a file based on path, name, or language extension.
+ *
+ * @param plugin Plugin instance.
+ * @param path Vault path of the file.
+ * @returns Resolved icon identifier or default file icon.
+ */
 export const resolveFileIconName = (
   plugin: IconizePlugin,
   path: string,
@@ -39,6 +45,11 @@ export const resolveFileIconName = (
 
       const semanticExtension = semanticFileName.split('.').pop();
       if (semanticExtension) {
+        if (semanticExtension.toLowerCase() === 'md') {
+          const markdownIcon = toIconizeIconName(plugin, 'markdown');
+          if (markdownIcon) return markdownIcon;
+        }
+
         const inferredSemanticLanguageIcon =
           resolveInferredLanguageIconForExtension(plugin, semanticExtension);
         if (inferredSemanticLanguageIcon) return inferredSemanticLanguageIcon;
@@ -53,15 +64,19 @@ export const resolveFileIconName = (
   );
   if (regularIcon) return regularIcon;
 
-  if (fileName.toLowerCase().endsWith('.md')) {
-    const markdownIcon = toIconizeIconName(plugin, 'markdown');
-    if (markdownIcon) return markdownIcon;
-  }
-
-  const isDark = document.body.classList.contains('theme-dark');
-  return isDark ? DEFAULT_FILE_DARK_ICON : DEFAULT_FILE_ICON;
+  const defaultFile = materialIconThemeManifest.file ?? 'file';
+  return toIconizeIconName(plugin, defaultFile) ?? 'Mifile';
 };
 
+/**
+ * Resolves an automatic icon name for a file or folder item.
+ *
+ * @param plugin Plugin instance.
+ * @param path Path of the item.
+ * @param file Abstract file instance if available.
+ * @param expanded Whether a folder item is currently expanded.
+ * @returns Resolved icon name or undefined if automatic icons are disabled.
+ */
 export const resolveAutomaticIconName = (
   plugin: IconizePlugin,
   path: string,
@@ -76,5 +91,10 @@ export const resolveAutomaticIconName = (
     : resolveFileIconName(plugin, path);
 };
 
+/**
+ * Checks whether an icon name belongs to the Material icon theme pack.
+ *
+ * @param name Icon identifier to check.
+ */
 export const isMaterialIconName = (name?: string | null): boolean =>
   !!name && name.startsWith(MATERIAL_ICON_PACK_PREFIX);
