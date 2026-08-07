@@ -43,8 +43,7 @@
   ],
   "lint-staged": {
     "*.{json,js,ts,jsx,tsx,html,css,md}": [
-      "npm run lint",
-      "npm run format"
+      "eslint --fix"
     ]
   },
   "devDependencies": {
