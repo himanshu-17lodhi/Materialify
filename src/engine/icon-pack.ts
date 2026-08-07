@@ -3,6 +3,9 @@ import { generateIcon, getNormalizedName } from './util';
 import IconizePlugin from '@/main';
 import { Icon } from '.';
 
+/**
+ * Represents a collection of icons associated with a specific prefix and name.
+ */
 export class IconPack {
   private icons: Icon[];
   private prefix: string;

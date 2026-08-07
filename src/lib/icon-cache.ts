@@ -5,6 +5,9 @@ interface CacheResult {
   automatic?: boolean;
 }
 
+/**
+ * Singleton cache for storing resolved icon lookup results by path.
+ */
 export class IconCache {
   private static instance: IconCache = new IconCache();
   private cache: Map<string, CacheResult> = new Map();

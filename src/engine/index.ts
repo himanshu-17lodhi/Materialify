@@ -14,13 +14,16 @@ export interface Icon {
   name: string;
   prefix: string;
   displayName: string;
-  iconPackName: string | null; // Can be `null` if the icon is an emoji.
+  iconPackName: string | null;
   filename: string;
   svgContent: string;
   svgViewbox: string;
   svgElement: string;
 }
 
+/**
+ * Manages loading, caching, and lifecycle operations for icon packs and preloaded icons.
+ */
 export class IconPackManager {
   private path: string;
   private iconPacks: IconPack[];
@@ -164,6 +167,18 @@ export class IconPackManager {
       );
     }
 
+    const dataPath = `${this.path}/${icon.iconPackName}/data.json`;
+    if (!(await this.plugin.app.vault.adapter.exists(dataPath))) {
+      await this.plugin.app.vault.adapter.write(
+        dataPath,
+        JSON.stringify(
+          { name: icon.iconPackName, prefix: icon.prefix },
+          null,
+          2,
+        ),
+      );
+    }
+
     const doesIconFileExists = await this.plugin.app.vault.adapter.exists(
       `${this.path}/${icon.iconPackName}/${icon.name}.svg`,
     );
@@ -224,6 +239,17 @@ export class IconPackManager {
     await this.fileManager.createDirectory(this.path, dir);
     const iconPack = new IconPack(this.plugin, dir, true);
     this.iconPacks.push(iconPack);
+    const dataPath = `${this.path}/${dir}/data.json`;
+    if (!(await this.plugin.app.vault.adapter.exists(dataPath))) {
+      await this.plugin.app.vault.adapter.write(
+        dataPath,
+        JSON.stringify(
+          { name: dir, prefix: iconPack.getPrefix(), custom: true },
+          null,
+          2,
+        ),
+      );
+    }
   }
 
   public async moveIconPackDirectories(

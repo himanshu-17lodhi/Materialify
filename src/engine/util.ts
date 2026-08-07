@@ -4,6 +4,11 @@ import svg from '@/utils/svg';
 import { Icon } from '.';
 import IconizePlugin from '@/main';
 
+/**
+ * Normalizes an icon name by converting hyphenated or underscored strings to PascalCase.
+ *
+ * @param s Raw icon name.
+ */
 export function getNormalizedName(s: string): string {
   return s
     .split(/[ -]|[ _]/g)
@@ -11,10 +16,22 @@ export function getNormalizedName(s: string): string {
     .join('');
 }
 
+/**
+ * Finds the index of the next identifier character following the prefix in an icon string.
+ *
+ * @param iconName Icon string to evaluate.
+ */
 export function nextIdentifier(iconName: string): number {
   return iconName.substring(1).search(/[(A-Z)|(0-9)]/) + 1;
 }
 
+/**
+ * Retrieves the raw SVG string of a loaded icon matching the specified prefix and name.
+ *
+ * @param plugin Plugin instance.
+ * @param iconPrefix Prefix of the icon pack.
+ * @param iconName Name of the icon.
+ */
 export function getSvgFromLoadedIcon(
   plugin: IconizePlugin,
   iconPrefix: string,
@@ -57,6 +74,14 @@ export function getSvgFromLoadedIcon(
 const validIconName = /^[(A-Z)|(0-9)]/;
 const svgViewboxRegex = /viewBox="([^"]*)"/g;
 const svgContentRegex = /<svg.*>(.*?)<\/svg>/g;
+
+/**
+ * Parses SVG content and constructs an Icon object for an icon pack.
+ *
+ * @param iconPack Target icon pack.
+ * @param iconName Name of the icon.
+ * @param content Raw SVG string content.
+ */
 export function generateIcon(
   iconPack: IconPack,
   iconName: string,
