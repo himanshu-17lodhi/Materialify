@@ -9,6 +9,7 @@ import {
 
 import { registerWorkspaceEvents } from '@/plugin/workspaceEvents';
 
+import {unloadPlugin} from './engine/unload';
 import {
   ExplorerView,
   InlineTitleView,
@@ -17,7 +18,6 @@ import {
 } from './types/obsidian';
 import { registerCommands } from '@/plugin/commands';
 import { registerMarkdownFeatures } from '@/plugin/markdown';
-import { existsSync, mkdirSync } from 'node:fs';
 import IconsPickerModal from './ui/icons-picker-modal';
 import { DEFAULT_SETTINGS, IconFolderSettings } from '@/settings/data';
 import IconFolderSettingsUI from './settings/ui';
@@ -97,14 +97,13 @@ export default class IconizePlugin extends Plugin {
   }
 
   async onload() {
+
+    console.log('[Materialify] onload started');
+    
     await this.loadIconFolderData();
 
-    const iconPath = this.getSettings().iconPacksPath;
-
-    if (!existsSync(iconPath)) {
-      mkdirSync(iconPath, { recursive: true });
-    }
     logger.toggleLogging(this.getSettings().debugMode);
+
     this.iconPackManager = new IconPackManager(
       this,
       this.getSettings().iconPacksPath,
@@ -799,6 +798,8 @@ export default class IconizePlugin extends Plugin {
 
   onunload() {
     console.log('unloading obsidian-icon-folder');
+
+    unloadPlugin(this);
   }
 
   renameFolder(newPath: string, oldPath: string): void {
