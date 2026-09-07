@@ -1,13 +1,9 @@
 import { App, PluginSettingTab } from 'obsidian';
 import IconizePlugin from '@/main';
-import CustomIconPackSetting from './customIconPack';
-import CustomIconRuleSetting from './customIconRule';
 import ExtraMarginSetting from './extraMargin';
-import IconColorSetting from './iconColor';
 import IconFontSizeSetting from './iconFontSize';
 import IconPacksPathSetting from './iconPacksPath';
 import IconPacksBackgroundChecker from './iconPacksBackgroundChecker';
-// import PredefinedIconPacksSetting from './predefinedIconPacks';
 import RecentlyUsedIconsSetting from './recentlyUsedIcons';
 import ToggleIconInTabs from './toggleIconInTabs';
 import ToggleIconInTitle from './toggleIconInTitle';
@@ -22,14 +18,14 @@ import ToggleAutomaticMaterialIconTheme from './toggleAutomaticMaterialIconTheme
 export default class IconFolderSettings extends PluginSettingTab {
   private plugin: IconizePlugin;
 
-  constructor(app: App, plugin: IconizePlugin) {
-    super(app, plugin);
+  constructor(_app: App, plugin: IconizePlugin) {
+    super(_app, plugin);
 
     this.plugin = plugin;
   }
 
   display(): void {
-    const { plugin, containerEl, app } = this;
+    const { plugin, containerEl } = this;
     containerEl.empty();
 
     containerEl.createEl('h1', { text: 'General' });
@@ -52,20 +48,7 @@ export default class IconFolderSettings extends PluginSettingTab {
       text: 'Icon customization for files/folders',
     });
     new IconFontSizeSetting(plugin, containerEl).display();
-    new IconColorSetting(plugin, containerEl).display();
     new ExtraMarginSetting(plugin, containerEl).display();
 
-    containerEl.createEl('h1', { text: 'Custom icon rules' });
-    new CustomIconRuleSetting(plugin, containerEl, app, () =>
-      this.display(),
-    ).display();
-
-    containerEl.createEl('h1', { text: 'Icon packs' });
-    // new PredefinedIconPacksSetting(plugin, containerEl, app, () =>
-    //   this.display(),
-    // ).display();
-    new CustomIconPackSetting(plugin, containerEl, () =>
-      this.display(),
-    ).display();
   }
 }
