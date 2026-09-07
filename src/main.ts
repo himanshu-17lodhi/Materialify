@@ -6,7 +6,7 @@ import {
   MarkdownView,
   Notice,
 } from 'obsidian';
-
+import { unloadPlugin } from "./engine/unload";
 import { registerWorkspaceEvents } from '@/plugin/workspaceEvents';
 
 import {
@@ -798,7 +798,7 @@ export default class IconizePlugin extends Plugin {
   }
 
   onunload() {
-    console.log('unloading obsidian-icon-folder');
+    unloadPlugin(this)
   }
 
   renameFolder(newPath: string, oldPath: string): void {
