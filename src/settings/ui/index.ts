@@ -4,13 +4,10 @@ import ExtraMarginSetting from './extraMargin';
 import IconFontSizeSetting from './iconFontSize';
 import IconPacksPathSetting from './iconPacksPath';
 import IconPacksBackgroundChecker from './iconPacksBackgroundChecker';
-import RecentlyUsedIconsSetting from './recentlyUsedIcons';
 import ToggleIconInTabs from './toggleIconInTabs';
 import ToggleIconInTitle from './toggleIconInTitle';
-import FrontmatterOptions from './frontmatterOptions';
 import ToggleIconsInNotes from './toggleIconsInNotes';
 import ToggleIconsInLinks from './toggleIconsInLinks';
-import IconIdentifierSetting from './iconIdentifier';
 import DebugMode from './debugMode';
 import UseInternalPlugins from './useInternalPlugins';
 import ToggleAutomaticMaterialIconTheme from './toggleAutomaticMaterialIconTheme';
@@ -29,10 +26,8 @@ export default class IconFolderSettings extends PluginSettingTab {
     containerEl.empty();
 
     containerEl.createEl('h1', { text: 'General' });
-    new RecentlyUsedIconsSetting(plugin, containerEl).display();
     new IconPacksPathSetting(plugin, containerEl).display();
     new IconPacksBackgroundChecker(plugin, containerEl).display();
-    new IconIdentifierSetting(plugin, containerEl).display();
     new UseInternalPlugins(plugin, containerEl).display();
     new DebugMode(plugin, containerEl).display();
     new ToggleAutomaticMaterialIconTheme(plugin, containerEl).display();
@@ -40,7 +35,6 @@ export default class IconFolderSettings extends PluginSettingTab {
     containerEl.createEl('h3', { text: 'Visibility of icons' });
     new ToggleIconInTabs(plugin, containerEl).display();
     new ToggleIconInTitle(plugin, containerEl).display();
-    new FrontmatterOptions(plugin, containerEl).display();
     new ToggleIconsInNotes(plugin, containerEl).display();
     new ToggleIconsInLinks(plugin, containerEl).display();
 
