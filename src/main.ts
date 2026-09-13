@@ -468,8 +468,6 @@ export default class IconizePlugin extends Plugin {
 
   //private handleChangeLayout(): void {
   public handleChangeLayout(): void {
-    console.log('[Iconize] Layout change detected, refreshing icons...');
-    // Transform data that are objects to single strings.
     const data = Object.entries(this.data) as [
       string,
       string | FolderIconObject,
@@ -797,8 +795,6 @@ export default class IconizePlugin extends Plugin {
   }
 
   onunload() {
-    console.log('unloading obsidian-icon-folder');
-
     unloadPlugin(this);
   }
 
